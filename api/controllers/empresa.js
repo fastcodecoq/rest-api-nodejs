@@ -76,11 +76,11 @@ var ctrlEmpresa = function (server) {
 
   console.log(global.apiBaseUri);
 
-  server.get(global.apiBaseUri + '/empresa/:userid', get);
-  server.post(global.apiBaseUri + '/empresa/:userid', post);
-  server.get(global.apiBaseUri + '/empresa/:userid/:empresaid', get);  
-  server.put(global.apiBaseUri + '/empresa/:userid/:empresaid', put);
-  server.del(global.apiBaseUri + '/empresa/:userid/:empresaid', del);
+  server.get(global.apiBaseUri + '/usuario/:userid/empresa', get);
+  server.post(global.apiBaseUri + '/usuario/:userid/empresa', post);
+  server.get(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', get);  
+  server.put(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', put);
+  server.del(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', del);
 };
 
 module.exports = ctrlEmpresa;

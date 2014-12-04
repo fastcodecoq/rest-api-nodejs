@@ -34,7 +34,7 @@ var ctrlUsuario = function (server) {
 // Use the Usuario model to find a specific usuario
      var query = {};
 
-     !req.body.userid || (query._id = mongoose.Types.ObjectId(req.params.userid))    
+     !req.params.userid || (query._id = mongoose.Types.ObjectId(req.params.userid))    
 
 
 // Use the Usuario model to find all usuario

@@ -27,7 +27,7 @@ var ctrlEmpresa = function (server) {
 
   function get(req, res) {
 // Use the Empresa model to find a specific empresa
-    if (req.id) {
+    if (req.params.id) {
       Empresa.find({userId: req.user._id, id: req.params.empresa_id},
         function (err, empresa) {
           if (err) {
@@ -44,6 +44,8 @@ var ctrlEmpresa = function (server) {
       res.json(empresas);
     });
   }
+
+
 
   function put(req, res) {
 // Use the Empresa model to find a specific empresa
@@ -74,10 +76,10 @@ var ctrlEmpresa = function (server) {
     });
   }
 
-  server.get('api/empresas', get);
-  server.post('api/empresas', post);
-  server.put('api/empresas', put);
-  server.del('api/empresas', del);
+  server.get('api/empresa/:id?', get);
+  server.post('api/empresa', post);
+  server.put('api/empresa', put);
+  server.del('api/empresa', del);
 };
 
 module.exports = ctrlEmpresa;

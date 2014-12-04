@@ -10,6 +10,9 @@ var ctrlUsuario = function (server) {
 // Create a new instance of the Usuario model
     var Usuario = new Usuario();
 
+    console.log('usuario ctrl post');
+    
+
 // Set the usuario properties that came from the POST data
     req.body.name  || (Usuario.name = req.body.name);    
     req.body.last_name || (Usuario.last_name = req.body.last_name);
@@ -21,8 +24,7 @@ var ctrlUsuario = function (server) {
     req.body.cv || (Usuario.cv = req.body.cv);
     req.body.attached_cv  || (Usuario.attached_cv = req.body.attached_cv);
 
-    console.log('usuario ctrl post');
-    
+
 
 // Save the usuario and check for errors
     Usuario.save(function (err) {

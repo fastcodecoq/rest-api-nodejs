@@ -8,7 +8,7 @@ var email = require('./plugins/active');
 var Schema = mongoose.Schema;
 
 // Define our Empresa schema
-var EmpresaSchema = new mongoose.Schema({
+var UsuarioSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -36,7 +36,7 @@ var EmpresaSchema = new mongoose.Schema({
 });
 
 //add createdAt, updatedAt fields
-UsuerioSchema.plugin(timestamps);
+UsuarioSchema.plugin(timestamps);
 //add location field
 UsuarioSchema.plugin(location);
 //add candidate data
@@ -47,4 +47,4 @@ UsuarioSchema.plugin(email);
 UsuarioSchema.plugin(active);
 
 // Export the Mongoose model
-module.exports = mongoose.model('Usuario', EmpresaSchema);
+module.exports = mongoose.model('Usuario', UsuarioSchema);

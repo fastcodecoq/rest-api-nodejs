@@ -14,7 +14,8 @@
 	   "should" : "latest",	   	   
 	   "body-parser" : "latest",
 	   "bcrypt-nodejs" : "latest",
-	   "s3" : "latest"
+	   "s3" : "latest",
+	   "mongoose-timestamp" : "latest"
 	},
 	"scripts" : {
 	"start" : "forever start main.js",

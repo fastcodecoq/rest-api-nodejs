@@ -13,7 +13,8 @@
 	   "forever" : "latest",
 	   "should" : "latest",	   	   
 	   "body-parser" : "latest",
-	   "bcrypt-nodejs" : "latest" 
+	   "bcrypt-nodejs" : "latest",
+	   "s3" : "latest"
 	},
 	"scripts" : {
 	"start" : "forever start main.js",

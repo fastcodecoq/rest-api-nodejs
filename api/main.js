@@ -27,7 +27,7 @@ mongoose.connection.on('open', function(ref){
         
         require('./controllers/empresa')(server);
      
-
+        server.listen(8080);
 });
 
 mongoose.connection.on('error', function(err){

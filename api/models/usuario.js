@@ -4,6 +4,7 @@ var timestamps = require('mongoose-timestamp');
 var location = require('./plugins/location');
 var candidate_data = require('./plugins/candidate_data');
 var email = require('./plugins/email');
+var email = require('./plugins/active');
 var Schema = mongoose.Schema;
 
 // Define our Empresa schema
@@ -24,6 +25,13 @@ var EmpresaSchema = new mongoose.Schema({
   cv : {
      type : Schema.Types.ObjectId,
      ref : 'Cv'
+  },
+  attached_cv : {
+     type : String     
+  },
+  config : {
+      type : Object,
+      default : {}
   }
 });
 
@@ -35,6 +43,8 @@ UsuarioSchema.plugin(location);
 UsuarioSchema.plugin(candidate_data);
 //add email
 UsuarioSchema.plugin(email);
+//add active
+UsuarioSchema.plugin(active);
 
 // Export the Mongoose model
 module.exports = mongoose.model('Usuario', EmpresaSchema);

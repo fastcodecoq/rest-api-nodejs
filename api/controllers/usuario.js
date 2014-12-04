@@ -1,44 +1,48 @@
 // Load required packages
-var Empresa = require('../models/usuario');
+var Usuario = require('../models/usuario');
 var mongoose = require('mongoose');
 
 var ctrlUsuario = function (server) {
 
   function post(req, res) {
-// Create a new instance of the Empresa model
-    var empresa = new Empresa();
+// Create a new instance of the Usuario model
+    var Usuario = new Usuario();
 
-// Set the empresa properties that came from the POST data
-    empresa.name = req.body.name;
-    empresa.nit = req.body.nit;
-    empresa.tel = req.body.tel;  
-    empresa._user_id = req.user._id;
-    empresa.email = req.body.email;
+// Set the usuario properties that came from the POST data
+    req.body.name  || (Usuario.name = req.body.name);    
+    req.body.last_name || (Usuario.last_name = req.body.last_name);
+    req.body.email || (Usuario.email = req.body.email);  
+    req.body.location || (Usuario.location = req.body.location);  
+    req.body.is_candidate || (Usuario.is_candidate = req.body.is_candidate);  
+    req.body.candidate_data || (Usuario.candidate_data = req.body.candidate_data);      
+    req.body.active || (Usuario.active = req.body.active);  
+    req.body.cv || (Usuario.cv = req.body.cv);
+    req.body.attached_cv  || (Usuario.attached_cv = req.body.attached_cv);
 
-// Save the empresa and check for errors
-    empresa.save(function (err) {
+// Save the usuario and check for errors
+    Usuario.save(function (err) {
       if (err) {
         res.send(err);
       }
-      res.json({message: 'Usuario added', data: empresa});
+      res.json({message: 'Usuario added', data: usuario});
     });
   }
 
 
   function get(req, res) {
 
-// Use the Empresa model to find a specific empresa
+// Use the Usuario model to find a specific usuario
      var query = {};
-     query._user_id = req.params.userid ? mongoose.Types.ObjectId(req.params.userid) : false;
-     query._id = req.params.empresaid ? new mongoose.Types.ObjectId(req.params.empresaid) : false;
+
+     !req.body.userid || (query._id = mongoose.Types.ObjectId(req.body.userid))    
 
 
-// Use the Empresa model to find all empresa
-    Empresa.find(query, function (err, empresas) {
+// Use the Usuario model to find all usuario
+    Usuario.find(query, function (err, usuarios) {
       if (err) {
         res.send(err);
       }
-      res.json(empresas);
+      res.json(usuarios);
     });
 
   }
@@ -46,17 +50,23 @@ var ctrlUsuario = function (server) {
 
 
   function put(req, res) {
-// Use the Empresa model to find a specific empresa
-    Empresa.update({
-      userId: req.user._id,
-      _id: req.params.empresa_id
-    }, {
-      name: req.body.name,
-      nit: req.body.nit,
-      tel: req.body.tel,
-      owner: req.body.owner,
-      email: req.body.email
-    }, function (err, num, raw) {
+// Use the Usuario model to find a specific usuario
+  
+    var data = {};
+
+    req.body.name  || (data.name = req.body.name);    
+    req.body.last_name || (data.last_name = req.body.last_name);
+    req.body.email || (data.email = req.body.email);  
+    req.body.location || (data.location = req.body.location);  
+    req.body.is_candidate || (data.is_candidate = req.body.is_candidate);  
+    req.body.candidate_data || (data.candidate_data = req.body.candidate_data);      
+    req.body.active || (data.active = req.body.active);  
+    req.body.cv || (data.cv = req.body.cv);
+    req.body.attached_cv  || (data.attached_cv = req.body.attached_cv);
+
+    Usuario.update({
+      _id: mongoose.Types.ObjectId(req.body.userid)
+      }, data, function (err, num, raw) {
       if (err) {
         res.send(err);
       }
@@ -65,21 +75,21 @@ var ctrlUsuario = function (server) {
   }
 
   function del(req, res) {
-// Use the Empresa model to find a specific empresa and remove it
-    Empresa.remove({userId: req.user._id, _id: req.params.empresa_id}, function (err) {
+   // Use the Usuario model to find a specific usuario and remove it
+    Usuario.remove({_id: mongoose.Types.ObjectId(req.body.userid)}, function (err) {
       if (err) {
         res.send(err);
       }
-      res.json({message: 'Empresa removed'});
+      res.json({message: 'Usuario removed'});
     });
   }
 
   console.log(global.apiBaseUri);
 
-  server.get(global.apiBaseUri + '/user/:userid', get);
-  server.post(global.apiBaseUri + '/user', post);
-  server.put(global.apiBaseUri + '/empresa/:userid', put);
-  server.del(global.apiBaseUri + '/empresa/:userid', del);
+  server.get(global.apiBaseUri + '/usuario/:userid', get);
+  server.post(global.apiBaseUri + '/usuario', post);
+  server.put(global.apiBaseUri + '/usuario/:userid', put);
+  server.del(global.apiBaseUri + '/usuario/:userid', del);
 };
 
 module.exports = ctrlUsuario;

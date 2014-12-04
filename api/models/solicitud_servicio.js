@@ -15,6 +15,7 @@ var SolicitudServicioSchema = new mongoose.Schema({
     required: true,
     ref: 'Empresas'
   }
+  accepted : {type : Boolean, default: false}
 });
 
 //add createdAt, updatedAt fields

@@ -4,7 +4,7 @@ var timestamps = require('mongoose-timestamp');
 var location = require('./plugins/location');
 var Schema = mongoose.Schema;
 
-// Define our beer schema
+// Define our Empresa schema
 var EmpresaSchema = new mongoose.Schema({
   name: {
     type: String,

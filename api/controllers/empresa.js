@@ -41,7 +41,7 @@ var ctrlEmpresa = function (server) {
       }
       res.json(empresas);
     });
-    
+
   }
 
 
@@ -74,6 +74,8 @@ var ctrlEmpresa = function (server) {
       res.json({message: 'Empresa removed'});
     });
   }
+
+  console.log(global.apiBaseUri);
 
   server.get(global.apiBaseUri + '/empresa/:userid', get);
   server.post(global.apiBaseUri + '/empresa/:userid', post);

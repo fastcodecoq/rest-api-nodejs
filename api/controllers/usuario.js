@@ -5,6 +5,9 @@ var mongoose = require('mongoose');
 var ctrlUsuario = function (server) {
 
   function post(req, res) {
+
+    console.log('usuario ctrl post');
+
 // Create a new instance of the Usuario model
     var Usuario = new Usuario();
 

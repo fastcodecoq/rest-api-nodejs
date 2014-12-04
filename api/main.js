@@ -25,6 +25,7 @@ mongoose.connection.on('open', function(ref){
    
         console.log('Conectado a Mongo');
         
+        require('./controllers/empressa')(server);
      
 
 });

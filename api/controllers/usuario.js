@@ -65,7 +65,7 @@ var ctrlUsuario = function (server) {
     req.body.attached_cv  || (data.attached_cv = req.body.attached_cv);
 
     Usuario.update({
-      _id: mongoose.Types.ObjectId(req.body.userid)
+      _id: mongoose.Types.ObjectId(req.params.userid)
       }, data, function (err, num, raw) {
       if (err) {
         res.send(err);
@@ -76,7 +76,7 @@ var ctrlUsuario = function (server) {
 
   function del(req, res) {
    // Use the Usuario model to find a specific usuario and remove it
-    Usuario.remove({_id: mongoose.Types.ObjectId(req.body.userid)}, function (err) {
+    Usuario.remove({_id: mongoose.Types.ObjectId(req.params.userid)}, function (err) {
       if (err) {
         res.send(err);
       }

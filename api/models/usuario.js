@@ -4,7 +4,7 @@ var timestamps = require('mongoose-timestamp');
 var location = require('./plugins/location');
 var candidate_data = require('./plugins/candidate_data');
 var email = require('./plugins/email');
-var email = require('./plugins/active');
+var activate = require('./plugins/active');
 var Schema = mongoose.Schema;
 
 // Define our Empresa schema

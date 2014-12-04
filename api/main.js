@@ -24,18 +24,6 @@ server.pre(require('./utils/cross.domain'));
 mongoose.connection.on('open', function(ref){
    
         console.log('Conectado a Mongo');
-
-        awsModel.findOne(function(err,awsConf){
-        
-        if(err)
-        {
-        console.log(err)
-        return;
-        }
-            
-
-        
-        });
         
      
 

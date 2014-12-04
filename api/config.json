@@ -2,17 +2,15 @@
 	"env" : "dev",
 	"dev" : {
 	    "apiUrlBase" : "api.xxxxx.xxx",
-	    "tokenUri" : "/getToken",
-	    "loginUri" : "/login"
+	    "apiBaseUri" : "/api"
 	},
 	"qa" : {
 	    "apiUrlBase" : "api.xxxxx.xxx",
-	    "tokenUri" : "/getToken",
-	    "loginUri" : "/login"
+	    "apiBaseUri" : ""
+
 	},
 	"prod" : {
 	    "apiUrlBase" : "api.xxxxx.xxx",
-	    "tokenUri" : "/getToken",
-	    "loginUri" : "/login"
+	    "apiBaseUri" : ""	    
 	}
 }

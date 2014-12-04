@@ -1,7 +1,7 @@
 var restify = require('restify');
 var mongoose = require('mongoose');
 var awsConf = undefined;
-
+var config = require('./config.json')
 
 var server = restify.createServer({  
   name: 'Login',
@@ -24,7 +24,7 @@ server.pre(require('./utils/cross.domain'));
 mongoose.connection.on('open', function(ref){
    
         console.log('Conectado a Mongo');
-        
+        global.apiBaseUri = config.apiBaseUri;
         require('./controllers/empresa')(server);
      
         server.listen(8080);

@@ -20,10 +20,10 @@ var ctrlName = function (server){
        }
 
 
-       server.get('api/ctrlName',get);
-       server.post('api/ctrlName',put);
-       server.put('api/ctrlName',put);
-       server.del('api/ctrlName',del);
+       server.get(global.apiBaseUri + 'api/ctrlName',get);
+       server.post(global.apiBaseUri + 'api/ctrlName',put);
+       server.put(global.apiBaseUri + 'api/ctrlName',put);
+       server.del(global.apiBaseUri + 'api/ctrlName',del);
 
 }
 

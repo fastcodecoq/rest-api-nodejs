@@ -1,5 +1,6 @@
 // Load required packages
 var Empresa = require('../models/empresa');
+var mongoose = require('mongoose');
 
 var ctrlEmpresa = function (server) {
 
@@ -26,23 +27,21 @@ var ctrlEmpresa = function (server) {
 
 
   function get(req, res) {
+
 // Use the Empresa model to find a specific empresa
-    if (req.params.id) {
-      Empresa.find({userId: req.user._id, id: req.params.empresa_id},
-        function (err, empresa) {
-          if (err) {
-            res.send(err);
-          }
-          res.json(empresa);
-        });
-    }
+     var query = {};
+     query._user_id = req.params.userid ? mongoose.Types.ObjectId(req.params.userid) : false;
+     query._id = req.params.empresaid ? new mongoose.Types.ObjectId(req.params.empresaid) : false;
+
+
 // Use the Empresa model to find all empresa
-    Empresa.find({userId: req.user._id}, function (err, empresas) {
+    Empresa.find(query, function (err, empresas) {
       if (err) {
         res.send(err);
       }
       res.json(empresas);
     });
+    
   }
 
 
@@ -76,11 +75,11 @@ var ctrlEmpresa = function (server) {
     });
   }
 
-  server.get('api/empresa/:id', get);
-  server.get('api/empresa/', get);
-  server.post('api/empresa', post);
-  server.put('api/empresa', put);
-  server.del('api/empresa', del);
+  server.get(global.apiBaseUri + '/empresa/:userid', get);
+  server.post(global.apiBaseUri + '/empresa/:userid', post);
+  server.get(global.apiBaseUri + '/empresa/:userid/:empresaid', get);  
+  server.put(global.apiBaseUri + '/empresa/:userid/:empresaid', put);
+  server.del(global.apiBaseUri + '/empresa/:userid/:empresaid', del);
 };
 
 module.exports = ctrlEmpresa;

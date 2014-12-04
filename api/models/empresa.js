@@ -19,11 +19,6 @@ var EmpresaSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  owner: {
-    type: String,
-    required: true,
-    trim: true
-  },
   _user_id: {
     type: Schema.Types.ObjectId,
     required: true,

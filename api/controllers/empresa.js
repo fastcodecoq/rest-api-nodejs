@@ -76,7 +76,8 @@ var ctrlEmpresa = function (server) {
     });
   }
 
-  server.get('api/empresa/:id?', get);
+  server.get('api/empresa/:id', get);
+  server.get('api/empresa/', get);
   server.post('api/empresa', post);
   server.put('api/empresa', put);
   server.del('api/empresa', del);

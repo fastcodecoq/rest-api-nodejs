@@ -1,8 +1,8 @@
 // Load required packages
-var Empresa = require('../models/empresa');
+var Empresa = require('../models/usuario');
 var mongoose = require('mongoose');
 
-var ctrlEmpresa = function (server) {
+var ctrlUsuario = function (server) {
 
   function post(req, res) {
 // Create a new instance of the Empresa model
@@ -11,7 +11,7 @@ var ctrlEmpresa = function (server) {
 // Set the empresa properties that came from the POST data
     empresa.name = req.body.name;
     empresa.nit = req.body.nit;
-    empresa.tel = req.body.tel;    
+    empresa.tel = req.body.tel;  
     empresa._user_id = req.user._id;
     empresa.email = req.body.email;
 
@@ -20,7 +20,7 @@ var ctrlEmpresa = function (server) {
       if (err) {
         res.send(err);
       }
-      res.json({message: 'Empresa added', data: empresa});
+      res.json({message: 'Usuario added', data: empresa});
     });
   }
 
@@ -76,11 +76,10 @@ var ctrlEmpresa = function (server) {
 
   console.log(global.apiBaseUri);
 
-  server.get(global.apiBaseUri + '/empresa/:userid', get);
-  server.post(global.apiBaseUri + '/empresa/:userid', post);
-  server.get(global.apiBaseUri + '/empresa/:userid/:empresaid', get);  
-  server.put(global.apiBaseUri + '/empresa/:userid/:empresaid', put);
-  server.del(global.apiBaseUri + '/empresa/:userid/:empresaid', del);
+  server.get(global.apiBaseUri + '/user/:userid', get);
+  server.post(global.apiBaseUri + '/user', post);
+  server.put(global.apiBaseUri + '/empresa/:userid', put);
+  server.del(global.apiBaseUri + '/empresa/:userid', del);
 };
 
-module.exports = ctrlEmpresa;
+module.exports = ctrlUsuario;

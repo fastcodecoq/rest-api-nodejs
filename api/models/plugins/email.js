@@ -1,15 +1,12 @@
 
+  module.exports = exports = function namePlugin(schema, required) {
 
-
-
-  module.exports = exports = function namePlugin(schema, options) {
-
-  options || (options = {});
+  required || (required = true)
 
   schema.add({
   	email: {
 	    type: String,
-	    required: true,
+	    required: required,
 	    trim: true,
 	    match: [/^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.\w{2,3})+$/, 'Invalid email']
       }

@@ -24,7 +24,7 @@ server.pre(require('./utils/cross.domain'));
 mongoose.connection.on('open', function(ref){
    
         console.log('Conectado a Mongo');
-        global.apiBaseUri = "/api";
+        global.apiBaseUri = config[config.env].apiBaseUri;
         require('./controllers/empresa')(server);
      
         server.listen(8080);

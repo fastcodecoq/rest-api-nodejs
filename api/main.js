@@ -15,11 +15,11 @@ server.pre(function(req, res, next) {
      console.log(req.headers)
 
 
-     if(!req.header.authorization)       
+     if(!req.headers.authorization)       
         next('Not Allowed');
       
 
-    if(!req.header.authorization != 'Bearer bad18eba1ff45jk7858b8ae88a77fa30')
+    if(!req.headers.authorization != 'Bearer bad18eba1ff45jk7858b8ae88a77fa30')
         next('Not Allowed');
 
 

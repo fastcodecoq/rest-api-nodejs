@@ -26,6 +26,10 @@ var ctrlOrden_servicio = function (server) {
     !REQ.status  || (orden_servicio.status = REQ.status);    
     !REQ.location  || (orden_servicio.location = REQ.location);    
     !REQ.empresaid  || (orden_servicio.contact = mongoose.Types.ObjectId(REQ.contact));    
+
+    if(REQ.contact)
+       for(x in REQ.contact)
+          orden_servicio.contact.push(mongoose.Types.ObjectId(REQ.contact))
     
 
     
@@ -101,7 +105,12 @@ var ctrlOrden_servicio = function (server) {
     !REQ.end_date  || (data.end_date = REQ.end_date);    
     !REQ.status  || (data.status = REQ.status);    
     !REQ.location  || (data.location = REQ.location);    
-    !REQ.contact  || (data.contact = mongoose.Types.ObjectId(REQ.contact));  
+    
+
+    if(REQ.contact)
+       for(x in REQ.contact)
+           data.contact.push(mongoose.Types.ObjectId(REQ.contact))
+    
     
 
 

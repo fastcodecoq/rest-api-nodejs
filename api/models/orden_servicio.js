@@ -37,7 +37,7 @@ var OrdenServicioSchema = new mongoose.Schema({
     type: Number
   },
   contact : {
-      type : { type : Schema.Types.ObjectId , ref : 'Usuario' }
+      type : [{ type : Schema.Types.ObjectId , ref : 'Usuario' }]
   }
 });
 

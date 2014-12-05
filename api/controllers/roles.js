@@ -13,8 +13,10 @@ var ctrlRole = function (server) {
 // Set the role properties that came from the POST data
     var REQ = req.params;    
 
+    console.log(REQ, 'req')
+
     !REQ.name  || (role.name = REQ.name);        
-    !REQ.userid  || (role._user_id = mongoose.Types.ObjectId(REQ.empresaid));
+    !REQ.userid  || (role._user_id = mongoose.Types.ObjectId(REQ.userid));
     !REQ.empresaid  || (role._empresa_id = mongoose.Types.ObjectId(REQ.empresaid));    
     !REQ.privileges  || (role.privileges = REQ.privileges);
 

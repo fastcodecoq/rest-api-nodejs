@@ -29,11 +29,14 @@ var ctrlUsuario = function (server) {
 
 // Save the usuario and check for errors
     usuario.save(function (err) {
+     
       if (err) {
         res.send(err);
         return;
       }
+
       res.json({message: 'Usuario added', data: usuario});
+
     });
   }
 
@@ -50,6 +53,7 @@ var ctrlUsuario = function (server) {
     Usuario.find(query, function (err, usuarios) {
       if (err) {
         res.send(err);
+        return;        
       }
       res.json(usuarios);
     });
@@ -78,6 +82,8 @@ var ctrlUsuario = function (server) {
       }, data, function (err, num, raw) {
       if (err) {
         res.send(err);
+        return;
+
       }
       res.json({message: num + ' updated'});
     });
@@ -88,6 +94,7 @@ var ctrlUsuario = function (server) {
     Usuario.remove({_id: mongoose.Types.ObjectId(req.params.userid)}, function (err) {
       if (err) {
         res.send(err);
+        return;        
       }
       res.json({message: 'Usuario removed'});
     });

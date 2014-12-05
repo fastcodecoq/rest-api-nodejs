@@ -7,7 +7,7 @@ module.exports = exports = function(server){
 
 		for (x in files)
 		 if(!files[x].match('gitignore|base|config|zip|json|all'))				 
-   		     require(files[x])(server);
+   		      require('./' + files[x])(server);
 
 
 

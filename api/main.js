@@ -10,6 +10,13 @@ var server = restify.createServer({
 
 var io = require('socket.io').listen(server);
 
+server.pre(function(req, res, next) {
+
+     console.log(req.headers, req.head)
+
+     next();
+
+});
 
 server.use(restify.bodyParser());
 server.use(restify.gzipResponse());

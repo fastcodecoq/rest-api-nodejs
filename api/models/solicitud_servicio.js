@@ -9,7 +9,7 @@ var Schema = mongoose.Schema;
 var SolicitudServicioSchema = new mongoose.Schema({
   
   type : {type: String, required:true, lowercase: true, trim: true},
-  name : {type: String, trim: true}
+  name : {type: String, trim: true},
   accepted : {type : Boolean, default: false},
   readed : {type : Boolean, default: false},
   description : {type: String}

@@ -53,7 +53,9 @@ var ctrlRole = function (server) {
       !REQ.roleid  || (query._id = mongoose.Types.ObjectId(REQ.roleid));      
 
 // Use the Role model to find all role
-    Role.find(query, function (err, roles) {
+    Role.find(query)
+    .populate('_empresa_id _user_id')
+    .exec(function (err, roles) {
       if (err) {
         res.send(err);
         return;

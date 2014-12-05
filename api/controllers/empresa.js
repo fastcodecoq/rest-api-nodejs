@@ -42,7 +42,7 @@ var ctrlEmpresa = function (server) {
      var REQ = req.params;
 
      
-      !REQ.userid  || (query._user_id = mongoose.Types.ObjectId(REQ.empresaid));
+      !REQ.userid  || (query._user_id = mongoose.Types.ObjectId(REQ.userid));
       !REQ.empresaid  || (query._empresa_id = mongoose.Types.ObjectId(REQ.empresaid));  
 
 

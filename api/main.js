@@ -19,7 +19,7 @@ server.pre(function(req, res, next) {
         next('Not Allowed');
       
 
-    if(req.headers.authorization != 'Bearer bad18eba1ff45jk7858b8ae88a77fa30')
+    if(req.headers.authorization != 'Bearer ' + config[config.env].token)
         next('Not Allowed');
 
 
@@ -30,7 +30,6 @@ server.pre(function(req, res, next) {
 server.use(restify.bodyParser());
 server.use(restify.gzipResponse());
 server.use(restify.authorizationParser());
-server.use(restify.CORS());
   
 //soporte de crossdomain
 //server.pre(require('./utils/cross.domain'));

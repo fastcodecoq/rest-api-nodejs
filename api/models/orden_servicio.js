@@ -48,4 +48,4 @@ OrdenServicioSchema.plugin(location);
 OrdenServicioSchema.plugin(timestamps);
 
 // Export the Mongoose model
-module.exports = mongoose.model('OrdenServicios', OrdenServicioSchema);
+module.exports = mongoose.model('OrdenServicio', OrdenServicioSchema);

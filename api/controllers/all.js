@@ -10,5 +10,4 @@ module.exports = exports = function(server){
    		      require('./' + files[x])(server);
 
 
-
 }

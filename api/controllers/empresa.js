@@ -11,16 +11,11 @@ var ctrlEmpresa = function (server) {
     var empresa = new Empresa;
 
 // Set the empresa properties that came from the POST data
-    empresa.name = req.body.name;
-    empresa.nit = req.body.nit;
-    empresa.tel = req.body.tel;    
-    empresa._user_id = req.user._id;
-    empresa.email = req.body.email;
 
     !req.body.name  || (empresa.name = req.body.name);    
     !req.body.nit  || (empresa.nit = req.body.nit);
     !req.body.tel  || (empresa.tel = req.body.tel);
-    !req.body._user_id  || (empresa._user_id = mongoose.Types.ObjectId(req.body.user_id));
+    !req.body._user_id  || (empresa._user_id = mongoose.Types.ObjectId(req.body.userid));
     !req.body.email  || (empresa.name = req.body.email);    
     !req.body.location  || (empresa.location = req.body.location);    
 

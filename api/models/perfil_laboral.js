@@ -23,10 +23,10 @@ var perfil_laboralSchema = new Schema({
 	  genre: { type : String, trim : true, lowercase:true},
 	  notes: { type : String, trim : true},
 	  project_presentation: { type : String, trim : true},
-	  min_experience_years: type: Number,
-	  max_experience_years: type: Number,
-	  status: type: Number,	  
-	  contract_type: type: Number,	  
+	  min_experience_years: {type: Number},
+	  max_experience_years: {type: Number},
+	  status: {type: Number},	  
+	  contract_type: {type: Number},	  
 	  _candidates : [{type: Schema.Types.ObjectId, ref : 'Candidate'}],
 	  _orden_servicio : {type : Schema.Types.ObjectId, ref: 'OrdenServicio'}
 });

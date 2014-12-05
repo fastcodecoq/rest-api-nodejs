@@ -11,7 +11,7 @@ var user = require('./plugins/user');
 
 
 var candidateSchema = new Schema({
-	 _cv : {type: Schema.Types.ObjectId, required : true}
+	 _cv : {type: Schema.Types.ObjectId}
 });
 
 

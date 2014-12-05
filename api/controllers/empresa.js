@@ -8,7 +8,7 @@ var ctrlEmpresa = function (server) {
 
   function post(req, res) {
 // Create a new instance of the Empresa model
-    var empresa = new Empresa();
+    var empresa = new Empresa;
 
 // Set the empresa properties that came from the POST data
     empresa.name = req.body.name;

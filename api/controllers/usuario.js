@@ -10,7 +10,8 @@ var ctrlUsuario = function (server) {
 
 
 // Create a new instance of the Usuario model
-    var Usuario = new Usuario();
+    var Usuario = new Usuario;
+    console.log('usuario ctrl post');
 
 
 // Set the usuario properties that came from the POST data

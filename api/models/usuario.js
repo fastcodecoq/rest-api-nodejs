@@ -35,32 +35,17 @@ var UsuarioSchema = new mongoose.Schema({
   }
 });
 
-    console.log('usuario ctrl post');
 
 //add createdAt, updatedAt fields
 UsuarioSchema.plugin(timestamps);
-
-    console.log('usuario ctrl post a');
-
 //add location field
 UsuarioSchema.plugin(location);
-
-    console.log('usuario ctrl post b');
-
 //add candidate data
 UsuarioSchema.plugin(candidate_data);
-
-    console.log('usuario ctrl post c');
-
 //add email
 UsuarioSchema.plugin(email);
-
-    console.log('usuario ctrl post d');
-
 //add active
 UsuarioSchema.plugin(active);
-
-    console.log('usuario ctrl post e');
 
 // Export the Mongoose model
 module.exports = mongoose.model('Usuario', UsuarioSchema);

@@ -13,10 +13,11 @@ var io = require('socket.io').listen(server);
 
 server.use(restify.bodyParser());
 server.use(restify.gzipResponse());
-
+server.use(restify.authorizationParser());
+server.use(restify.CORS());
   
 //soporte de crossdomain
-server.pre(require('./utils/cross.domain'));
+//server.pre(require('./utils/cross.domain'));
 
 mongoose.connection.on('open', function(ref){
    

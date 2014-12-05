@@ -41,21 +41,18 @@ var ctrlEmpresa = function (server) {
      var query = {};
      var REQ = req.params;
 
-     query._user_id = req.params.userid ? mongoose.Types.ObjectId(REQ.userid) : false;
-     query._id = req.params.empresaid ? new mongoose.Types.ObjectId(REQ.empresaid) : false;
+     
+      !REQ.userid  || (query._user_id = mongoose.Types.ObjectId(REQ.empresaid));
+      !REQ.empresaid  || (query._empresa_id = mongoose.Types.ObjectId(REQ.empresaid));  
 
-      for(x in query)
-          if(!query[x])
+
+   if(!REQ.userid)
           {
             res.send(500,'invalid params');
             return;
           }
 
-   if(!REQ.userid || !REQ.empresaid)
-          {
-            res.send(500,'invalid params');
-            return;
-          }
+          console.log(query);
 
 
 // Use the Empresa model to find all empresa

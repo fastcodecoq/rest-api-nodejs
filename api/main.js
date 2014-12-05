@@ -2,6 +2,8 @@ var restify = require('restify');
 var mongoose = require('mongoose');
 var awsConf = undefined;
 var config = require('./config.json')
+var io = socketio.listen(server);
+
 
 var server = restify.createServer({  
   name: 'Login',
@@ -49,10 +51,6 @@ try {
 
 }
 
-
-
-// usamos todos los cores disponibles en la máquina
-// para un mejor rendimiento del app
 
 
 

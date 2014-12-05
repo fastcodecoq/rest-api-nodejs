@@ -15,6 +15,7 @@
 	   "body-parser" : "latest",
 	   "bcrypt-nodejs" : "latest",
 	   "s3" : "latest",
+	   "socket.io" : "latest",
 	   "mongoose-timestamp" : "latest"
 	},
 	"scripts" : {

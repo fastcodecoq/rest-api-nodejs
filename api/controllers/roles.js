@@ -108,7 +108,7 @@ var ctrlRole = function (server) {
 
   server.get(global.apiBaseUri + '/empresa/:empresaid/role/:roleid', get);    
   server.get(global.apiBaseUri + '/empresa/:empresaid/role', get);    
-  server.post(global.apiBaseUri + '/empresa/:empresaid/usuario/:userid', post);
+  server.post(global.apiBaseUri + '/empresa/:empresaid/usuario/:userid/role', post);
   server.get(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid/role', get);    
   server.put(global.apiBaseUri + '/empresa/:empresaid/usuario/:userid/role/:roleid', put);
   server.del(global.apiBaseUri + '/usuario/:userid/role/:roleid/role', del);

@@ -51,15 +51,16 @@ var ctrlOrden_servicio = function (server) {
      var REQ = req.params;
 
 
-      !REQ.orden_servicioid  || (query._id = mongoose.Types.ObjectId(REQ.orden_servicioid));
       
-   if(!REQ.orden_servicioid)
+   if(!REQ.empresaid)
           {
             res.send(500,'invalid params');
             return;
           }
 
       !REQ.empresaid  || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));  
+      !REQ.orden_servicioid  || (query._id = mongoose.Types.ObjectId(REQ.orden_servicioid));
+      
 
 
 // Use the Orden_servicio model to find all orden_servicio

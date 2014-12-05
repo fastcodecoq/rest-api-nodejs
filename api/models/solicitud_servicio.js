@@ -16,7 +16,7 @@ var SolicitudServicioSchema = new mongoose.Schema({
 
 });
 
-SolicitudServicios.pre('save', function (next) {
+SolicitudServicioSchema.pre('save', function (next) {
   
  // do stuff
 

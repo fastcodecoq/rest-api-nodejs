@@ -16,18 +16,12 @@ var ctrlSolicitud_servicio = function (server) {
 
     
     !REQ.name  || (solicitud_servicio.name = REQ.name);          
-    !REQ.responsible  || (solicitud_servicio._responsible = mongoose.Types.ObjectId(REQ.responsible));
+    !REQ.type  || (solicitud_servicio.type = mongoose.Types.ObjectId(REQ.type));
     !REQ.empresaid  || (solicitud_servicio._empresa = mongoose.Types.ObjectId(REQ.empresaid));    
     !REQ.description  || (solicitud_servicio.description = REQ.description);    
-    !REQ.rate  || (solicitud_servicio.rate = REQ.rate);    
-    !REQ.start_date  || (solicitud_servicio.start_date = REQ.start_date);    
-    !REQ.end_date  || (solicitud_servicio.end_date = REQ.end_date);    
-    !REQ.status  || (solicitud_servicio.status = REQ.status);    
-    !REQ.location  || (solicitud_servicio.location = REQ.location);    
-    !REQ.empresaid  || (solicitud_servicio.contact = mongoose.Types.ObjectId(REQ.contact));    
-    
-
-    
+    !REQ.accepted  || (solicitud_servicio.accepted = REQ.accepted);    
+    !REQ.readed  || (solicitud_servicio.accepted = REQ.readed);            
+    !REQ.location  || (solicitud_servicio.location = REQ.location);            
 
    
     console.log(solicitud_servicio);    
@@ -51,11 +45,12 @@ var ctrlSolicitud_servicio = function (server) {
 
 
       
-   if(!REQ.empresaid)
+   if(!REQ.empresaid && !REQ.solicitud_servicioid)
           {
             res.send(500,'invalid params');
             return;
           }
+
 
       !REQ.empresaid  || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));  
       !REQ.solicitud_servicioid  || (query._id = mongoose.Types.ObjectId(REQ.solicitud_servicioid));
@@ -64,7 +59,7 @@ var ctrlSolicitud_servicio = function (server) {
 
 // Use the Solicitud_servicio model to find all solicitud_servicio
     Solicitud_servicio.find(query)
-    .populate('_empresa _contacto')
+    .populate('_empresa')
     .exec(function (err, solicitud_servicios) {
       if (err) {
         res.send(err);
@@ -92,15 +87,13 @@ var ctrlSolicitud_servicio = function (server) {
 
         
     !REQ.name  || (data.name = REQ.name);          
-    !REQ.responsible  || (data._responsible = mongoose.Types.ObjectId(REQ.responsible));
+    !REQ.type  || (data.type = mongoose.Types.ObjectId(REQ.type));
     !REQ.empresaid  || (data._empresa = mongoose.Types.ObjectId(REQ.empresaid));    
     !REQ.description  || (data.description = REQ.description);    
-    !REQ.rate  || (data.rate = REQ.rate);    
-    !REQ.start_date  || (data.start_date = REQ.start_date);    
-    !REQ.end_date  || (data.end_date = REQ.end_date);    
-    !REQ.status  || (data.status = REQ.status);    
-    !REQ.location  || (data.location = REQ.location);    
-    !REQ.contact  || (data.contact = mongoose.Types.ObjectId(REQ.contact));  
+    !REQ.accepted  || (data.accepted = REQ.accepted);    
+    !REQ.readed  || (data.accepted = REQ.readed);            
+    !REQ.readed  || (data.location = REQ.location);            
+
     
 
 

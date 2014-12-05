@@ -39,6 +39,9 @@ var OrdenServicioSchema = new mongoose.Schema({
   },
   status: {
     type: Number
+  },
+  contact : {
+      type : { type : [Schema.Types.ObjectId] }      
   }
 });
 

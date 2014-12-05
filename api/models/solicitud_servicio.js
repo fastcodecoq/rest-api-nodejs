@@ -13,7 +13,6 @@ var SolicitudServicioSchema = new mongoose.Schema({
   accepted : {type : Boolean, default: false},
   readed : {type : Boolean, default: false}
 
-
 });
 
 //add createdAt, updatedAt fields

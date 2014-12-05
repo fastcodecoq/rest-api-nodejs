@@ -2,14 +2,13 @@ var restify = require('restify');
 var mongoose = require('mongoose');
 var awsConf = undefined;
 var config = require('./config.json')
-var io = require('socket.io');
-var io = socketio.listen(server);
 
 
 var server = restify.createServer({  
   name: 'Login',
 });
 
+var io = require('socket.io').listen(server);
 
 
 server.use(restify.bodyParser());

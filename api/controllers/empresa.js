@@ -12,8 +12,9 @@ var ctrlEmpresa = function (server) {
 
 // Set the empresa properties that came from the POST data
     var REQ = req.body;
+    var PAR = req.params;
 
-    console.log(REQ, 'body');    
+    console.log(REQ, 'body', PAR, 'params');    
 
 
     !REQ.name  || (empresa.name = REQ.name);    

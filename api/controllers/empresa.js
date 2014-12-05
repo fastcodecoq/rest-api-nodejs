@@ -11,10 +11,8 @@ var ctrlEmpresa = function (server) {
     var empresa = new Empresa;
 
 // Set the empresa properties that came from the POST data
-    var REQ = req.body;
-    var PAR = req.params;
-
-    console.log(REQ, 'body', PAR, 'params');    
+    var REQ = req.params;
+    
 
 
     !REQ.name  || (empresa.name = REQ.name);    
@@ -41,8 +39,10 @@ var ctrlEmpresa = function (server) {
 
 // Use the Empresa model to find a specific empresa
      var query = {};
-     query._user_id = req.params.userid ? mongoose.Types.ObjectId(req.params.userid) : false;
-     query._id = req.params.empresaid ? new mongoose.Types.ObjectId(req.params.empresaid) : false;
+     var REQ = req.params;
+
+     query._user_id = req.params.userid ? mongoose.Types.ObjectId(REQ.userid) : false;
+     query._id = req.params.empresaid ? new mongoose.Types.ObjectId(REQ.empresaid) : false;
 
       for(x in query)
           if(!query[x])
@@ -51,7 +51,7 @@ var ctrlEmpresa = function (server) {
             return;
           }
 
-   if(!req.params.userid || !req.params.empresaid)
+   if(!REQ.userid || !REQ.empresaid)
           {
             res.send(500,'invalid params');
             return;
@@ -74,7 +74,7 @@ var ctrlEmpresa = function (server) {
   function put(req, res) {
 
     var data = {};
-    var REQ = req.body;
+    var REQ = req.params;
 
     !REQ.name  || (data.name = REQ.name);    
     !REQ.nit  || (data.nit = REQ.nit);
@@ -86,8 +86,8 @@ var ctrlEmpresa = function (server) {
 
 // Use the Empresa model to find a specific empresa
     Empresa.update({
-      _user_id: mongoose.Types.ObjectId(req.params.userid),
-      _id: mongoose.Types.ObjectId(req.params.empresaid)
+      _user_id: mongoose.Types.ObjectId(REQ.userid),
+      _id: mongoose.Types.ObjectId(REQ.empresaid)
     }, data, function (err, num, raw) {
       if (err) {
         res.send(err);

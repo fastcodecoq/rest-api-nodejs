@@ -90,6 +90,8 @@ var ctrlEmpresa = function (server) {
     }, data, function (err, num, raw) {
       if (err) {
         res.send(err);
+        return;
+        
       }
       res.json({message: num + ' updated'});
     });

@@ -52,7 +52,7 @@ var ctrlCandidate = function (server) {
 
 // Use the Candidate model to find all candidate
     Candidate.find(query)
-    .populate('_usuario')
+    .populate('_usuario _cv')
     .exec(function (err, candidates) {
       if (err) {
         res.send(err);

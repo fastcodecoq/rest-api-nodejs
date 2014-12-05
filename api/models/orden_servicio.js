@@ -2,19 +2,19 @@
 var mongoose = require('mongoose');
 var timestamps = require('mongoose-timestamp');
 var location = require('./plugins/location');
-var empresa = require('./plugins/empresa');
+var empresa = require('./plugins/empresa');;
 var Schema = mongoose.Schema;
 
 // Define our Orden de Servicio schema
 var OrdenServicioSchema = new mongoose.Schema({
-  order_key: {
+  name: {
     type: String,
     required: true
   },
   _responsible: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: 'Users'
+    ref: 'Usuario'
   },
   description: {
     type: String,
@@ -37,12 +37,13 @@ var OrdenServicioSchema = new mongoose.Schema({
     type: Number
   },
   contact : {
-      type : { type : [Schema.Types.ObjectId] }      
+      type : { type : Schema.Types.ObjectId , ref : 'Usuario' }
   }
 });
 
 
 OrdenServicioSchema.plugin(empresa);
+OrdenServicioSchema.plugin(location);
 //add createdAt, updatedAt fields
 OrdenServicioSchema.plugin(timestamps);
 

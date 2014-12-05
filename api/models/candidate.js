@@ -14,7 +14,7 @@ var user = require('./plugins/user');
 var empresa = require('./plugins/empresa');
 
 
-var nameSchema = new Schema({
+var candidateSchema = new Schema({
 	 _cv : {type: Schema.Types.ObjectId, required : true}
 });
 
@@ -28,4 +28,4 @@ nameSchema.plugin(timestamps);
 
 
 
-module.exports = new mongoose.model('Model', nameSchema); 
+module.exports = new mongoose.model('Candidate', candidateSchema); 

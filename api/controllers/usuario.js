@@ -31,6 +31,7 @@ var ctrlUsuario = function (server) {
     usuario.save(function (err) {
       if (err) {
         res.send(err);
+        return;
       }
       res.json({message: 'Usuario added', data: usuario});
     });

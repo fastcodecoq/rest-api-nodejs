@@ -15,7 +15,7 @@ var ctrlEmpresa = function (server) {
     !req.body.name  || (empresa.name = req.body.name);    
     !req.body.nit  || (empresa.nit = req.body.nit);
     !req.body.tel  || (empresa.tel = req.body.tel);
-    !req.body._user_id  || (empresa._user_id = mongoose.Types.ObjectId(req.body.userid));
+    !req.body.userid  || (empresa._user_id = mongoose.Types.ObjectId(req.body.userid));
     !req.body.email  || (empresa.name = req.body.email);    
     !req.body.location  || (empresa.location = req.body.location);    
 

@@ -105,7 +105,7 @@ var ctrlCandidate = function (server) {
   console.log(global.apiBaseUri);
 
   server.get(global.apiBaseUri + '/candidate/:candidateid', get);    
-  server.post(global.apiBaseUri + '/candidate/usuario/:userid', get);
+  server.get(global.apiBaseUri + '/candidate/usuario/:userid', get);
   server.post(global.apiBaseUri + '/candidate/usuario/:userid', post);
   server.put(global.apiBaseUri + '/candidate/:candidateid', put);
   server.del(global.apiBaseUri + '/candidate/:candidateid', del);

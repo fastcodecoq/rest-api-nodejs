@@ -139,7 +139,7 @@ var ctrlOrden_servicio = function (server) {
   server.post(global.apiBaseUri + '/empresa/:empresaid/orden_servicio', post);
   server.put(global.apiBaseUri + '/orden_servicio/:orden_servicioid', put);
   server.del(global.apiBaseUri + '/orden_servicio/:orden_servicioid', del);
-  server.del(global.apiBaseUri + '/orden_servicio/:orden_servicioid', get);
+  server.get(global.apiBaseUri + '/orden_servicio/:orden_servicioid', get);
 
 
 

@@ -63,7 +63,7 @@ var ctrlEmpresa = function (server) {
         res.send(err);
         return;
       }
-      res.json(empresas);
+      res.json({data:empresas});
     });
 
   }

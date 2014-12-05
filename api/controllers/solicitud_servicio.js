@@ -110,7 +110,7 @@ var ctrlSolicitud_servicio = function (server) {
         res.send(err);
         return;
       }
-      res.json({message: num + ' updated'});
+      res.json({message: num + ' updated', data : raw});
     });
   }
 

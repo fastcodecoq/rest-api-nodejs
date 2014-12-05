@@ -91,7 +91,7 @@ var ctrlPerfil_laboral = function (server) {
   }
 
 
-
+ 
   function put(req, res) {
 
     var data = {};

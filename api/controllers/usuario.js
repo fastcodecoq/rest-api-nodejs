@@ -10,22 +10,21 @@ var ctrlUsuario = function (server) {
 
 
 // Create a new instance of the Usuario model
-    var usuario = new Usuario;
-    console.log('usuario ctrl post');
+    var usuario = new Usuario;    
 
 
 // Set the usuario properties that came from the POST data
-    req.body.name  || (usuario.name = req.body.name);    
-    req.body.last_name || (usuario.last_name = req.body.last_name);
-    req.body.email || (usuario.email = req.body.email);  
-    req.body.location || (usuario.location = req.body.location);  
-    req.body.is_candidate || (usuario.is_candidate = req.body.is_candidate);  
-    req.body.candidate_data || (usuario.candidate_data = req.body.candidate_data);      
-    req.body.active || (usuario.active = req.body.active);  
-    req.body.cv || (usuario.cv = req.body.cv);
-    req.body.attached_cv  || (usuario.attached_cv = req.body.attached_cv);
+    !req.body.name  || (usuario.name = req.body.name);    
+    !req.body.last_name || (usuario.last_name = req.body.last_name);
+    !req.body.email || (usuario.email = req.body.email);  
+    !req.body.location || (usuario.location = req.body.location);  
+    !req.body.is_candidate || (usuario.is_candidate = req.body.is_candidate);  
+    !req.body.candidate_data || (usuario.candidate_data = req.body.candidate_data);      
+    !req.body.active || (usuario.active = req.body.active);  
+    !req.body.cv || (usuario.cv = req.body.cv);
+    !req.body.attached_cv  || (usuario.attached_cv = req.body.attached_cv);
 
-
+console.log(usuario);
 
 // Save the usuario and check for errors
     usuario.save(function (err) {
@@ -67,15 +66,15 @@ var ctrlUsuario = function (server) {
   
     var data = {};
 
-    req.body.name  || (data.name = req.body.name);    
-    req.body.last_name || (data.last_name = req.body.last_name);
-    req.body.email || (data.email = req.body.email);  
-    req.body.location || (data.location = req.body.location);  
-    req.body.is_candidate || (data.is_candidate = req.body.is_candidate);  
-    req.body.candidate_data || (data.candidate_data = req.body.candidate_data);      
-    req.body.active || (data.active = req.body.active);  
-    req.body.cv || (data.cv = req.body.cv);
-    req.body.attached_cv  || (data.attached_cv = req.body.attached_cv);
+    !req.body.name  || (data.name = req.body.name);    
+    !req.body.last_name || (data.last_name = req.body.last_name);
+    !req.body.email || (data.email = req.body.email);  
+    !req.body.location || (data.location = req.body.location);  
+    !req.body.is_candidate || (data.is_candidate = req.body.is_candidate);  
+    !req.body.candidate_data || (data.candidate_data = req.body.candidate_data);      
+    !req.body.active || (data.active = req.body.active);  
+    !req.body.cv || (data.cv = req.body.cv);
+    !req.body.attached_cv  || (data.attached_cv = req.body.attached_cv);
 
     Usuario.update({
       _id: mongoose.Types.ObjectId(req.params.userid)
@@ -106,6 +105,7 @@ var ctrlUsuario = function (server) {
   server.post(global.apiBaseUri + '/usuario', post);
   server.put(global.apiBaseUri + '/usuario/:userid', put);
   server.del(global.apiBaseUri + '/usuario/:userid', del);
+
 };
 
 module.exports = ctrlUsuario;

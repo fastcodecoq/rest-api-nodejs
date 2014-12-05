@@ -17,7 +17,7 @@ var ctrlOrden_servicio = function (server) {
 
     
     !REQ.name  || (orden_servicio.name = REQ.name);          
-    !REQ.responsible  || (orden_servicio._responsible = mongoose.Types.ObjectId(REQ.responsible);
+    !REQ.responsible  || (orden_servicio._responsible = mongoose.Types.ObjectId(REQ.responsible));
     !REQ.empresaid  || (orden_servicio._empresa = mongoose.Types.ObjectId(REQ.empresaid));    
     !REQ.description  || (orden_servicio.description = REQ.description);    
     !REQ.rate  || (orden_servicio.rate = REQ.rate);    
@@ -83,7 +83,7 @@ var ctrlOrden_servicio = function (server) {
     var data = {};
     var REQ = req.params;
 
-    
+
    if(!REQ.orden_servicioid)
           {
             res.send(500,'invalid params');
@@ -92,7 +92,7 @@ var ctrlOrden_servicio = function (server) {
 
         
     !REQ.name  || (data.name = REQ.name);          
-    !REQ.responsible  || (data._responsible = mongoose.Types.ObjectId(REQ.responsible);
+    !REQ.responsible  || (data._responsible = mongoose.Types.ObjectId(REQ.responsible));
     !REQ.empresaid  || (data._empresa = mongoose.Types.ObjectId(REQ.empresaid));    
     !REQ.description  || (data.description = REQ.description);    
     !REQ.rate  || (data.rate = REQ.rate);    

@@ -30,7 +30,7 @@ EmpresaSchema.plugin(location);
 //add email field
 EmpresaSchema.plugin(email);
 //add userid
-UsuarioSchema.plugin(userid);
+EmpresaSchema.plugin(userid);
 
 // Export the Mongoose model
 module.exports = mongoose.model('Empresa', EmpresaSchema);

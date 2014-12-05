@@ -72,7 +72,7 @@ var ctrlEmpresa = function (server) {
 
   function put(req, res) {
 
-    vae data = {};
+    var data = {};
 
     !req.body.name  || (data.name = req.body.name);    
     !req.body.nit  || (data.nit = req.body.nit);

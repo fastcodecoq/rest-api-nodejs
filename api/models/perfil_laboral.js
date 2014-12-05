@@ -9,7 +9,7 @@ var location = require('./plugins/location');
 
 
 var perfil_laboralSchema = new Schema({
-	  name : { type : String, trim : true}
+	  name : { type : String, trim : true},
 	  area : [{ type : String, trim : true, lowercase=true}],
 	  profesion: { type : String, trim : true, lowercase=true},
 	  experience: { type : String, trim : true, lowercase=true},

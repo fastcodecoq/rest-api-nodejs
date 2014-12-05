@@ -107,8 +107,8 @@ var ctrlOrden_servicio = function (server) {
 
     var query = {};
 
-    !REQ.orden_servicioid  || (data._id = mongoose.Types.ObjectId(REQ.orden_servicioid));    
-    !REQ.empresaid  || (data._empresa = mongoose.Types.ObjectId(REQ.empresaid));
+    !REQ.orden_servicioid  || (query._id = mongoose.Types.ObjectId(REQ.orden_servicioid));    
+    !REQ.empresaid  || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));
 
     
 

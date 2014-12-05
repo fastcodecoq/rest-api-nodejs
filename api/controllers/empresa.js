@@ -17,6 +17,15 @@ var ctrlEmpresa = function (server) {
     empresa._user_id = req.user._id;
     empresa.email = req.body.email;
 
+    !req.body.name  || (empresa.name = req.body.name);    
+    !req.body.nit  || (empresa.nit = req.body.nit);
+    !req.body.tel  || (empresa.tel = req.body.tel);
+    !req.body._user_id  || (empresa._user_id = mongoose.Types.ObjectId(req.body.user_id));
+    !req.body.email  || (empresa.name = req.body.email);    
+    !req.body.location  || (empresa.location = req.body.location);    
+
+    
+
 // Save the empresa and check for errors
     empresa.save(function (err) {
       if (err) {
@@ -34,11 +43,25 @@ var ctrlEmpresa = function (server) {
      query._user_id = req.params.userid ? mongoose.Types.ObjectId(req.params.userid) : false;
      query._id = req.params.empresaid ? new mongoose.Types.ObjectId(req.params.empresaid) : false;
 
+      for(x in query)
+          if(!query[x])
+          {
+            res.send(500,'invalid params');
+            return;
+          }
+
+   if(!req.params.userid || !req.params.empresaid)
+          {
+            res.send(500,'invalid params');
+            return;
+          }
+
 
 // Use the Empresa model to find all empresa
     Empresa.find(query, function (err, empresas) {
       if (err) {
         res.send(err);
+        return;
       }
       res.json(empresas);
     });
@@ -48,17 +71,22 @@ var ctrlEmpresa = function (server) {
 
 
   function put(req, res) {
+
+    vae data = {};
+
+    !req.body.name  || (data.name = req.body.name);    
+    !req.body.nit  || (data.nit = req.body.nit);
+    !req.body.tel  || (data.tel = req.body.tel);
+    !req.body._user_id  || (data._user_id = mongoose.Types.ObjectId(req.body.user_id));
+    !req.body.email  || (data.name = req.body.email);    
+    !req.body.location  || (data.location = req.body.location);    
+
+
 // Use the Empresa model to find a specific empresa
     Empresa.update({
-      userId: req.user._id,
-      _id: req.params.empresa_id
-    }, {
-      name: req.body.name,
-      nit: req.body.nit,
-      tel: req.body.tel,
-      owner: req.body.owner,
-      email: req.body.email
-    }, function (err, num, raw) {
+      _user_id: mongoose.Types.ObjectId(req.params.userid),
+      _id: mongoose.Types.ObjectId(req.params.empresaid)
+    }, data, function (err, num, raw) {
       if (err) {
         res.send(err);
       }
@@ -68,7 +96,7 @@ var ctrlEmpresa = function (server) {
 
   function del(req, res) {
 // Use the Empresa model to find a specific empresa and remove it
-    Empresa.remove({userId: req.user._id, _id: req.params.empresa_id}, function (err) {
+    Empresa.remove({userId: mongoose.Types.ObjectId(req.params.userid), _id: mongoose.Types.ObjectId(req.params.empresaid)}, function (err) {
       if (err) {
         res.send(err);
       }

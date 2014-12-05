@@ -19,7 +19,7 @@ server.pre(function(req, res, next) {
         next('Not Allowed');
       
 
-    if(!req.headers.authorization != 'Bearer bad18eba1ff45jk7858b8ae88a77fa30')
+    if(req.headers.authorization != 'Bearer bad18eba1ff45jk7858b8ae88a77fa30')
         next('Not Allowed');
 
 

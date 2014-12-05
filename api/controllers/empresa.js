@@ -43,7 +43,7 @@ var ctrlEmpresa = function (server) {
 
      
       !REQ.userid  || (query._usuario = mongoose.Types.ObjectId(REQ.userid));
-      !REQ.empresaid  || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));  
+      !REQ.empresaid  || (query._id = mongoose.Types.ObjectId(REQ.empresaid));  
 
 
    if(!REQ.userid)

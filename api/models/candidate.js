@@ -21,9 +21,9 @@ var candidateSchema = new Schema({
 
 
 //add createdAt, updatedAt fields
-nameSchema.plugin(user);
-nameSchema.plugin(location);
-nameSchema.plugin(timestamps);
+candidateSchema.plugin(user);
+candidateSchema.plugin(location);
+candidateSchema.plugin(timestamps);
 
 
 

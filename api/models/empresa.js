@@ -2,6 +2,7 @@
 var mongoose = require('mongoose');
 var timestamps = require('mongoose-timestamp');
 var location = require('./plugins/location');
+var email = require('./plugins/email');
 var Schema = mongoose.Schema;
 
 // Define our Empresa schema
@@ -23,13 +24,6 @@ var EmpresaSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     required: true,
     ref: 'Users'
-  },
-  email: {
-    type: String,
-    required: true,
-    trim: true,
-    match: [/^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.\w{2,3})+$/,
-      'Please fill a valid email address']
   }
 });
 
@@ -37,5 +31,8 @@ var EmpresaSchema = new mongoose.Schema({
 EmpresaSchema.plugin(timestamps);
 //add location field
 EmpresaSchema.plugin(location);
+//add email field
+EmpresaSchema.plugin(email);
+
 // Export the Mongoose model
 module.exports = mongoose.model('Empresas', EmpresaSchema);

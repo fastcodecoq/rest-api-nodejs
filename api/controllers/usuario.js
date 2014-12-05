@@ -10,25 +10,25 @@ var ctrlUsuario = function (server) {
 
 
 // Create a new instance of the Usuario model
-    var Usuario = new Usuario;
+    var usuario = new Usuario;
     console.log('usuario ctrl post');
 
 
 // Set the usuario properties that came from the POST data
-    req.body.name  || (Usuario.name = req.body.name);    
-    req.body.last_name || (Usuario.last_name = req.body.last_name);
-    req.body.email || (Usuario.email = req.body.email);  
-    req.body.location || (Usuario.location = req.body.location);  
-    req.body.is_candidate || (Usuario.is_candidate = req.body.is_candidate);  
-    req.body.candidate_data || (Usuario.candidate_data = req.body.candidate_data);      
-    req.body.active || (Usuario.active = req.body.active);  
-    req.body.cv || (Usuario.cv = req.body.cv);
-    req.body.attached_cv  || (Usuario.attached_cv = req.body.attached_cv);
+    req.body.name  || (usuario.name = req.body.name);    
+    req.body.last_name || (usuario.last_name = req.body.last_name);
+    req.body.email || (usuario.email = req.body.email);  
+    req.body.location || (usuario.location = req.body.location);  
+    req.body.is_candidate || (usuario.is_candidate = req.body.is_candidate);  
+    req.body.candidate_data || (usuario.candidate_data = req.body.candidate_data);      
+    req.body.active || (usuario.active = req.body.active);  
+    req.body.cv || (usuario.cv = req.body.cv);
+    req.body.attached_cv  || (usuario.attached_cv = req.body.attached_cv);
 
 
 
 // Save the usuario and check for errors
-    Usuario.save(function (err) {
+    usuario.save(function (err) {
       if (err) {
         res.send(err);
       }

@@ -35,6 +35,8 @@ var UsuarioSchema = new mongoose.Schema({
   }
 });
 
+    console.log('usuario ctrl post');
+
 //add createdAt, updatedAt fields
 UsuarioSchema.plugin(timestamps);
 //add location field

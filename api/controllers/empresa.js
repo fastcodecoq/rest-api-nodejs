@@ -19,7 +19,7 @@ var ctrlEmpresa = function (server) {
     !req.body.email  || (empresa.name = req.body.email);    
     !req.body.location  || (empresa.location = req.body.location);    
 
-    
+  console.log(empresa);    
 
 // Save the empresa and check for errors
     empresa.save(function (err) {

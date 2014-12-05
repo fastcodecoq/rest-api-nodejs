@@ -16,7 +16,7 @@ var ctrlSolicitud_servicio = function (server) {
 
     
     !REQ.name  || (solicitud_servicio.name = REQ.name);          
-    !REQ.type  || (solicitud_servicio.type = mongoose.Types.ObjectId(REQ.type));
+    !REQ.type  || (solicitud_servicio.type = REQ.type);
     !REQ.empresaid  || (solicitud_servicio._empresa = mongoose.Types.ObjectId(REQ.empresaid));    
     !REQ.description  || (solicitud_servicio.description = REQ.description);    
     !REQ.accepted  || (solicitud_servicio.accepted = REQ.accepted);    

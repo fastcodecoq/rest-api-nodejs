@@ -1,8 +1,9 @@
 module.exports = exports = function(server){
 	  
 	var fs = require('fs');
-
-	for (x in fs.readdirSync('./'))
+	var files = fs.readdirSync('./');
+	
+	for (x in files)
 		require(files[x]);
 
 

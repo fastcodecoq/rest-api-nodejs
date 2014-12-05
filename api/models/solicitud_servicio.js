@@ -19,6 +19,7 @@ var SolicitudServicioSchema = new mongoose.Schema({
 //add createdAt, updatedAt fields
 SolicitudServicioSchema.plugin(timestamps);
 SolicitudServicioSchema.plugin(empresa);
+SolicitudServicioSchema.plugin(location);
 
 // Export the Mongoose model
 module.exports = mongoose.model('SolicitudServicios', SolicitudServicioSchema);

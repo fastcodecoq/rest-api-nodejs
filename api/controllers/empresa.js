@@ -79,7 +79,7 @@ var ctrlEmpresa = function (server) {
     !REQ.nit  || (data.nit = REQ.nit);
     !REQ.tel  || (data.tel = REQ.tel);
     !REQ.userid  || (data._usuario = mongoose.Types.ObjectId(REQ.userid));
-    !REQ.email  || (data.name = REQ.email);    
+    !REQ.email  || (data.email = REQ.email);    
     !REQ.location  || (data.location = REQ.location);    
 
 

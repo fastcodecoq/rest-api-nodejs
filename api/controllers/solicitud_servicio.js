@@ -92,7 +92,7 @@ var ctrlSolicitud_servicio = function (server) {
     !REQ.description  || (data.description = REQ.description);    
     !REQ.accepted  || (data.accepted = REQ.accepted);    
     !REQ.readed  || (data.accepted = REQ.readed);            
-    !REQ.readed  || (data.location = REQ.location);            
+    !REQ.location  || (data.location = REQ.location);            
 
     
 

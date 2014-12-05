@@ -25,4 +25,4 @@ candidateSchema.plugin(timestamps);
 
 
 
-module.exports = new mongoose.model('Candidate', candidateSchema); 
+module.exports = mongoose.model('Candidate', candidateSchema); 

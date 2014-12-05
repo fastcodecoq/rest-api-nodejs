@@ -38,4 +38,4 @@ nameSchema.plugin(empresa);
 nameSchema.plugin(timestamps);
 
 
-module.exports = new mongoose.model('Model', nameSchema); 
+module.exports = mongoose.model('Model', nameSchema); 

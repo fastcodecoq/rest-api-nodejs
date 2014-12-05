@@ -25,6 +25,7 @@ var ctrlEmpresa = function (server) {
     empresa.save(function (err) {
       if (err) {
         res.send(err);
+        return;
       }
       res.json({message: 'Empresa added', data: empresa});
     });

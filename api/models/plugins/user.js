@@ -6,7 +6,7 @@
   options || (options = {});
 
   schema.add({
-  	_user_id: {
+  	_usuario: {
     
     type: ObjectId,
     required: true,

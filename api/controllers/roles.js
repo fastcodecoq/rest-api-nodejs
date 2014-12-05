@@ -16,8 +16,8 @@ var ctrlRole = function (server) {
     console.log(REQ, 'req')
 
     !REQ.name  || (role.name = REQ.name);        
-    !REQ.userid  || (role._user_id = mongoose.Types.ObjectId(REQ.userid));
-    !REQ.empresaid  || (role._empresa_id = mongoose.Types.ObjectId(REQ.empresaid));    
+    !REQ.userid  || (role._usuario = mongoose.Types.ObjectId(REQ.userid));
+    !REQ.empresaid  || (role._empresa = mongoose.Types.ObjectId(REQ.empresaid));    
     !REQ.privileges  || (role.privileges = REQ.privileges);
 
    
@@ -41,8 +41,8 @@ var ctrlRole = function (server) {
      var REQ = req.params;
 
 
-      !REQ.userid  || (query._user_id = mongoose.Types.ObjectId(REQ.userid));
-      !REQ.empresaid  || (query._empresa_id = mongoose.Types.ObjectId(REQ.empresaid));  
+      !REQ.userid  || (query._usuario = mongoose.Types.ObjectId(REQ.userid));
+      !REQ.empresaid  || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));  
       
    if(!REQ.empresaid)
           {
@@ -54,7 +54,7 @@ var ctrlRole = function (server) {
 
 // Use the Role model to find all role
     Role.find(query)
-    .populate('_user_id')
+    .populate('_usuario')
     .exec(function (err, roles) {
       if (err) {
         res.send(err);
@@ -73,8 +73,8 @@ var ctrlRole = function (server) {
     var REQ = req.params;
 
     !REQ.name  || (data.name = REQ.name);          
-    !REQ.userid  || (data._user_id = mongoose.Types.ObjectId(REQ.userid));
-    !REQ.empresaid  || (data._empresa_id = mongoose.Types.ObjectId(REQ.empresaid));    
+    !REQ.userid  || (data._usuario = mongoose.Types.ObjectId(REQ.userid));
+    !REQ.empresaid  || (data._empresa = mongoose.Types.ObjectId(REQ.empresaid));    
     !REQ.privileges  || (data.privileges = REQ.privileges);    
 
 
@@ -86,8 +86,8 @@ var ctrlRole = function (server) {
 
 // Use the Role model to find a specific role
     Role.update({
-      _empresa_id : mongoose.Types.ObjectId(REQ.empresaid),
-      _user_id: mongoose.Types.ObjectId(REQ.userid),
+      _empresa : mongoose.Types.ObjectId(REQ.empresaid),
+      _usuario: mongoose.Types.ObjectId(REQ.userid),
       _id: mongoose.Types.ObjectId(REQ.roleid)
     }, data, function (err, num, raw) {
       if (err) {

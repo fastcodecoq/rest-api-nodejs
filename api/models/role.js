@@ -19,12 +19,13 @@ var RoleSchema = new mongoose.Schema({
   }, 
 });
 
-//add createdAt, updatedAt fields
-RoleSchema.plugin(timestamps);
+
 //add userid
 RoleSchema.plugin(user);
 //add empresaid
 RoleSchema.plugin(empresa);
+//add createdAt, updatedAt fields
+RoleSchema.plugin(timestamps);
 
 // Export the Mongoose model
 module.exports = mongoose.model('Role', RoleSchema);

@@ -18,7 +18,7 @@ var ctrlEmpresa = function (server) {
     !REQ.name  || (empresa.name = REQ.name);    
     !REQ.nit  || (empresa.nit = REQ.nit);
     !REQ.tel  || (empresa.tel = REQ.tel);
-    !REQ.userid  || (empresa._user_id = mongoose.Types.ObjectId(REQ.userid));
+    !REQ.userid  || (empresa._usuario = mongoose.Types.ObjectId(REQ.userid));
     !REQ.email  || (empresa.email = REQ.email);    
     !REQ.location  || (empresa.location = REQ.location);    
 
@@ -42,8 +42,8 @@ var ctrlEmpresa = function (server) {
      var REQ = req.params;
 
      
-      !REQ.userid  || (query._user_id = mongoose.Types.ObjectId(REQ.userid));
-      !REQ.empresaid  || (query._empresa_id = mongoose.Types.ObjectId(REQ.empresaid));  
+      !REQ.userid  || (query._usuario = mongoose.Types.ObjectId(REQ.userid));
+      !REQ.empresaid  || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));  
 
 
    if(!REQ.userid)
@@ -57,7 +57,7 @@ var ctrlEmpresa = function (server) {
 
 // Use the Empresa model to find all empresa
     Empresa.find(query)
-    .populate('_user_id')
+    .populate('_usuario')
     .exec(function (err, empresas) {
       if (err) {
         res.send(err);
@@ -78,14 +78,14 @@ var ctrlEmpresa = function (server) {
     !REQ.name  || (data.name = REQ.name);    
     !REQ.nit  || (data.nit = REQ.nit);
     !REQ.tel  || (data.tel = REQ.tel);
-    !REQ.userid  || (data._user_id = mongoose.Types.ObjectId(REQ.userid));
+    !REQ.userid  || (data._usuario = mongoose.Types.ObjectId(REQ.userid));
     !REQ.email  || (data.name = REQ.email);    
     !REQ.location  || (data.location = REQ.location);    
 
 
 // Use the Empresa model to find a specific empresa
     Empresa.update({
-      _user_id: mongoose.Types.ObjectId(REQ.userid),
+      _usuario: mongoose.Types.ObjectId(REQ.userid),
       _id: mongoose.Types.ObjectId(REQ.empresaid)
     }, data, function (err, num, raw) {
       if (err) {

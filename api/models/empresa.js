@@ -24,14 +24,15 @@ var EmpresaSchema = new mongoose.Schema({
   }
 });
 
-//add createdAt, updatedAt fields
-EmpresaSchema.plugin(timestamps);
+
 //add location field
 EmpresaSchema.plugin(location);
 //add email field
 EmpresaSchema.plugin(email);
 //add userid
 EmpresaSchema.plugin(user);
+//add createdAt, updatedAt fields
+EmpresaSchema.plugin(timestamps);
 
 // Export the Mongoose model
 module.exports = mongoose.model('Empresa', EmpresaSchema);

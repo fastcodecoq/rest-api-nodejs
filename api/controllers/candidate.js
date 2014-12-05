@@ -40,15 +40,15 @@ var ctrlCandidate = function (server) {
      var REQ = req.params;
 
 
-      !REQ.userid  || (query._usuario = mongoose.Types.ObjectId(REQ.userid));      
+      !REQ.candidateid  || (query._id = mongoose.Types.ObjectId(REQ.candidateid));      
       
-   if(!REQ.userid)
+   if(!REQ.candidateid)
           {
             res.send(500,'invalid params');
             return;
           }
 
-      !REQ.candidateid  || (query._usuario = mongoose.Types.ObjectId(REQ.candidateid));      
+      !REQ.usuarioid  || (query._usuario = mongoose.Types.ObjectId(REQ.usuarioid));      
 
 // Use the Candidate model to find all candidate
     Candidate.find(query)

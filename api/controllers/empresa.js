@@ -57,7 +57,6 @@ var ctrlEmpresa = function (server) {
 
 // Use the Empresa model to find all empresa
     Empresa.find(query)
-    .populate('_user_id')
     .exec(function (err, empresas) {
       if (err) {
         res.send(err);

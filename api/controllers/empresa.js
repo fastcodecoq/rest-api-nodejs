@@ -19,7 +19,7 @@ var ctrlEmpresa = function (server) {
     !REQ.nit  || (empresa.nit = REQ.nit);
     !REQ.tel  || (empresa.tel = REQ.tel);
     !REQ.userid  || (empresa._user_id = mongoose.Types.ObjectId(REQ.userid));
-    !REQ.email  || (empresa.name = REQ.email);    
+    !REQ.email  || (empresa.email = REQ.email);    
     !REQ.location  || (empresa.location = REQ.location);    
 
   console.log(empresa);    

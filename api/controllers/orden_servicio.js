@@ -60,7 +60,7 @@ var ctrlOrden_servicio = function (server) {
 
       !REQ.empresaid  || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));  
       !REQ.orden_servicioid  || (query._id = mongoose.Types.ObjectId(REQ.orden_servicioid));
-      
+
 
 
 // Use the Orden_servicio model to find all orden_servicio
@@ -101,7 +101,7 @@ var ctrlOrden_servicio = function (server) {
     !REQ.end_date  || (data.rate = REQ.end_date);    
     !REQ.status  || (data.status = REQ.status);    
     !REQ.location  || (data.location = REQ.location);    
-    !REQ.empresaid  || (data.contact = mongoose.Types.ObjectId(REQ.contact));  
+    !REQ.contact  || (data.contact = mongoose.Types.ObjectId(REQ.contact));  
     
 
 

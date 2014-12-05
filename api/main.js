@@ -9,9 +9,7 @@ var server = restify.createServer({
 
 
 
-server.use(restify.bodyParser({
-  mapParams: true
-}));
+server.use(restify.bodyParser());
 server.use(restify.gzipResponse());
 
   

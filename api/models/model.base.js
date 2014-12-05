@@ -20,6 +20,15 @@ var nameSchema = new Schema({
 });
 
 
+nameSchema.pre('save', function (next) {
+  
+ // do stuff
+
+  next();
+  
+});
+
+
 //add full name
 UsuarioSchema.plugin(fullname);
 //add location field

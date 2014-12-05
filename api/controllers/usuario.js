@@ -1,8 +1,10 @@
-// Load required packages
-var Usuario = require('../models/usuario');
-var mongoose = require('mongoose');
 
 var ctrlUsuario = function (server) {
+
+  // Load required packages
+  var Usuario = require('../models/usuario');
+  var mongoose = require('mongoose');
+
 
   function post(req, res) {
 

@@ -1,8 +1,10 @@
-// Load required packages
-var Empresa = require('../models/empresa');
-var mongoose = require('mongoose');
+
 
 var ctrlEmpresa = function (server) {
+
+  // Load required packages
+  var Empresa = require('../models/empresa');
+  var mongoose = require('mongoose');
 
   function post(req, res) {
 // Create a new instance of the Empresa model

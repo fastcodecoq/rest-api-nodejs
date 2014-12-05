@@ -20,8 +20,6 @@ var UsuarioSchema = new mongoose.Schema({
 UsuarioSchema.plugin(fullname);
 //add location field
 UsuarioSchema.plugin(location);
-//add candidate data
-UsuarioSchema.plugin(candidate_data);
 //add email
 UsuarioSchema.plugin(email);
 //add active

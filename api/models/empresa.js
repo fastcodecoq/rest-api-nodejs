@@ -16,7 +16,8 @@ var EmpresaSchema = new mongoose.Schema({
   },
   nit: {
     type: Number,
-    required: true
+    required: true,
+    index: { unique: true }
   },
   tel: {
     type: Number,

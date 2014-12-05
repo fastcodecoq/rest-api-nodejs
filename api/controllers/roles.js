@@ -41,7 +41,7 @@ var ctrlRole = function (server) {
      var REQ = req.params;
 
 
-      !REQ.userid  || (query._user_id = mongoose.Types.ObjectId(REQ.empresaid));
+      !REQ.userid  || (query._user_id = mongoose.Types.ObjectId(REQ.userid));
       !REQ.empresaid  || (query._empresa_id = mongoose.Types.ObjectId(REQ.empresaid));  
       
    if(!REQ.empresaid)
@@ -54,7 +54,7 @@ var ctrlRole = function (server) {
 
 // Use the Role model to find all role
     Role.find(query)
-    .populate('_empresa_id _user_id')
+    .populate('_user_id')
     .exec(function (err, roles) {
       if (err) {
         res.send(err);
@@ -73,7 +73,7 @@ var ctrlRole = function (server) {
     var REQ = req.params;
 
     !REQ.name  || (data.name = REQ.name);          
-    !REQ.userid  || (data._user_id = mongoose.Types.ObjectId(REQ.empresaid));
+    !REQ.userid  || (data._user_id = mongoose.Types.ObjectId(REQ.userid));
     !REQ.empresaid  || (data._empresa_id = mongoose.Types.ObjectId(REQ.empresaid));    
     !REQ.privileges  || (data.privileges = REQ.privileges);    
 

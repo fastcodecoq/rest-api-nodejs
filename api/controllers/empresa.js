@@ -11,16 +11,17 @@ var ctrlEmpresa = function (server) {
     var empresa = new Empresa;
 
 // Set the empresa properties that came from the POST data
+    var REQ = req.body;
 
-  console.log(body, 'body');    
+    console.log(REQ, 'body');    
 
 
-    !req.body.name  || (empresa.name = req.body.name);    
-    !req.body.nit  || (empresa.nit = req.body.nit);
-    !req.body.tel  || (empresa.tel = req.body.tel);
-    !req.body.userid  || (empresa._user_id = mongoose.Types.ObjectId(req.body.userid));
-    !req.body.email  || (empresa.name = req.body.email);    
-    !req.body.location  || (empresa.location = req.body.location);    
+    !REQ.name  || (empresa.name = REQ.name);    
+    !REQ.nit  || (empresa.nit = REQ.nit);
+    !REQ.tel  || (empresa.tel = REQ.tel);
+    !REQ.userid  || (empresa._user_id = mongoose.Types.ObjectId(REQ.userid));
+    !REQ.email  || (empresa.name = REQ.email);    
+    !REQ.location  || (empresa.location = REQ.location);    
 
   console.log(empresa);    
 
@@ -72,13 +73,14 @@ var ctrlEmpresa = function (server) {
   function put(req, res) {
 
     var data = {};
+    var REQ = req.body;
 
-    !req.body.name  || (data.name = req.body.name);    
-    !req.body.nit  || (data.nit = req.body.nit);
-    !req.body.tel  || (data.tel = req.body.tel);
-    !req.body._user_id  || (data._user_id = mongoose.Types.ObjectId(req.body.user_id));
-    !req.body.email  || (data.name = req.body.email);    
-    !req.body.location  || (data.location = req.body.location);    
+    !REQ.name  || (data.name = REQ.name);    
+    !REQ.nit  || (data.nit = REQ.nit);
+    !REQ.tel  || (data.tel = REQ.tel);
+    !REQ._user_id  || (data._user_id = mongoose.Types.ObjectId(REQ.user_id));
+    !REQ.email  || (data.name = REQ.email);    
+    !REQ.location  || (data.location = REQ.location);    
 
 
 // Use the Empresa model to find a specific empresa

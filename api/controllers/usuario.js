@@ -11,21 +11,20 @@ var ctrlUsuario = function (server) {
 
 // Create a new instance of the Usuario model
     var usuario = new Usuario;    
-    
+    var REQ = req.params;    
     
 // Set the usuario properties that came from the POST data
-    !req.body.name  || (usuario.name = req.body.name);    
-    !req.body.last_name || (usuario.last_name = req.body.last_name);
-    !req.body.email || (usuario.email = req.body.email);  
-    !req.body.location || (usuario.location = req.body.location);  
-    !req.body.is_candidate || (usuario.is_candidate = req.body.is_candidate);  
-    !req.body.candidate_data || (usuario.candidate_data = req.body.candidate_data);      
-    !req.body.active || (usuario.active = req.body.active);  
-    !req.body.cv || (usuario.cv = req.body.cv);
-    !req.body.attached_cv  || (usuario.attached_cv = req.body.attached_cv);
+    !REQ.name  || (usuario.name = REQ.name);    
+    !REQ.last_name || (usuario.last_name = REQ.last_name);
+    !REQ.email || (usuario.email = REQ.email);  
+    !REQ.location || (usuario.location = REQ.location);  
+    !REQ.is_candidate || (usuario.is_candidate = REQ.is_candidate);  
+    !REQ.candidate_data || (usuario.candidate_data = REQ.candidate_data);      
+    !REQ.active || (usuario.active = REQ.active);  
+    !REQ.cv || (usuario.cv = REQ.cv);
+    !REQ.attached_cv  || (usuario.attached_cv = REQ.attached_cv);
 
     
-    console.log(usuario);
 
 // Save the usuario and check for errors
     usuario.save(function (err) {
@@ -45,8 +44,9 @@ var ctrlUsuario = function (server) {
 
 // Use the Usuario model to find a specific usuario
      var query = {};
+     var REQ = req.params;     
 
-     !req.params.userid || (query._id = mongoose.Types.ObjectId(req.params.userid))    
+     !REQ.userid || (query._id = mongoose.Types.ObjectId(REQ.userid))    
 
 
 // Use the Usuario model to find all usuario
@@ -66,19 +66,20 @@ var ctrlUsuario = function (server) {
 // Use the Usuario model to find a specific usuario
   
     var data = {};
+    var REQ = req.params;
 
-    !req.body.name  || (data.name = req.body.name);    
-    !req.body.last_name || (data.last_name = req.body.last_name);
-    !req.body.email || (data.email = req.body.email);  
-    !req.body.location || (data.location = req.body.location);  
-    !req.body.is_candidate || (data.is_candidate = req.body.is_candidate);  
-    !req.body.candidate_data || (data.candidate_data = req.body.candidate_data);      
-    !req.body.active || (data.active = req.body.active);  
-    !req.body.cv || (data.cv = req.body.cv);
-    !req.body.attached_cv  || (data.attached_cv = req.body.attached_cv);
+    !REQ.name  || (data.name = REQ.name);    
+    !REQ.last_name || (data.last_name = REQ.last_name);
+    !REQ.email || (data.email = REQ.email);  
+    !REQ.location || (data.location = REQ.location);  
+    !REQ.is_candidate || (data.is_candidate = REQ.is_candidate);  
+    !REQ.candidate_data || (data.candidate_data = REQ.candidate_data);      
+    !REQ.active || (data.active = REQ.active);  
+    !REQ.cv || (data.cv = REQ.cv);
+    !REQ.attached_cv  || (data.attached_cv = REQ.attached_cv);
 
     Usuario.update({
-      _id: mongoose.Types.ObjectId(req.params.userid)
+      _id: mongoose.Types.ObjectId(REQ.userid)
       }, data, function (err, num, raw) {
       if (err) {
         res.send(err);
@@ -90,8 +91,12 @@ var ctrlUsuario = function (server) {
   }
 
   function del(req, res) {
+
+    var REQ = req.params;
+
+
    // Use the Usuario model to find a specific usuario and remove it
-    Usuario.remove({_id: mongoose.Types.ObjectId(req.params.userid)}, function (err) {
+    Usuario.remove({_id: mongoose.Types.ObjectId(REQ.userid)}, function (err) {
       if (err) {
         res.send(err);
         return;        

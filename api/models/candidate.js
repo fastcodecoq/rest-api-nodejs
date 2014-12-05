@@ -15,7 +15,7 @@ var empresa = require('./plugins/empresa');
 
 
 var nameSchema = new Schema({
-	 _cv : {Schema.Types.ObjectId, required : true}
+	 _cv : {type: Schema.Types.ObjectId, required : true}
 });
 
 

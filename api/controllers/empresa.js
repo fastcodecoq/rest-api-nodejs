@@ -40,16 +40,16 @@ var ctrlEmpresa = function (server) {
      var query = {};
      var REQ = req.params;
 
-     
-      !REQ.userid  || (query._usuario = mongoose.Types.ObjectId(REQ.userid));
-      !REQ.empresaid  || (query._id = mongoose.Types.ObjectId(REQ.empresaid));  
-
-
-   if(!REQ.userid)
+        if(!REQ.empresaid)
           {
             res.send(500,'invalid params');
             return;
           }
+
+     
+      !REQ.userid  || (query._usuario = mongoose.Types.ObjectId(REQ.userid));
+      !REQ.empresaid  || (query._id = mongoose.Types.ObjectId(REQ.empresaid));  
+
 
           console.log(query);
 
@@ -115,8 +115,10 @@ var ctrlEmpresa = function (server) {
 
   console.log(global.apiBaseUri);
 
+  server.get(global.apiBaseUri + '/empresa/:empresaid', get);
   server.get(global.apiBaseUri + '/usuario/:userid/empresa', get);
   server.post(global.apiBaseUri + '/usuario/:userid/empresa', post);
+  server.post(global.apiBaseUri + '/empresa/usuario/:userid', post);
   server.get(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', get);  
   server.put(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', put);
   server.del(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', del);

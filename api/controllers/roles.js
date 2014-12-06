@@ -60,6 +60,13 @@ var ctrlRole = function (server) {
         res.send(err);
         return;
       }
+
+      if(roles.length === 0)
+      {
+        res.send(new Error('Not found'));
+        return;        
+       }
+
       res.json({data:roles});
     });
 

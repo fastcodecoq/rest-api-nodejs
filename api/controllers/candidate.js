@@ -58,6 +58,13 @@ var ctrlCandidate = function (server) {
         res.send(err);
         return;
       }
+
+      if(candidates.length === 0)
+      {
+        res.send(new Error('Not found'));
+        return;        
+       }
+
       res.json({data:candidates});
     });
 

@@ -50,19 +50,19 @@ var ctrlUsuario = function (server) {
 
 
 // Use the Usuario model to find all usuario
-    Usuario.find(query, function (err, usuarios) {
+    Usuario.find(query, function (err, usuario) {
       if (err) {
         res.send(err);
         return;        
       }
 
-      if(usuarios.length === 0)
+      if(usuario.length === 0)
       {
         res.send(new Error('Not found'));
         return;        
        }
 
-      res.json(usuarios);
+      res.json(usuario);
     });
 
   }

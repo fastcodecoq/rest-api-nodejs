@@ -65,6 +65,14 @@ var ctrlSolicitud_servicio = function (server) {
         res.send(err);
         return;
       }
+
+
+      if(solicitud_servicios.length === 0)
+      {
+        res.send(new Error('Not found'));
+        return;        
+       }
+
       res.json({data:solicitud_servicios});
     });
 

@@ -75,6 +75,13 @@ var ctrlOrden_servicio = function (server) {
         res.send(err);
         return;
       }
+
+     if(orden_servicios.length === 0)
+      {
+        res.send(new Error('Not found'));
+        return;        
+       }
+
       res.json({data:orden_servicios});
     });
 

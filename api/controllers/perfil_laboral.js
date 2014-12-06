@@ -84,6 +84,14 @@ var ctrlPerfil_laboral = function (server) {
         res.send(err);
         return;
       }
+
+
+      if(perfil_laborals.length === 0)
+      {
+        res.send(new Error('Not found'));
+        return;        
+       }
+
       res.json({data:perfil_laborals});
     });
 

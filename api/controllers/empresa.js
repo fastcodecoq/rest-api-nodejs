@@ -14,7 +14,6 @@ var ctrlEmpresa = function (server) {
     var REQ = req.params;
     
 
-
     !REQ.name  || (empresa.name = REQ.name);    
     !REQ.nit  || (empresa.nit = REQ.nit);
     !REQ.tel  || (empresa.tel = REQ.tel);
@@ -63,6 +62,13 @@ var ctrlEmpresa = function (server) {
         res.send(err);
         return;
       }
+
+      if(empresas.length === 0)
+      {
+        res.send(new Error('Not found'));
+        return;        
+       }
+
       res.json({data:empresas}); 
     });
 

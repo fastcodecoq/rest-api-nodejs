@@ -25,7 +25,7 @@ CvSchema.pre('save', function (next) {
 });
 
 
-
+ 
 //add createdAt, updatedAt fields
 CvSchema.plugin(timestamps);
 CvSchema.plugin(url);

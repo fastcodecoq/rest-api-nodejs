@@ -30,7 +30,7 @@ nameSchema.pre('save', function (next) {
 
 
 //add full name
-UsuarioSchema.plugin(fullname);
+nameSchema.plugin(fullname);
 //add location field
 nameSchema.plugin(location);
 //add candidate data

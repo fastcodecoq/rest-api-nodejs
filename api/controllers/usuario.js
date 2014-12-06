@@ -55,6 +55,13 @@ var ctrlUsuario = function (server) {
         res.send(err);
         return;        
       }
+
+      if(usuarios.length === 0)
+      {
+        res.send(new Error('Not found'));
+        return;        
+       }
+
       res.json(usuarios);
     });
 

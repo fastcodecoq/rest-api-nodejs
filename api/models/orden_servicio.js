@@ -17,27 +17,24 @@ var OrdenServicioSchema = new mongoose.Schema({
     ref: 'Usuario'
   },
   description: {
-    type: String,
-    required: true,
+    type: String,    
     trim: true
   },
   rate: {
+    type: Number    
+  },
+  start_date: {
+    type: Date
+  },
+  end_date: {
+    type: Date
+  },
+  status: {
     type: Number,
     required: true
   },
-  start_date: {
-    type: Date,
-    required: true
-  },
-  end_date: {
-    type: Date,
-    required: true
-  },
-  status: {
-    type: Number
-  },
   contact : {
-      type : [{ type : Schema.Types.ObjectId , ref : 'Usuario' }]
+      type : [{ type : Schema.Types.ObjectId , ref : 'Usuario' , required: true}]
   }
 });
 

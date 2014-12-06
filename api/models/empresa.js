@@ -20,8 +20,7 @@ var EmpresaSchema = new mongoose.Schema({
     index: { unique: true }
   },
   tel: {
-    type: Number,
-    required: true
+    type: Number    
   }
 });
 

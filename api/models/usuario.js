@@ -13,7 +13,8 @@ var UsuarioSchema = new mongoose.Schema({
   config : {
       type : Object,
       default : {}
-  }
+  },
+  terms : {type : Boolean, default: false}  
 });
 
 //add full name

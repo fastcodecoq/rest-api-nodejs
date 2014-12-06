@@ -63,7 +63,7 @@ var ctrlRole = function (server) {
 
       if(roles.length === 0)
       {
-        res.send(new Error('Not found'));
+        res.send(new Error('Not records found'));        
         return;        
        }
 

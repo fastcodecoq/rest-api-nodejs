@@ -88,7 +88,7 @@ var ctrlPerfil_laboral = function (server) {
 
       if(perfil_laborals.length === 0)
       {
-        res.send(new Error('Not found'));
+        res.send(new Error('Not records found'));        
         return;        
        }
 

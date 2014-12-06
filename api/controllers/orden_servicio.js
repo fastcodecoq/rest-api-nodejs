@@ -61,7 +61,7 @@ var ctrlOrden_servicio = function (server) {
             res.send(500,'invalid params');
             return;
           }
-          
+
 
       !REQ.empresaid  || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));  
       !REQ.orden_servicioid  || (query._id = mongoose.Types.ObjectId(REQ.orden_servicioid));
@@ -79,7 +79,7 @@ var ctrlOrden_servicio = function (server) {
 
      if(orden_servicios.length === 0)
       {
-        res.send(new Error('Not found'));
+        res.send(new Error('Not records found'));        
         return;        
        }
 

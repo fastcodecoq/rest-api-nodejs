@@ -85,17 +85,21 @@ var ctrlRole = function (server) {
     !REQ.privileges  || (data.privileges = REQ.privileges);    
 
 
-   if(!REQ.empresaid || !REQ.userid)
+   if(!REQ.roleid)
           {
             res.send(500,'invalid params');
             return;
           }
 
+    var query = {};
+
+      !REQ.empresaid || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));
+      !REQ.userid || (query._usuario = mongoose.Types.ObjectId(REQ.userid));
+      !REQ.roleid || (query._id = mongoose.Types.ObjectId(REQ.roleid));
+
 // Use the Role model to find a specific role
     Role.update({
-      _empresa : mongoose.Types.ObjectId(REQ.empresaid),
-      _usuario: mongoose.Types.ObjectId(REQ.userid),
-      _id: mongoose.Types.ObjectId(REQ.roleid)
+
     }, data, function (err, num, raw) {
       if (err) {
         res.send(err);
@@ -106,7 +110,7 @@ var ctrlRole = function (server) {
 
   function del(req, res) {
 // Use the Role model to find a specific role and remove it
-    Role.remove({userId: mongoose.Types.ObjectId(req.params.userid), _id: mongoose.Types.ObjectId(req.params.roleid)}, function (err) {
+    Role.remove({_id: mongoose.Types.ObjectId(req.params.roleid)}, function (err) {
       if (err) {
         res.send(err);
       }
@@ -121,7 +125,8 @@ var ctrlRole = function (server) {
   server.post(global.apiBaseUri + '/empresa/:empresaid/usuario/:userid/role', post);
   server.get(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid/role', get);    
   server.put(global.apiBaseUri + '/empresa/:empresaid/usuario/:userid/role/:roleid', put);
-  server.del(global.apiBaseUri + '/usuario/:userid/role/:roleid/role', del);
+  server.put(global.apiBaseUri + '/role/:roleid', put);
+  server.del(global.apiBaseUri + '/role/:roleid', del);
 
 };
 

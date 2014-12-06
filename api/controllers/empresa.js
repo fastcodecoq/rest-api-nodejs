@@ -75,6 +75,13 @@ var ctrlEmpresa = function (server) {
     var data = {};
     var REQ = req.params;
 
+
+    if(!REQ.empresaid)
+          {
+            res.send(500,'invalid params');
+            return;
+       }
+
     !REQ.name  || (data.name = REQ.name);    
     !REQ.nit  || (data.nit = REQ.nit);
     !REQ.tel  || (data.tel = REQ.tel);
@@ -82,12 +89,17 @@ var ctrlEmpresa = function (server) {
     !REQ.email  || (data.email = REQ.email);    
     !REQ.location  || (data.location = REQ.location);    
 
+    // making the query for update
+
+    var query = {};
+
+    
+    !REQ.userid || (query._usuario = mongoose.Types.ObjectId(REQ.userid));
+    !REQ.empresaid || (query._id = mongoose.Types.ObjectId(REQ.empresaid));
+    
 
 // Use the Empresa model to find a specific empresa
-    Empresa.update({
-      _usuario: mongoose.Types.ObjectId(REQ.userid),
-      _id: mongoose.Types.ObjectId(REQ.empresaid)
-    }, data, function (err, num, raw) {
+    Empresa.update(query, data, function (err, num, raw) {
       if (err) {
         res.send(err);
         return;
@@ -111,9 +123,10 @@ var ctrlEmpresa = function (server) {
 
   server.get(global.apiBaseUri + '/empresa/:empresaid', get);
   server.get(global.apiBaseUri + '/usuario/:userid/empresa', get);
+  server.get(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', get);    
   server.post(global.apiBaseUri + '/usuario/:userid/empresa', post);
   server.post(global.apiBaseUri + '/empresa/usuario/:userid', post);
-  server.get(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', get);  
+  server.put(global.apiBaseUri + '/empresa/:empresaid', put);
   server.put(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', put);
   server.del(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', del);
 };

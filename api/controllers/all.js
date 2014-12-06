@@ -6,7 +6,7 @@ module.exports = exports = function(server){
 	console.log(files)
 
 		for (x in files)
-		 if(!files[x].match('gitignore|base|config|zip|json|all') && files.match[x].match('.js'))				 
+		 if(!files[x].match('gitignore|base|config|zip|json|all') && files[x].match('.js'))				 
    		      require('./' + files[x])(server);
 
 

@@ -56,11 +56,12 @@ var ctrlOrden_servicio = function (server) {
 
 
       
-   if(!REQ.empresaid)
+   if(!REQ.orden_servicioid)
           {
             res.send(500,'invalid params');
             return;
           }
+          
 
       !REQ.empresaid  || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));  
       !REQ.orden_servicioid  || (query._id = mongoose.Types.ObjectId(REQ.orden_servicioid));
@@ -152,6 +153,7 @@ var ctrlOrden_servicio = function (server) {
 
   server.get(global.apiBaseUri + '/empresa/:empresaid/orden_servicio/:orden_servicioid', get);    
   server.get(global.apiBaseUri + '/empresa/:empresaid/orden_servicio', get);    
+  server.get(global.apiBaseUri + '/orden_servicio/:orden_servicioid', get);    
   server.post(global.apiBaseUri + '/empresa/:empresaid/orden_servicio', post);
   server.put(global.apiBaseUri + '/orden_servicio/:orden_servicioid', put);
   server.del(global.apiBaseUri + '/orden_servicio/:orden_servicioid', del);

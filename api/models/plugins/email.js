@@ -1,5 +1,5 @@
 
-  module.exports = exports = function namePlugin(schema, required) {
+  module.exports = exports = function emailPlugin(schema, required) {
 
   required || (required = true)
 

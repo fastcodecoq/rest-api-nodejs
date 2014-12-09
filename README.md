@@ -10,7 +10,7 @@ Documentación REST API CYZ.
 ---------------------------
 
 Respuesta
-_________
+---------
 
 Formato: JSON
 
@@ -36,10 +36,11 @@ Cod. HTTP 401
 ```
 
 USUARIO
-_______
+-------
+
 
 CREAR 
-------
+_____
 
 
 Método: POST 
@@ -64,7 +65,7 @@ password String
 ```
 
 OBTENER
--------
+_______
 
 Método: GET
 URI: /api/usuario/:idusuario
@@ -72,7 +73,8 @@ URI: /api/usuario/:idusuario
 
 
 MODIFICAR
----------
+_________
+
 
 
 Método: PUT / UPDATE
@@ -98,18 +100,19 @@ password String
 
 
 ELIMINAR
---------
+________
+
 
 Método: DELETE
 URI: /api/usuario/:idusuario
 
 
 EMPRESA
-_______
+-------
 
 
 CREAR 
-------
+_____
 
 
 Método: POST 
@@ -135,7 +138,7 @@ active Boolean (Defautl false)
 
 
 OBTENER
--------
+_______
 
 Método: GET
 URI: /api/empresa/:empresaid
@@ -143,7 +146,8 @@ URI: /api/empresa/:empresaid
 
 
 MODIFICAR
----------
+_________
+
 
 
 Método: PUT / UPDATE
@@ -169,7 +173,7 @@ active Boolean (Defautl false)
 
 
 ELIMINAR
---------
+________
 
 Método: DELETE
 URI: /api/empresa/:idempresa
@@ -177,11 +181,10 @@ URI: /api/empresa/:idempresa
 
 
 CANDIDATO
-_________
-
+---------
 
 CREAR 
-------
+_____
 
 
 Método: POST 
@@ -207,7 +210,7 @@ active Boolean (Defautl false)
 
 
 OBTENER
--------
+_______
 
 Método: GET
 URI: /api/empresa/:empresaid
@@ -215,7 +218,7 @@ URI: /api/empresa/:empresaid
 
 
 MODIFICAR
----------
+_________
 
 
 Método: PUT / UPDATE
@@ -241,7 +244,7 @@ active Boolean (Defautl false)
 
 
 ELIMINAR
---------
+________
 
 Método: DELETE
 URI: /api/empresa/:idempresa

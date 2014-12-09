@@ -16,11 +16,17 @@ server.pre(function(req, res, next) {
 
 
      if(!req.headers.authorization)       
-        next(new Error('Unauthorized'));
+       {
+          res.send({401,message: 'Unauthorized'});
+          return;
+       }
       
 
     if(req.headers.authorization != 'Bearer ' + config[config.env].token)
-        next(new Error('Unauthorized'));
+        {
+          res.send({401,message: 'Unauthorized'});
+          return;
+        }
 
 
      next();

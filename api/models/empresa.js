@@ -5,6 +5,7 @@ var location = require('./plugins/location');
 var email = require('./plugins/email');
 var privilege = require('./plugins/privileges');
 var user = require('./plugins/user');
+var user = require('./plugins/active');
 var Schema = mongoose.Schema;
 
 // Define our Empresa schema
@@ -33,6 +34,8 @@ EmpresaSchema.plugin(email);
 EmpresaSchema.plugin(user);
 //add createdAt, updatedAt fields
 EmpresaSchema.plugin(timestamps);
+//add active
+EmpresaSchema.plugin(active);
 
 // Export the Mongoose model
 module.exports = mongoose.model('Empresa', EmpresaSchema);

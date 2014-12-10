@@ -36,7 +36,8 @@ server.pre(function(req, res, next) {
 server.use(restify.bodyParser());
 server.use(restify.gzipResponse());
 server.use(restify.authorizationParser());
-  
+server.use(restify.CORS());
+
 //soporte de crossdomain
 //server.pre(require('./utils/cross.domain'));
 

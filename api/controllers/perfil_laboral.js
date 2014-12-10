@@ -65,11 +65,6 @@ var ctrlPerfil_laboral = function (server) {
 
 
       
-   if(!REQ.perfil_laboralid)
-          {
-            res.send(500,'invalid params');
-            return;
-          }
       
       !REQ.perfil_laboralid  || (query._id = mongoose.Types.ObjectId(REQ.perfil_laboralid));
       !REQ.orden_servicioid || (query._orden_servicio = mongoose.Types.ObjectId(REQ.orden_servicioid));
@@ -174,6 +169,7 @@ var ctrlPerfil_laboral = function (server) {
 
   
   server.get(global.apiBaseUri + '/orden_servicio/:orden_servicioid/perfil_laboral', get);
+  server.get(global.apiBaseUri + '/perfil_laboral', get);
   server.post(global.apiBaseUri + '/orden_servicio/:orden_servicioid/perfil_laboral', post);
   server.post(global.apiBaseUri + '/perfil_laboral/', post);
   server.put(global.apiBaseUri + '/perfil_laboral/:perfil_laboralid', put);

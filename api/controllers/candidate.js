@@ -41,12 +41,6 @@ var ctrlCandidate = function (server) {
 
 
       !REQ.candidateid  || (query._id = mongoose.Types.ObjectId(REQ.candidateid));      
-      
-   if(!REQ.candidateid)
-          {
-            res.send(500,'invalid params');
-            return;
-          }
 
       !REQ.usuarioid  || (query._usuario = mongoose.Types.ObjectId(REQ.usuarioid));      
 
@@ -112,6 +106,7 @@ var ctrlCandidate = function (server) {
   console.log(global.apiBaseUri);
 
   server.get(global.apiBaseUri + '/candidate/:candidateid', get);    
+  server.get(global.apiBaseUri + '/candidate', get);    
   server.get(global.apiBaseUri + '/candidate/usuario/:userid', get);
   server.post(global.apiBaseUri + '/candidate/usuario/:userid', post);
   server.put(global.apiBaseUri + '/candidate/:candidateid', put);

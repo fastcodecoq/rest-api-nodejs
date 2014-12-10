@@ -44,12 +44,6 @@ var ctrlSolicitud_servicio = function (server) {
      var REQ = req.params;
 
 
-      
-   if(!REQ.empresaid && !REQ.solicitud_servicioid)
-          {
-            res.send(500,'invalid params');
-            return;
-          }
 
 
       !REQ.empresaid  || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));  
@@ -136,6 +130,7 @@ var ctrlSolicitud_servicio = function (server) {
 
   server.get(global.apiBaseUri + '/empresa/:empresaid/solicitud_servicio/:solicitud_servicioid', get);    
   server.get(global.apiBaseUri + '/empresa/:empresaid/solicitud_servicio', get);    
+  server.get(global.apiBaseUri + '/solicitud_servicio', get);    
   server.post(global.apiBaseUri + '/empresa/:empresaid/solicitud_servicio', post);
   server.put(global.apiBaseUri + '/solicitud_servicio/:solicitud_servicioid', put);
   server.del(global.apiBaseUri + '/solicitud_servicio/:solicitud_servicioid', del);

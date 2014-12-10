@@ -44,12 +44,6 @@ var ctrlRole = function (server) {
       !REQ.userid  || (query._usuario = mongoose.Types.ObjectId(REQ.userid));
       !REQ.empresaid  || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));  
       
-   if(!REQ.empresaid)
-          {
-            res.send(500,'invalid params');
-            return;
-          }
-
       !REQ.roleid  || (query._id = mongoose.Types.ObjectId(REQ.roleid));      
 
 // Use the Role model to find all role
@@ -121,6 +115,8 @@ var ctrlRole = function (server) {
   console.log(global.apiBaseUri);
 
   server.get(global.apiBaseUri + '/empresa/:empresaid/role/:roleid', get);    
+  server.get(global.apiBaseUri + '/role/:roleid', get);    
+  server.get(global.apiBaseUri + '/role', get);    
   server.get(global.apiBaseUri + '/empresa/:empresaid/role', get);    
   server.post(global.apiBaseUri + '/empresa/:empresaid/usuario/:userid/role', post);
   server.get(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid/role', get);    

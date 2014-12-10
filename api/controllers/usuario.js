@@ -64,7 +64,7 @@ var ctrlUsuario = function (server) {
         return;        
        }
 
-      res.json(usuario);
+      res.json({data:usuario});
     });
 
   }

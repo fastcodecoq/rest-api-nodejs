@@ -150,6 +150,7 @@ var ctrlOrden_servicio = function (server) {
   server.get(global.apiBaseUri + '/orden_servicio/:orden_servicioid', get);    
   server.get(global.apiBaseUri + '/orden_servicio', get);    
   server.post(global.apiBaseUri + '/empresa/:empresaid/orden_servicio', post);
+  server.post(global.apiBaseUri + '/orden_servicio', post);
   server.put(global.apiBaseUri + '/orden_servicio/:orden_servicioid', put);
   server.del(global.apiBaseUri + '/orden_servicio/:orden_servicioid', del);
   server.get(global.apiBaseUri + '/orden_servicio/:orden_servicioid', get);

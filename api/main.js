@@ -17,14 +17,14 @@ server.pre(function(req, res, next) {
 
      if(!req.headers.authorization)       
        {
-          res.send({401,message: 'Unauthorized'});
+          res.send(401,{message: 'Unauthorized'});
           return;
        }
       
 
     if(req.headers.authorization != 'Bearer ' + config[config.env].token)
         {
-          res.send({401,message: 'Unauthorized'});
+          res.send(401,{message: 'Unauthorized'});
           return;
         }
 

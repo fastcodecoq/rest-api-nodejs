@@ -6,6 +6,7 @@ var email = require('./plugins/email');
 var privilege = require('./plugins/privileges');
 var user = require('./plugins/user');
 var active = require('./plugins/active');
+var avatar = require('./plugins/avatar');
 var Schema = mongoose.Schema;
 
 // Define our Empresa schema
@@ -36,6 +37,7 @@ EmpresaSchema.plugin(user);
 EmpresaSchema.plugin(timestamps);
 //add active
 EmpresaSchema.plugin(active);
+EmpresaSchema.plugin(avatar);
 
 // Export the Mongoose model
 module.exports = mongoose.model('Empresa', EmpresaSchema);

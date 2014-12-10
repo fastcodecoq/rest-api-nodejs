@@ -1,13 +1,13 @@
 
- module.exports = exports = function urlPlugin(schema, required) {
+ module.exports = exports = function avatarPlugin(schema, required) {
 
   required || (required = false)
 
   schema.add({
-  	url: {
+  	avatar: {
 	    type: String,	    
 	    trim: true,
-      required : required,      
+        required : required,
 	    match: [/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/, 'Invalid url']
       }
   });

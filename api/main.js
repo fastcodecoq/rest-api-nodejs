@@ -13,7 +13,7 @@ var io = require('socket.io').listen(server);
 server.pre(function(req, res, next) {
 
      console.log(req.headers)
-
+     require('./utils/cross.domain')
 
      if(!req.headers.authorization)       
        {
@@ -35,9 +35,8 @@ server.pre(function(req, res, next) {
 
 server.use(restify.bodyParser());
 server.use(restify.gzipResponse());
-server.use(restify.authorizationParser());
+server.use(restify.authorizationParser()); 
 server.use(restify.CORS());
-
 //soporte de crossdomain
 //server.pre(require('./utils/cross.domain'));
 

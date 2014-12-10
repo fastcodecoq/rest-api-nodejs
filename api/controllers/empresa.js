@@ -56,7 +56,7 @@ var ctrlEmpresa = function (server) {
 
 // Use the Empresa model to find all empresa
     Empresa.find(query)
-    .populate('_usuario')
+    .populate('_usuario _contact')
     .exec(function (err, empresas) {
       if (err) {
         res.send(err);
@@ -97,9 +97,6 @@ var ctrlEmpresa = function (server) {
     !REQ.location  || (data.location = REQ.location);  
 
 
-    if(REQ.contact)
-       for(x in REQ.contact)
-          data.contact.push(mongoose.Types.ObjectId(REQ.contact))  
 
     // making the query for update
 
@@ -108,10 +105,27 @@ var ctrlEmpresa = function (server) {
     
     !REQ.userid || (query._usuario = mongoose.Types.ObjectId(REQ.userid));
     !REQ.empresaid || (query._id = mongoose.Types.ObjectId(REQ.empresaid));
-    
+  
 
-// Use the Empresa model to find a specific empresa
-    Empresa.update(query, data, function (err, num, raw) {
+    if(REQ.contact)
+       {
+
+        Empresa.find(query, function(err, empresa){
+
+             for(x in REQ.contact)
+                 empresa.contact.push(mongoose.Types.ObjectId(REQ.contact[x]))
+
+               empresa.save(function(err){
+                          res.json({data:empresa});
+               })
+
+
+        })
+       
+       
+        }else
+        {
+           Empresa.update(query, data, function (err, num, raw) {
       if (err) {
         res.send(err);
         return;
@@ -119,6 +133,10 @@ var ctrlEmpresa = function (server) {
       }
       res.json({message: num + ' updated'});
     });
+        }
+
+// Use the Empresa model to find a specific empresa
+   
   }
 
   function del(req, res) {

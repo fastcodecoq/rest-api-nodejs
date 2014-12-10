@@ -25,7 +25,7 @@ var ctrlOrden_servicio = function (server) {
     !REQ.end_date  || (orden_servicio.end_date = REQ.end_date);    
     !REQ.status  || (orden_servicio.status = REQ.status);    
     !REQ.location  || (orden_servicio.location = REQ.location);    
-    !REQ.empresaid  || (orden_servicio.contact = mongoose.Types.ObjectId(REQ.contact));    
+  
 
     if(REQ.contact)
        for(x in REQ.contact)

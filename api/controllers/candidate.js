@@ -17,7 +17,7 @@ var ctrlCandidate = function (server) {
 
     !REQ.userid  || (candidate._usuario = mongoose.Types.ObjectId(REQ.userid));
     !REQ.location  || (candidate.location = REQ.location);
-    !REQ._cv  || (candidate._cv = mongoose.Types.ObjectId(REQ.location));
+    !REQ._cv  || (candidate._cv = mongoose.Types.ObjectId(REQ.cv));
 
    
     console.log(candidate);    

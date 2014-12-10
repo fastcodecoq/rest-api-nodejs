@@ -23,6 +23,9 @@ var EmpresaSchema = new mongoose.Schema({
   },
   tel: {
     type: Number    
+  },
+  contact : {
+      type : [{ type : Schema.Types.ObjectId , ref : 'Usuario' , required: true}]
   }
 });
 

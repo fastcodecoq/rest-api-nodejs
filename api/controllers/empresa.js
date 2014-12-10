@@ -22,6 +22,11 @@ var ctrlEmpresa = function (server) {
     !REQ.email  || (empresa.email = REQ.email);    
     !REQ.location  || (empresa.location = REQ.location);    
 
+
+    if(REQ.contact)
+       for(x in REQ.contact)
+          empresa.contact.push(mongoose.Types.ObjectId(REQ.contact))
+
   console.log(empresa);    
 
 // Save the empresa and check for errors
@@ -89,7 +94,12 @@ var ctrlEmpresa = function (server) {
     !REQ.avatar  || (data.avatar = REQ.avatar);
     !REQ.userid  || (data._usuario = mongoose.Types.ObjectId(REQ.userid));
     !REQ.email  || (data.email = REQ.email);    
-    !REQ.location  || (data.location = REQ.location);    
+    !REQ.location  || (data.location = REQ.location);  
+
+
+    if(REQ.contact)
+       for(x in REQ.contact)
+          data.contact.push(mongoose.Types.ObjectId(REQ.contact))  
 
     // making the query for update
 

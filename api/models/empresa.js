@@ -5,7 +5,7 @@ var location = require('./plugins/location');
 var email = require('./plugins/email');
 var privilege = require('./plugins/privileges');
 var user = require('./plugins/user');
-var user = require('./plugins/active');
+var active = require('./plugins/active');
 var Schema = mongoose.Schema;
 
 // Define our Empresa schema

@@ -13,7 +13,7 @@ var io = require('socket.io').listen(server);
 server.pre(function(req, res, next) {
 
      console.log(req.headers)
-     require('./utils/cross.domain')
+     require('./utils/cross.domain')(rq, res, next);
 
      if(!req.headers.authorization)       
        {

@@ -112,8 +112,12 @@ var ctrlEmpresa = function (server) {
 
         Empresa.find(query, function(err, empresa){
 
+
+
              for(x in REQ.contact)
-                 empresa.contact.push(mongoose.Types.ObjectId(REQ.contact[x]))
+                 {
+                  console.log(REQ.contact[x])
+                  empresa.contact.push(mongoose.Types.ObjectId(REQ.contact[x]))}
 
                empresa.save(function(err){
                           res.json({data:empresa});

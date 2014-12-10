@@ -18,7 +18,7 @@ Formato: JSON
 Cod. HTTP 200
 
 ```javascript
-{ message : String, data : Object }
+{ message : String, data : Object }  (la variable data contiente los resultados)
 ```
 
 Falla.
@@ -68,7 +68,7 @@ OBTENER
 _______
 
 Método: GET
-URI: /api/usuario/:idusuario
+URI: /api/usuario/:idusuario || /api/usuario
 
 
 
@@ -148,7 +148,7 @@ URI: /api/empresa/:empresaid
 MODIFICAR
 _________
 
-
+  
 
 Método: PUT / UPDATE
 URI: /api/empresa/:idempresa
@@ -188,7 +188,7 @@ _____
 
 
 Método: POST 
-URI: /api/empresa/:usuarioid || /api/empresa
+URI: /api/candidate/:usuarioid || /api/candidate
 Params: 
 
 ```javascript
@@ -213,8 +213,8 @@ OBTENER
 _______
 
 Método: GET
-URI: /api/empresa/:empresaid
-
+URI: /api/candidate || /api/:candidateid
+ 
 
 
 MODIFICAR
@@ -222,7 +222,7 @@ _________
 
 
 Método: PUT / UPDATE
-URI: /api/empresa/:idempresa
+URI: /api/candidate/:candidateid
 Params: 
 
 ```javascript
@@ -247,4 +247,4 @@ ELIMINAR
 ________
 
 Método: DELETE
-URI: /api/empresa/:idempresa
+URI: /api/candidate/:candidateid

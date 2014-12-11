@@ -21,6 +21,8 @@ credentialSchema.pre('save', function (next) {
   
  // do stuff
 
+  console.log(this.password);
+
   this.password || (this.password = Math.random().toString(36).slice(-8));
   this.password = passHash.generate(this.password);
 

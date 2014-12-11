@@ -127,6 +127,13 @@ tel String (required)
 email String (required)
 userid String (required)
 contact Array userid
+competences String Array
+anticipos Array Object [{
+	  			anticipo : Number,
+	  			amount : Number,
+	  			invoice_number: Number,
+	  			date : Date (mm-dd-yy)
+         }]
 location Object
          {
              address : String,

@@ -30,7 +30,7 @@ logSchema.methods.saveAction = function(req){
 	 var token = new token;
 	 var self = this;
 
-	 token.findOwner(HEAD.token, function(err, user){
+	 token.getOwner(HEAD.token, function(err, user){
 
 	 	    if(user.length === 0)
 	 	    {

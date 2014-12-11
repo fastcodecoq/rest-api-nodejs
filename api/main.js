@@ -12,11 +12,11 @@ var io = require('socket.io').listen(server);
 
 server.pre(function(req, res, next) {
 
-     console.log(req);
+     console.log(req.url );
      require('./utils/cross.domain')(req, res, next);     
      var Log = require('./models/log');
      var log = new Log;
- 
+
 
      if(!req.headers.authorization)       
        {

@@ -95,6 +95,59 @@ var ctrlEmpresa = function (server) {
     !REQ.userid  || (data._usuario = mongoose.Types.ObjectId(REQ.userid));
     !REQ.email  || (data.email = REQ.email);    
     !REQ.location  || (data.location = REQ.location);  
+    
+
+    if(REQ.contact)
+       {
+
+        data.contact = new Array();
+
+        for(x in REQ.contact)
+                 data.contact.push(mongoose.Types.ObjectId(REQ.contact));
+
+       }
+
+
+    // making the query for update
+
+    var query = {};
+
+    
+    !REQ.userid || (query._usuario = mongoose.Types.ObjectId(REQ.userid));
+    !REQ.empresaid || (query._id = mongoose.Types.ObjectId(REQ.empresaid));
+  
+
+  
+    Empresa.update(query, data, function (err, num, raw) {
+      if (err) {
+        res.send(err);
+        return;
+        
+      }
+      res.json({message: num + ' updated'});
+    });
+        
+
+// Use the Empresa model to find a specific empresa
+   
+  }
+
+
+  function putContact(req, res) {
+
+    var data = {};
+    var REQ = req.params;
+
+
+    if(!REQ.empresaid || !REQ.userid)
+          {
+            res.send(500,'invalid params');
+            return;
+          }
+
+
+        data.contact = new Array();
+
 
 
 
@@ -107,37 +160,28 @@ var ctrlEmpresa = function (server) {
     !REQ.empresaid || (query._id = mongoose.Types.ObjectId(REQ.empresaid));
   
 
-    if(REQ.contact)
-       {
-
-        Empresa.find(query, function(err, empresa){
-
-
-
-             for(x in REQ.contact)
-                 {
-                  console.log(REQ.contact[x])
-                  empresa.contact.push(mongoose.Types.ObjectId(REQ.contact[x]))}
-
-               empresa.save(function(err){
-                          res.json({data:empresa});
-               })
-
-
-        })
-       
-       
-        }else
-        {
-           Empresa.update(query, data, function (err, num, raw) {
+  
+    Empresa.find(query, function (err, empresa) {
+      
       if (err) {
-        res.send(err);
+        res.send(500,err);
         return;
         
       }
-      res.json({message: num + ' updated'});
+        
+        empresa.contact.push(mongoose.Types,ObjectId(REQ.userid));
+        empresa.save(function(err){
+           if (err) {
+            res.send(500,err);
+            return;
+            
+            } 
+
+            res.json({message: ' Contact added'});
+        });
+
     });
-        }
+        
 
 // Use the Empresa model to find a specific empresa
    
@@ -160,6 +204,7 @@ var ctrlEmpresa = function (server) {
   server.get(global.apiBaseUri + '/usuario/:userid/empresa', get);
   server.get(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', get);    
   server.post(global.apiBaseUri + '/usuario/:userid/empresa', post);
+  server.put(global.apiBaseUri + '/empresa/:empresaid/contact/:userid', putContact);
   server.post(global.apiBaseUri + '/empresa/usuario/:userid', post);
   server.post(global.apiBaseUri + '/empresa', post);
   server.put(global.apiBaseUri + '/empresa/:empresaid', put);

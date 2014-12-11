@@ -131,7 +131,7 @@ var ctrlSolicitud_servicio = function (server) {
   server.get(global.apiBaseUri + '/empresa/:empresaid/solicitud_servicio/:solicitud_servicioid', get);    
   server.get(global.apiBaseUri + '/empresa/:empresaid/solicitud_servicio', get);    
   server.get(global.apiBaseUri + '/solicitud_servicio', get);    
-  server.post(global.apiBaseUri + '/empresa/:empresaid/solicitud_servicio', post);
+  server.post(global.apiBaseUri + '/solicitud_servicio', post);
   server.put(global.apiBaseUri + '/solicitud_servicio/:solicitud_servicioid', put);
   server.del(global.apiBaseUri + '/solicitud_servicio/:solicitud_servicioid', del);
   server.get(global.apiBaseUri + '/solicitud_servicio/:solicitud_servicioid', get);

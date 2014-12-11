@@ -197,8 +197,8 @@ Params:
 
 ```javascript
 name String (required)
-_responsible String (userid required)
-_empresa String (empresaid required)
+responsible String (userid required)
+empresaid String (empresaid required)
 description String (required)
 status Number
 rate Number
@@ -234,8 +234,8 @@ Params:
 
 ```javascript
 name String (required)
-_responsible String (userid required)
-_empresa String (empresaid required)
+responsible String (userid required)
+empresaid String (empresaid required)
 description String (required)
 status Number
 rate Number
@@ -256,8 +256,79 @@ ELIMINAR
 ________
 
 Método: DELETE
-URI: /api/candidate/:candidateid
+URI: /api/orden_servicio/:ordenservicioid
 
+
+
+SOLICITUD SERVICIO
+------------------
+
+CREAR 
+_____
+
+
+Método: POST 
+URI: /api/solicitud_servicio 
+Params: 
+
+```javascript
+name String (required)
+empresaid String (empresaid required)
+type String 
+accepted Boolean (default false)
+readed Boolean (default false)
+description String 
+location Object
+         {
+             address : String,
+             city : String,
+             country : String,
+             lat : Number,
+             lng : Number
+         }
+active Boolean (Defautl truee)
+```
+
+
+OBTENER
+_______
+
+Método: GET
+URI: /api/solicitud_servicio/:solicitudservicioid || /api/solicitud_servicio
+ 
+
+
+MODIFICAR
+_________
+
+
+Método: PUT / UPDATE
+URI: /api/solicitud_servicio/:solicitudservicioid
+Params: 
+
+```javascript
+name String (required)
+empresaid String (empresaid required)
+type String 
+accepted Boolean (default false)
+readed Boolean (default false)
+description String 
+location Object
+         {
+             address : String,
+             city : String,
+             country : String,
+             lat : Number,
+             lng : Number
+         }
+active Boolean (Defautl truee)
+```
+
+ELIMINAR
+________
+
+Método: DELETE
+URI: /api/solicitud_servicio/:solicitudservicioid
 
 
 CANDIDATO
@@ -272,11 +343,8 @@ URI: /api/candidate/:usuarioid || /api/candidate
 Params: 
 
 ```javascript
-name String (required)
-nit String (required)
-tel String (required)
-email String (required)
 userid String (required)
+data Object
 location Object
          {
              address : String,
@@ -306,11 +374,8 @@ URI: /api/candidate/:candidateid
 Params: 
 
 ```javascript
-name String (required)
-nit String (required)
-tel String (required)
-email String (required)
 userid String (required)
+data Object
 location Object
          {
              address : String,

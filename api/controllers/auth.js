@@ -8,7 +8,7 @@ var authCtrl = function (server){
         var Sesion = require('../models/sesion');
         var mongoose = require('mongoose');
     			
-       function get(req, res, next){
+       function getToken(req, res, next){
        	// code
             var REQ = req.params;
       
@@ -22,6 +22,11 @@ var authCtrl = function (server){
       }
       res.json({data:model});      
     });
+
+   }
+
+
+   function login(){
 
    }
 
@@ -44,7 +49,8 @@ var authCtrl = function (server){
        }
 
 
-       server.get(global.apiBaseUri + 'api/ctrlName',get);
+       server.post(global.apiBaseUri + 'api/login',login);
+       server.get(global.apiBaseUri + 'api/getToken/:code',getToken);       
        server.post(global.apiBaseUri + 'api/ctrlName',put);
        server.put(global.apiBaseUri + 'api/ctrlName',put);
        server.del(global.apiBaseUri + 'api/ctrlName',del);

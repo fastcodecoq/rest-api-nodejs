@@ -188,9 +188,10 @@ var ctrlEmpresa = function (server) {
 
   function del(req, res) {
 // Use the Empresa model to find a specific empresa and remove it
-    Empresa.remove({userId: mongoose.Types.ObjectId(req.params.userid), _id: mongoose.Types.ObjectId(req.params.empresaid)}, function (err) {
+    Empresa.remove({_id: mongoose.Types.ObjectId(req.params.empresaid)}, function (err) {
       if (err) {
         res.send(err);
+        return;
       }
       res.json({message: 'Empresa removed'});
     });

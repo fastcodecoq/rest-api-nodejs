@@ -9,7 +9,7 @@ var timestamps = require('mongoose-timestamp');
 
 var tokenSchema = new Schema({
 	    value : {type:String},
-        ttl : {type:Number, required:true, default: 1800},        
+        ttl : {type:Number, required:true},        
         _credential : {type: Schema.Types.ObjectId, required : true}
         });
 
@@ -28,6 +28,18 @@ tokenSchema.pre('save', function (next) {
   
 });
 
+tokenSchema.methods.getByCredential = function(credentialid, callback){
+
+	 this.find({_credential : Schema.Types.ObjectId(credentialid)}, callback);
+
+}
+
+
+tokenSchema.methods.expired = function(credentialid, callback){
+
+	 return this.ttl < Date 
+
+}
 
 //add plugins
 

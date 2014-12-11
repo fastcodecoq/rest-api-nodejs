@@ -40,7 +40,7 @@ var ctrlUsuario = function (server) {
        var credential = new Credential;
 
        credential._usuario = mongoose.Types.ObjectId(usuario._id);
-       !REQ.password || (credential.cv = REQ.password);
+       !REQ.password || (credential.password = REQ.password);
 
        credential.save(function(err){
           res.json({message: 'Usuario added', data: usuario});

@@ -170,7 +170,7 @@ var ctrlEmpresa = function (server) {
       }
       
         
-        empresa.contact.push(mongoose.Types,ObjectId(REQ.userid));
+        empresa.contact.push(mongoose.Types.ObjectId(REQ.userid));
         empresa.save(function(err){
            if (err) {
             res.send(500,err);

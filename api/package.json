@@ -17,6 +17,8 @@
 	   "s3" : "latest",
 	   "socket.io" : "latest",
 	   "mongoose-timestamp" : "latest",
+	   "crypto" : "latest",
+	   "rand-token" : "latest",
 	   "password-hash" : "latest"
 	},
 	"scripts" : {

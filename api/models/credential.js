@@ -12,7 +12,7 @@ var user = require('./plugins/user');
 var credentialSchema = new Schema({
 	  	  
 	  login_type : { type: String, default: 'local'},
-	  password : { type: String}
+	  password : { type: String}	  
 
 });
 

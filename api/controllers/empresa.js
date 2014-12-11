@@ -146,8 +146,6 @@ var ctrlEmpresa = function (server) {
           }
 
 
-        data.contact = new Array();
-
 
 
 
@@ -169,7 +167,7 @@ var ctrlEmpresa = function (server) {
         
       }
       
-        
+        console.log(empresa);
         empresa.contact.push(mongoose.Types.ObjectId(REQ.userid));
         empresa.save(function(err){
            if (err) {

@@ -161,15 +161,14 @@ var ctrlEmpresa = function (server) {
   
 
   
-    Empresa.find(query, function (err, empresa) {
+    Empresa.findOne(query, function (err, empresa) {
       
       if (err) {
         res.send(500,err);
         return;
         
       }
-
-      console.log(empresa)
+      
         
         empresa.contact.push(mongoose.Types,ObjectId(REQ.userid));
         empresa.save(function(err){

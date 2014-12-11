@@ -156,6 +156,7 @@ var ctrlEmpresa = function (server) {
   console.log(global.apiBaseUri);
 
   server.get(global.apiBaseUri + '/empresa/:empresaid', get);
+  server.get(global.apiBaseUri + '/empresa', get);
   server.get(global.apiBaseUri + '/usuario/:userid/empresa', get);
   server.get(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', get);    
   server.post(global.apiBaseUri + '/usuario/:userid/empresa', post);

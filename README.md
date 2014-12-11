@@ -52,6 +52,7 @@ name String (required)
 last_name String (required)
 email String (required)
 terms Boolean (required)
+tel String (debe contener numeros)
 location Object
          {
              address : String,
@@ -125,6 +126,7 @@ nit String (required)
 tel String (required)
 email String (required)
 userid String (required)
+contact Array userid
 location Object
          {
              address : String,
@@ -160,6 +162,7 @@ nit String (required)
 tel String (required)
 email String (required)
 userid String (required)
+contact Array userid
 location Object
          {
              address : String,
@@ -213,7 +216,7 @@ OBTENER
 _______
 
 Método: GET
-URI: /api/candidate || /api/:candidateid
+URI: /api/candidate || /api/:candidateid  
  
 
 
@@ -223,6 +226,76 @@ _________
 
 Método: PUT / UPDATE
 URI: /api/candidate/:candidateid
+Params: 
+
+```javascript
+name String (required)
+nit String (required)
+tel String (required)
+email String (required)
+userid String (required)
+location Object
+         {
+             address : String,
+             city : String,
+             country : String,
+             lat : Number,
+             lng : Number
+         }
+active Boolean (Defautl false)
+```
+
+
+ELIMINAR
+________
+
+Método: DELETE
+URI: /api/candidate/:candidateid
+
+
+ORDEN DE SERVICIO
+-----------------
+
+CREAR 
+_____
+
+
+Método: POST 
+URI: /api/empresa/:empresaid/orden_servicio || /api/orden_servicio
+Params: 
+
+```javascript
+name String (required)
+nit String (required)
+tel String (required)
+email String (required)
+userid String (required)
+location Object
+         {
+             address : String,
+             city : String,
+             country : String,
+             lat : Number,
+             lng : Number
+         }
+active Boolean (Defautl false)
+```
+
+
+OBTENER
+_______
+
+Método: GET
+URI: /api/orden_servicio/:ordenservicioid || /api/orden_servicio  || /empresa/:empresaid/orden_servicio
+ 
+
+
+MODIFICAR
+_________
+
+
+Método: PUT / UPDATE
+URI: /api/:ordenservicioid
 Params: 
 
 ```javascript

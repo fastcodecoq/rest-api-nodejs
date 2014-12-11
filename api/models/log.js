@@ -23,7 +23,7 @@ logSchema.pre('save', function (next) {
 });
 
 
-log.methods.saveAction = function(req){
+logSchema.methods.saveAction = function(req){
 	
 	 var HEAD = req.headers;
 	 var Token = require('./token');

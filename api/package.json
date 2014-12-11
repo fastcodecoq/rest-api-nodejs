@@ -16,7 +16,8 @@
 	   "bcrypt-nodejs" : "latest",
 	   "s3" : "latest",
 	   "socket.io" : "latest",
-	   "mongoose-timestamp" : "latest"
+	   "mongoose-timestamp" : "latest",
+	   "password-hash" : "latest"
 	},
 	"scripts" : {
 	"start" : "forever start main.js",

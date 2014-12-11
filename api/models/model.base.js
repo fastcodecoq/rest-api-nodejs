@@ -29,21 +29,14 @@ nameSchema.pre('save', function (next) {
 });
 
 
-//add full name
+//add plugins
 nameSchema.plugin(fullname);
-//add location field
 nameSchema.plugin(location);
-//add candidate data
 nameSchema.plugin(candidate_data);
-//add email
 nameSchema.plugin(email);
-//add privilege
 nameSchema.plugin(privilege);
-//add userid
 nameSchema.plugin(user);
-//add empresaid
 nameSchema.plugin(empresa);
-//add createdAt, updatedAt fields
 nameSchema.plugin(timestamps);
 
 

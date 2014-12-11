@@ -3,6 +3,7 @@ var ctrlUsuario = function (server) {
 
   // Load required packages
   var Usuario = require('../models/usuario');
+  var Credential = require('../models/credential');
   var mongoose = require('mongoose');
 
 
@@ -29,14 +30,22 @@ var ctrlUsuario = function (server) {
     
 
 // Save the usuario and check for errors
-    usuario.save(function (err) {
+    usuario.save(function (err, usuario) {
      
       if (err) {
         res.send(err);
         return;
       }
 
-      res.json({message: 'Usuario added', data: usuario});
+       var credential = new Credential;
+
+       credential._usuario = mongoose.Types.ObjectId(usuario._id);
+       !REQ.password || (credential.cv = REQ.password);
+
+       credential.save(function(err){
+          res.json({message: 'Usuario added', data: usuario});
+       });
+      
 
     });
   }

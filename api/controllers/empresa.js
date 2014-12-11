@@ -97,7 +97,8 @@ var ctrlEmpresa = function (server) {
     !REQ.userid  || (data._usuario = mongoose.Types.ObjectId(REQ.userid));
     !REQ.email  || (data.email = REQ.email);    
     !REQ.location  || (data.location = REQ.location);  
-    
+    !REQ.competences  || (data.competences = REQ.competences);    
+    !REQ.anticipos  || (data.anticipos = REQ.anticipos);   
 
     if(REQ.contact)
        {

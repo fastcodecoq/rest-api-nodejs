@@ -21,6 +21,8 @@ var ctrlEmpresa = function (server) {
     !REQ.userid  || (empresa._usuario = mongoose.Types.ObjectId(REQ.userid));
     !REQ.email  || (empresa.email = REQ.email);    
     !REQ.location  || (empresa.location = REQ.location);    
+    !REQ.competences  || (empresa.competences = REQ.competences);    
+    !REQ.anticipos  || (empresa.anticipos = REQ.anticipos);    
 
 
     if(REQ.contact)

@@ -153,8 +153,7 @@ var ctrlEmpresa = function (server) {
 
     var query = {};
 
-    
-    !REQ.userid || (query._usuario = mongoose.Types.ObjectId(REQ.userid));
+  
     !REQ.empresaid || (query._id = mongoose.Types.ObjectId(REQ.empresaid));
   
 

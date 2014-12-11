@@ -18,7 +18,6 @@ server.pre(function(req, res, next) {
      var log = new Log;
  
 
-
      if(!req.headers.authorization)       
        {
           res.send(401,{message: 'Unauthorized'});

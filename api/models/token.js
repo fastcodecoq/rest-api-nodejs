@@ -10,7 +10,7 @@ var timestamps = require('mongoose-timestamp');
 var tokenSchema = new Schema({
 	    value : {type:String},
         ttl : {type:Number, required:true},        
-        long_live : {type:Boolean, default:false}
+        long_live : {type:Boolean, default:false},
         _credential : {type: Schema.Types.ObjectId, required : true}
         });
 
@@ -41,6 +41,13 @@ tokenSchema.methods.getByCredential = function(credentialid, callback){
 tokenSchema.methods.expired = function(credentialid, callback){
 
 	 return this.ttl < Date.now(); 
+
+}
+
+
+tokenSchema.methods.getOwner = function(token, callback){
+
+	this.find({value : token}, callback);
 
 }
 

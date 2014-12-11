@@ -1,7 +1,6 @@
 // model base
 
 var mongoose = require('mongoose');
-var 
 var Schema = mongoose.Schema;
 
 // Load required packages

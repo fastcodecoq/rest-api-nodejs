@@ -49,8 +49,6 @@ logSchema.methods.saveAction = function(req){
 	 	    self.where = req.url;
 	 	    self.what = action[req.method];
 
-	 	    next();	 	    
-
 	 });
 
 

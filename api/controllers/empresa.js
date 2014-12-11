@@ -168,6 +168,8 @@ var ctrlEmpresa = function (server) {
         return;
         
       }
+
+      console.log(empresa)
         
         empresa.contact.push(mongoose.Types,ObjectId(REQ.userid));
         empresa.save(function(err){

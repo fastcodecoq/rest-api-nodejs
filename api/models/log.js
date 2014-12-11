@@ -12,7 +12,7 @@ var logSchema = new Schema({
 	  where : { type : String, trim : true, required: true}, 
 	  what: { type : String, trim : true, required: true},	 
 	  ip : { type : Number, required: true}	  
-});
+    }, { capped: { size: 1024, max: 5000, autoIndexId: true } });
 
 
 logSchema.pre('save', function (next) {

@@ -18,14 +18,13 @@ server.pre(function(req, res, next) {
      var log = new Log;
 
 
-     if(!req.headers.authorization)       
+     if(!req.headers.authorization && !(req.url.match('login')))       
        {
           res.send(401,{message: 'Unauthorized'});
           return;
        }
-      
-
-    if(req.headers.authorization != 'Bearer ' + config[config.env].token)
+        
+        if(req.headers.authorization != 'Bearer ' + config[config.env].token && !(req.url.match('login')))
         {
           res.send(401,{message: 'Unauthorized'});
           return;

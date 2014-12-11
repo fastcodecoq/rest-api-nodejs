@@ -9,7 +9,8 @@ var user = require('./plugins/user');
 
 
 var logSchema = new Schema({
-	  what: { type : String, trim : true, required: true},
+	  where : { type : String, trim : true, required: true}, 
+	  what: { type : String, trim : true, required: true},	 
 	  ip : { type : Number, required: true}	  
 });
 
@@ -29,6 +30,12 @@ logSchema.methods.saveAction = function(req){
 	 var Token = require('./token');
 	 var token = new token;
 	 var self = this;
+	 var actions = {
+	 	 "GET" : "Obtuvo",
+	 	 "POST" : "Almacenó",
+	 	 "DELETE" : "Borró",
+	 	 "PUT" : "Actualizó"
+	 };
 
 	 token.getOwner(HEAD.token, function(err, user){
 
@@ -38,7 +45,9 @@ logSchema.methods.saveAction = function(req){
 	 	    	return;
 	 	    }
 
-	 	    this._user = Schema.Types.ObjectId(user._id);
+	 	    self._user = Schema.Types.ObjectId(user._id);
+	 	    self.where = req.url;
+	 	    self.what = action[req.method];
 
 	 	    next();	 	    
 

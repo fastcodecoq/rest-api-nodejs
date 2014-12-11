@@ -158,6 +158,7 @@ var ctrlEmpresa = function (server) {
     !REQ.empresaid || (query._id = mongoose.Types.ObjectId(REQ.empresaid));
   
 
+    console.log(query);
   
     Empresa.findOne(query, function (err, empresa) {
       

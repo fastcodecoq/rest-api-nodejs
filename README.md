@@ -61,7 +61,7 @@ location Object
              lat : Number,
              lng : Number
          }
-active Boolean (Defautl false)
+active Boolean (Defautl true)
 password String
 ```
 
@@ -95,7 +95,7 @@ location Object
              lat : Number,
              lng : Number
          }
-active Boolean (Defautl false)
+active Boolean (Defautl true)
 password String
 ```
 
@@ -135,7 +135,7 @@ location Object
              lat : Number,
              lng : Number
          }
-active Boolean (Defautl false)
+active Boolean (Defautl true)
 ```
 
 
@@ -171,7 +171,7 @@ location Object
              lat : Number,
              lng : Number
          }
-active Boolean (Defautl false)
+active Boolean (Defautl true)
 ```
 
 
@@ -180,6 +180,83 @@ ________
 
 Método: DELETE
 URI: /api/empresa/:idempresa
+
+
+
+
+ORDEN DE SERVICIO
+-----------------
+
+CREAR 
+_____
+
+
+Método: POST 
+URI: /api/empresa/:empresaid/orden_servicio || /api/orden_servicio
+Params: 
+
+```javascript
+name String (required)
+_responsible String (userid required)
+_empresa String (empresaid required)
+description String (required)
+status Number
+rate Number
+start_date (dd-mm-yy)
+end_date (dd-mm-yy)
+location Object
+         {
+             address : String,
+             city : String,
+             country : String,
+             lat : Number,
+             lng : Number
+         }
+active Boolean (Defautl truee)
+```
+
+
+OBTENER
+_______
+
+Método: GET
+URI: /api/orden_servicio/:ordenservicioid || /api/orden_servicio  || /empresa/:empresaid/orden_servicio
+ 
+
+
+MODIFICAR
+_________
+
+
+Método: PUT / UPDATE
+URI: /api/:ordenservicioid
+Params: 
+
+```javascript
+name String (required)
+_responsible String (userid required)
+_empresa String (empresaid required)
+description String (required)
+status Number
+rate Number
+start_date (dd-mm-yy)
+end_date (dd-mm-yy)
+location Object
+         {
+             address : String,
+             city : String,
+             country : String,
+             lat : Number,
+             lng : Number
+         }
+active Boolean (Defautl truee)
+```
+
+ELIMINAR
+________
+
+Método: DELETE
+URI: /api/candidate/:candidateid
 
 
 
@@ -208,7 +285,7 @@ location Object
              lat : Number,
              lng : Number
          }
-active Boolean (Defautl false)
+active Boolean (Defautl true)
 ```
 
 
@@ -242,77 +319,7 @@ location Object
              lat : Number,
              lng : Number
          }
-active Boolean (Defautl false)
-```
-
-
-ELIMINAR
-________
-
-Método: DELETE
-URI: /api/candidate/:candidateid
-
-
-ORDEN DE SERVICIO
------------------
-
-CREAR 
-_____
-
-
-Método: POST 
-URI: /api/empresa/:empresaid/orden_servicio || /api/orden_servicio
-Params: 
-
-```javascript
-name String (required)
-nit String (required)
-tel String (required)
-email String (required)
-userid String (required)
-location Object
-         {
-             address : String,
-             city : String,
-             country : String,
-             lat : Number,
-             lng : Number
-         }
-active Boolean (Defautl false)
-```
-
-
-OBTENER
-_______
-
-Método: GET
-URI: /api/orden_servicio/:ordenservicioid || /api/orden_servicio  || /empresa/:empresaid/orden_servicio
- 
-
-
-MODIFICAR
-_________
-
-
-Método: PUT / UPDATE
-URI: /api/:ordenservicioid
-Params: 
-
-```javascript
-name String (required)
-nit String (required)
-tel String (required)
-email String (required)
-userid String (required)
-location Object
-         {
-             address : String,
-             city : String,
-             country : String,
-             lat : Number,
-             lng : Number
-         }
-active Boolean (Defautl false)
+active Boolean (Defautl true)
 ```
 
 

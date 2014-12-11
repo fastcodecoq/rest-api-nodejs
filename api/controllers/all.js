@@ -9,5 +9,4 @@ module.exports = exports = function(server){
 		 if(!files[x].match('gitignore|base|config|zip|json|all') && files[x].match('.js'))				 
    		      require('./' + files[x])(server);
 
-
 }

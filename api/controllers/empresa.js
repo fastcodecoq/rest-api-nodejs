@@ -82,7 +82,7 @@ var ctrlEmpresa = function (server) {
           for (a in contacts)
           {
                 var User = new require('../models/usuario');
-                console.log('id',contact[a])
+                console.log('id',contacts[a])
 
                 User.findOne({_id:contacts[a]}, function(err, rs){
 

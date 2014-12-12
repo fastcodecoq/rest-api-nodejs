@@ -85,6 +85,8 @@ var ctrlEmpresa = function (server) {
 
           for (a in contacts)
           {
+
+             if(typeof contacts[a] === 'string')
                 console.log('id',contacts[a])
 
                 User.findOne({_id:contacts[a]}, function(err, rs){

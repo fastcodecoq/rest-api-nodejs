@@ -72,50 +72,8 @@ var ctrlEmpresa = function (server) {
         res.send(new Error('Not records found'));
         return;        
        }
-
-      var User = new require('../models/usuario');
-
-       for(j = 0; j < empresas.length; j++)
-       {
-
-        var contacts = empresas[j].contact;
-        console.log('contact',contacts)
-
-        var _contacts = [];
-
-          for (i = 0 ; i < contacts.length ; i++)
-          {
-
-
-                User.findOne({_id: mongoose.Types.ObjectId(contacts[i])}, function(err, rs){
-
-                    if(err)
-                    {
-
-                       return;
-                    }
-
-
-                    _contacts[i] = rs;
-                    console.log(_contacts);
-
- 
-
-                   empresas[j].contact = _contacts;
-
-
-
-          if(j === (empresas.length - 1))
-             { 
+       
               res.json({data:empresas});    
-              return;
-         }
-
-                });
-
-          }
-                
-
 
 
        }

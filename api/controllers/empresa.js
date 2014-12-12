@@ -75,7 +75,7 @@ var ctrlEmpresa = function (server) {
 
       var User = new require('../models/usuario');
 
-       for(j = 0, j < empresas.length; j++)
+       for(j = 0; j < empresas.length; j++)
        {
 
         var contacts = empresas[j].contact;

@@ -83,7 +83,7 @@ var ctrlEmpresa = function (server) {
 
         var _contacts = new Array();
 
-          for (i = 0 ; i < contacts.length, i++)
+          for (i = 0 ; i < contacts.length ; i++)
           {
 
              if(typeof contacts[i] === 'string')

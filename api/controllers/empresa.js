@@ -81,7 +81,7 @@ var ctrlEmpresa = function (server) {
         var contacts = empresas[x].contact;
         console.log('contact',contacts)
 
-        var _contacts = new Array();
+        var _contacts = [];
 
           for (i = 0 ; i < contacts.length ; i++)
           {
@@ -96,7 +96,7 @@ var ctrlEmpresa = function (server) {
                     }
 
 
-                    _contacts.push(rs);
+                    _contacts[] = rs;
 
 
                 });

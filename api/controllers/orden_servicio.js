@@ -110,6 +110,7 @@ var ctrlOrden_servicio = function (server) {
     !REQ.location  || (data.location = REQ.location);    
     !REQ.type || (data.type = REQ.type);    
     
+    
 
     if(REQ.contact)
        for(x in REQ.contact)

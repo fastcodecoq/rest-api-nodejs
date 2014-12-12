@@ -26,6 +26,7 @@ var ctrlUsuario = function (server) {
     !REQ.active || (usuario.active = REQ.active);  
     !REQ.cv || (usuario.cv = REQ.cv);
     !REQ.attached_cv  || (usuario.attached_cv = REQ.attached_cv);
+    !REQ.active  || (usuario.active = REQ.active);    
 
     
 

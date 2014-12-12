@@ -73,7 +73,39 @@ var ctrlEmpresa = function (server) {
         return;        
        }
 
-      res.json({data:empresas}); 
+       for(x in empresas)
+       {
+
+        var contacs = empresas[x].contact;
+        var _contacts = new Array();
+
+          for (a in contacts)
+          {
+                var User = new require('../models/usuario');
+
+                User.findOne({_id:contacts[a]}, function(err, rs){
+
+                    if(err)
+                    {
+                       return;
+                    }
+
+                    _contacts.push(rs);
+
+
+                });
+
+          }
+
+
+          empresas[x].contact = _contacts;
+
+
+
+       }
+
+      res.json({data:empresas});        
+
     });
 
   }
@@ -90,7 +122,7 @@ var ctrlEmpresa = function (server) {
           {
             res.send(500,'invalid params');
             return;
-       }
+          }
 
     !REQ.name  || (data.name = REQ.name);    
     !REQ.nit  || (data.nit = REQ.nit);

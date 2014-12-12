@@ -103,8 +103,6 @@ var ctrlEmpresa = function (server) {
 
           }
 
-                    console.log(rs);
-
 
                     console.log(_contacts);
 

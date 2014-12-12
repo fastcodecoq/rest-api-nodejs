@@ -96,7 +96,7 @@ var ctrlEmpresa = function (server) {
                     }
 
 
-                    _contacts[] = rs;
+                    _contacts[i] = rs;
 
 
                 });

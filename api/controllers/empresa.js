@@ -86,8 +86,9 @@ var ctrlEmpresa = function (server) {
           for (i = 0 ; i < contacts.length ; i++)
           {
 
-             if(typeof contacts[i] === 'string')
-                console.log('id',contacts[a])
+                console.log('id',contacts[i])
+
+
 
                 User.findOne({_id: mongoose.Types.ObjectId(contacts[i])}, function(err, rs){
 

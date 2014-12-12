@@ -98,17 +98,14 @@ var ctrlEmpresa = function (server) {
 
                     _contacts[i] = rs;
                     console.log(_contacts);
-                    
+
+ 
+
+              empresas[x].contact = _contacts;
 
                 });
 
-          }
-
-
-                    console.log(_contacts);
-
-
-          empresas[x].contact = _contacts;
+          }                
 
 
 

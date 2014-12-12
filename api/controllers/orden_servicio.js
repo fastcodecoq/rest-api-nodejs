@@ -25,6 +25,7 @@ var ctrlOrden_servicio = function (server) {
     !REQ.end_date  || (orden_servicio.end_date = REQ.end_date);    
     !REQ.status  || (orden_servicio.status = REQ.status);    
     !REQ.location  || (orden_servicio.location = REQ.location);    
+    !REQ.type || (orden_servicio.type = REQ.type);    
   
 
     if(REQ.contact)
@@ -107,6 +108,7 @@ var ctrlOrden_servicio = function (server) {
     !REQ.end_date  || (data.end_date = REQ.end_date);    
     !REQ.status  || (data.status = REQ.status);    
     !REQ.location  || (data.location = REQ.location);    
+    !REQ.type || (data.type = REQ.type);    
     
 
     if(REQ.contact)

@@ -128,12 +128,6 @@ email String (required)
 userid String (required)
 contact Array userid
 competences String Array
-anticipos Array Object [{
-	  			anticipo : Number,
-	  			amount : Number,
-	  			invoice_number: Number,
-	  			date : Date (mm-dd-yy)
-         }]
 location Object
          {
              address : String,
@@ -208,9 +202,17 @@ responsible String (userid required)
 empresaid String (empresaid required)
 description String (required)
 status Number
+type Number
 rate Number
 start_date (dd-mm-yy)
 end_date (dd-mm-yy)
+contact String Array
+anticipos Array Object [{
+	  			anticipo : Number,
+	  			amount : Number,
+	  			invoice_number: Number,
+	  			date : Date (mm-dd-yy)
+         }]
 location Object
          {
              address : String,
@@ -245,9 +247,17 @@ responsible String (userid required)
 empresaid String (empresaid required)
 description String (required)
 status Number
+type Number
 rate Number
 start_date (dd-mm-yy)
 end_date (dd-mm-yy)
+contact String Array
+anticipos Array Object [{
+	  			anticipo : Number,
+	  			amount : Number,
+	  			invoice_number: Number,
+	  			date : Date (mm-dd-yy)
+         }]
 location Object
          {
              address : String,
@@ -258,6 +268,7 @@ location Object
          }
 active Boolean (Defautl truee)
 ```
+
 
 ELIMINAR
 ________

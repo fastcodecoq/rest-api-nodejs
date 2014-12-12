@@ -63,7 +63,7 @@ var ctrlSolicitud_servicio = function (server) {
 
       if(solicitud_servicios.length === 0)
       {
-        res.send(new Error('Not records found'));        
+        res.send(200,{message:'Not records found'});        
         return;        
        }
 

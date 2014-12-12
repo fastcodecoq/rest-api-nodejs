@@ -70,7 +70,7 @@ var ctrlUsuario = function (server) {
 
       if(usuario.length === 0)
       {
-        res.send(new Error('Not records found'));        
+        res.send(200,{message:'Not records found'});        
         return;        
        }
 
@@ -97,7 +97,8 @@ var ctrlUsuario = function (server) {
     !REQ.candidate_data || (data.candidate_data = REQ.candidate_data);      
     !REQ.active || (data.active = REQ.active);  
     !REQ.cv || (data.cv = REQ.cv);
-    !REQ.attached_cv  || (data.attached_cv = REQ.attached_cv);
+    !REQ.attached_cv  || (data.attached_cv = REQ.attached_cv);    
+
 
     Usuario.update({
       _id: mongoose.Types.ObjectId(REQ.userid)

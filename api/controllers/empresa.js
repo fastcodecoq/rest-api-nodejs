@@ -98,6 +98,8 @@ var ctrlEmpresa = function (server) {
                        return;
                     }
 
+                    console.log(rs);
+
                     _contacts.push(rs);
 
 

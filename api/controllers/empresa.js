@@ -23,6 +23,8 @@ var ctrlEmpresa = function (server) {
     !REQ.location  || (empresa.location = REQ.location);    
     !REQ.competences  || (empresa.competences = REQ.competences);    
     !REQ.anticipos  || (empresa.anticipos = REQ.anticipos);    
+    !REQ.active  || (empresa.active = REQ.active);    
+    
 
 
     if(REQ.contact)
@@ -99,6 +101,7 @@ var ctrlEmpresa = function (server) {
     !REQ.location  || (data.location = REQ.location);  
     !REQ.competences  || (data.competences = REQ.competences);    
     !REQ.anticipos  || (data.anticipos = REQ.anticipos);   
+    !REQ.active  || (data.active = REQ.active);    
 
     if(REQ.contact)
        {

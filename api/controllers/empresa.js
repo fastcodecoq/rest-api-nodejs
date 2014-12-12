@@ -97,7 +97,8 @@ var ctrlEmpresa = function (server) {
 
 
                     _contacts[i] = rs;
-
+                    console.log(_contacts);
+                    
 
                 });
 

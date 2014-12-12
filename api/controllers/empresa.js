@@ -101,15 +101,20 @@ var ctrlEmpresa = function (server) {
 
  
 
-              empresas[j].contact = _contacts;
+                   empresas[j].contact = _contacts;
+
+
+
+          if(j === (empresas.length - 1))
+             { 
+              res.json({data:empresas});    
+              return;
+         }
 
                 });
 
           }
-
-
-          if(j === (empresas.length - 1))
-              res.json({data:empresas});                    
+                
 
 
 

@@ -73,15 +73,18 @@ var ctrlEmpresa = function (server) {
         return;        
        }
 
+      var User = new require('../models/usuario');
+
        for(x in empresas)
        {
 
         var contacts = empresas[x].contact;
+        console.log('contact',contacts)
+
         var _contacts = new Array();
 
           for (a in contacts)
           {
-                var User = new require('../models/usuario');
                 console.log('id',contacts[a])
 
                 User.findOne({_id:contacts[a]}, function(err, rs){

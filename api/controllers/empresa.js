@@ -76,7 +76,7 @@ var ctrlEmpresa = function (server) {
        for(x in empresas)
        {
 
-        var contacs = empresas[x].contact;
+        var contacts = empresas[x].contact;
         var _contacts = new Array();
 
           for (a in contacts)

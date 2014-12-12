@@ -72,11 +72,11 @@ var ctrlEmpresa = function (server) {
         res.send(new Error('Not records found'));
         return;        
        }
-       
+
               res.json({data:empresas});    
 
 
-       }
+       
 
 
     });

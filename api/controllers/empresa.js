@@ -86,9 +86,6 @@ var ctrlEmpresa = function (server) {
           for (i = 0 ; i < contacts.length ; i++)
           {
 
-                console.log('id',contacts[i])
-
-
 
                 User.findOne({_id: mongoose.Types.ObjectId(contacts[i])}, function(err, rs){
 
@@ -98,7 +95,6 @@ var ctrlEmpresa = function (server) {
                        return;
                     }
 
-                    console.log(rs);
 
                     _contacts.push(rs);
 
@@ -106,6 +102,11 @@ var ctrlEmpresa = function (server) {
                 });
 
           }
+
+                    console.log(rs);
+
+
+                    console.log(_contacts);
 
 
           empresas[x].contact = _contacts;

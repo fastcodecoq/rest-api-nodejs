@@ -75,10 +75,10 @@ var ctrlEmpresa = function (server) {
 
       var User = new require('../models/usuario');
 
-       for(x in empresas)
+       for(j = 0, j < empresas.length; j++)
        {
 
-        var contacts = empresas[x].contact;
+        var contacts = empresas[j].contact;
         console.log('contact',contacts)
 
         var _contacts = [];
@@ -101,17 +101,20 @@ var ctrlEmpresa = function (server) {
 
  
 
-              empresas[x].contact = _contacts;
+              empresas[j].contact = _contacts;
 
                 });
 
-          }                
+          }
+
+
+          if(j === (empresas.length - 1))
+              res.json({data:empresas});                    
 
 
 
        }
 
-      res.json({data:empresas});        
 
     });
 

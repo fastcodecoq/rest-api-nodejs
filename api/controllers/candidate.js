@@ -18,6 +18,7 @@ var ctrlCandidate = function (server) {
     !REQ.userid  || (candidate._usuario = mongoose.Types.ObjectId(REQ.userid));
     !REQ.location  || (candidate.location = REQ.location);
     !REQ._cv  || (candidate._cv = mongoose.Types.ObjectId(REQ.cv));
+    !REQ.active  || (candidate.active = mongoose.Types.ObjectId(REQ.active));
 
    
     console.log(candidate);    
@@ -73,6 +74,7 @@ var ctrlCandidate = function (server) {
     
     !REQ.userid  || (data._usuario = mongoose.Types.ObjectId(REQ.userid));          
     !REQ._cv  || (data._cv = mongoose.Types.ObjectId(REQ.cv));          
+    !REQ.active  || (data.active = mongoose.Types.ObjectId(REQ.active));
 
 
    if(!REQ.userid)

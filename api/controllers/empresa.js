@@ -116,6 +116,8 @@ var ctrlEmpresa = function (server) {
 
     // making the query for update
 
+    console.log('data ', data);
+
     var query = {};
 
     

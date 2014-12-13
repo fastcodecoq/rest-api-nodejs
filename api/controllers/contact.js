@@ -1,4 +1,4 @@
-module.exports = export = function(server){
+module.exports = exports = function(server){
 	
     var Usuario = require('../models/usuario');
     var Empresa = require('..models/empresa');

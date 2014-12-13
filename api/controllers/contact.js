@@ -23,24 +23,22 @@ module.exports = exports = function(server){
 
             console.log(rs);
 
- 			  	  var contacts = rs.contact;
-            var query = contacts.join(' || ');
-
-            console.log(query);
-            
+ 			  	  var contacts = rs.contact;                      
                 
- 			  	  Usuario.find('_id == ' + query, function(err,rs){
+ 			  	  var promise = Usuario.find( { _id: { $in: contacts } } ).exec();
+            promise.then(function(err,rs){
 
- 			  	  	     	  if(err){
- 			  	        	    res.send(err);
- 			  	  	            return;
- 			  	               } 			  			  	  	     	
+                      if(err){
+                        res.send(err);
+                          return;
+                         }                            
 
                       
                           res.json({data:rs});
                           return;
 
- 			  	  	     });
+                   });          
+
 
  			  });
    

@@ -29,7 +29,7 @@ module.exports = exports = function(server){
             console.log(query);
             
                 
- 			  	  Usuario.findOne('_id == ' + query, function(err,rs){
+ 			  	  Usuario.find('_id == ' + query, function(err,rs){
 
  			  	  	     	  if(err){
  			  	        	    res.send(err);

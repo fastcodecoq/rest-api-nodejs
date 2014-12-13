@@ -5,6 +5,7 @@ module.exports = exports = function(server){
     var mongoose = require('mongoose');
 
     function getContacts(req, res){
+
               var REQ = req.params;
 
               if(!REQ.empresaid)
@@ -97,7 +98,7 @@ module.exports = exports = function(server){
   }
 
   
-  server.get(global.apiBaseUri + '/contacts/empresa/:empresaid', putContact);
+  server.get(global.apiBaseUri + '/contacts/empresa/:empresaid', getContacts);
 
 
 }

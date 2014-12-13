@@ -29,7 +29,7 @@ module.exports = exports = function(server){
             console.log(query);
             
                 
- 			  	  Usuario.findOne({_id : mongoose.Types.ObjectId(contacts[x])}, function(err,rs){
+ 			  	  Usuario.findOne('_id == ' + query, function(err,rs){
 
  			  	  	     	  if(err){
  			  	        	    res.send(err);
@@ -37,7 +37,7 @@ module.exports = exports = function(server){
  			  	               } 			  			  	  	     	
 
                       
-                          res.json({data:_contacts});
+                          res.json({data:rs});
                           return;
 
  			  	  	     });

@@ -40,6 +40,11 @@ module.exports = exports = function(server){
 
  			  	  	     		_contacts.push(rs);
 
+                      if(x === (contacts.length - 1)){
+                          res.json(_contacts);
+                          return;
+                      }
+
  			  	  	     });
 
  			  	  }

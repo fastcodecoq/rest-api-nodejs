@@ -146,58 +146,7 @@ var ctrlEmpresa = function (server) {
   }
 
 
-  function putContact(req, res) {
 
-    var data = {};
-    var REQ = req.params;
-
-
-    if(!REQ.empresaid || !REQ.userid)
-          {
-            res.send(500,'invalid params');
-            return;
-          }
-
-
-
-
-
-    // making the query for update
-
-    var query = {};
-
-  
-    !REQ.empresaid || (query._id = mongoose.Types.ObjectId(REQ.empresaid));
-  
-
-    console.log(query);
-  
-    Empresa.findOne(query, function (err, empresa) {
-      
-      if (err) {
-        res.send(500,err);
-        return;
-        
-      }
-      
-        console.log(empresa);
-        empresa.contact.push(mongoose.Types.ObjectId(REQ.userid));
-        empresa.save(function(err){
-           if (err) {
-            res.send(500,err);
-            return;
-            
-            } 
-
-            res.json({message: ' Contact added'});
-        });
-
-    });
-        
-
-// Use the Empresa model to find a specific empresa
-   
-  }
 
   function del(req, res) {
 // Use the Empresa model to find a specific empresa and remove it
@@ -217,7 +166,6 @@ var ctrlEmpresa = function (server) {
   server.get(global.apiBaseUri + '/usuario/:userid/empresa', get);
   server.get(global.apiBaseUri + '/usuario/:userid/empresa/:empresaid', get);    
   server.post(global.apiBaseUri + '/usuario/:userid/empresa', post);
-  server.put(global.apiBaseUri + '/empresa/:empresaid/contact/:userid', putContact);
   server.post(global.apiBaseUri + '/empresa/usuario/:userid', post);
   server.post(global.apiBaseUri + '/empresa', post);
   server.put(global.apiBaseUri + '/empresa/:empresaid', put);

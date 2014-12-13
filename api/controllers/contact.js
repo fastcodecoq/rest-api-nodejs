@@ -21,6 +21,8 @@ module.exports = exports = function(server){
  			  	  	    return;
  			  	  }
 
+            console.log(rs);
+
  			  	  var contacts = rs.contact;
  			  	  var _contacts = [];
 
@@ -99,6 +101,7 @@ module.exports = exports = function(server){
 
   
   server.get(global.apiBaseUri + '/contacts/empresa/:empresaid', getContacts);
+  server.put(global.apiBaseUri + '/empresa/:empresaid/contact/:userid', putContact);
 
 
 }

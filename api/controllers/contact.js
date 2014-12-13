@@ -32,7 +32,6 @@ module.exports = exports = function(server){
 
                 console.log('Contact' ,contacts[x])
 
-                if(typeof contacts[x] === 'string')
  			  	  	     Usuario.findOne({_id : mongoose.Types.ObjectId(contacts[x])}, function(err,rs){
 
  			  	  	     	  if(err){

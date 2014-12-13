@@ -27,6 +27,9 @@ module.exports = exports = function(server){
  			  	  var _contacts = [];
 
  			  	  for(x in contacts){
+
+                console.log(contacts[x])
+
  			  	  	     Usuario.findOne({_id : mongoose.Types.ObjectId(contacts[x])}, function(err,rs){
 
  			  	  	     	  if(err){

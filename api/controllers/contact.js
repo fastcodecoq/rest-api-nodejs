@@ -26,7 +26,7 @@ module.exports = exports = function(server){
  			  	  var contacts = rs.contact;
  			  	  var _contacts = [];
 
- 			  	  for(x in contacts){
+ 			  	  for(x = 0; x < contacts.length; x++){
 
                 console.log('Contact' ,contacts[x])
 

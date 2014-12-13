@@ -43,7 +43,7 @@ module.exports = exports = function(server){
 
                       console.log(x)
 
-                      if(x === (contacts.length - 1)){
+                      if(x === contacts.length){
                           res.json({data:_contacts});
                           return;
                       }

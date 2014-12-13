@@ -117,7 +117,7 @@ _____
 
 
 Método: POST 
-URI: /api/empresa/:usuarioid || /api/empresa
+URI: /api/empresa/:empresaid || /api/empresa
 Params: 
 
 ```javascript
@@ -140,11 +140,27 @@ active Boolean (Defautl true)
 ```
 
 
+CREAR CONTACTO EN UNA EMPRESA
+_____________________________
+
+Método: POST 
+URI: /api/empresa/:empresaid/contact/:usuarioid
+
+
+
+
 OBTENER
 _______
 
 Método: GET
 URI: /api/empresa/:empresaid
+
+
+OBTENER CONTACTOS
+_________________
+
+Método: GET
+URI: /api/contacts/empresa/:empresaid
 
 
 
@@ -154,7 +170,7 @@ _________
   
 
 Método: PUT / UPDATE
-URI: /api/empresa/:idempresa
+URI: /api/empresa/:empresaid
 Params: 
 
 ```javascript
@@ -181,7 +197,7 @@ ELIMINAR
 ________
 
 Método: DELETE
-URI: /api/empresa/:idempresa
+URI: /api/empresa/:empresaid
 
 
 

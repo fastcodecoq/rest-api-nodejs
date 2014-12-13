@@ -31,7 +31,7 @@ module.exports = exports = function(server){
  			  	  for(x = 0; x < contacts.length; x++){
 
                 console.log('Contact' ,contacts[x])
-
+                
  			  	  	     Usuario.findOne({_id : mongoose.Types.ObjectId(contacts[x])}, function(err,rs){
 
  			  	  	     	  if(err){

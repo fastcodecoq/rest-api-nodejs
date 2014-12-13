@@ -42,7 +42,7 @@ module.exports = exports = function(server){
 
  			  	  	     		_contacts.push(rs);
 
-                      console.log(x)
+                      console.log(rs)
 
                       if(x === (contacts.length - 1)){
                           res.json({data:_contacts});

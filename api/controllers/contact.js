@@ -24,32 +24,25 @@ module.exports = exports = function(server){
             console.log(rs);
 
  			  	  var contacts = rs.contact;
- 			  	  var _contacts = [];
+            var query = contacts.join(' || ');
 
-
- 			  	  for(x = 0; x < contacts.length; x++){
-
-                console.log('Contact' ,contacts[x])
+            console.log(query);
+            
                 
- 			  	  	     Usuario.findOne({_id : mongoose.Types.ObjectId(contacts[x])}, function(err,rs){
+ 			  	  Usuario.findOne({_id : mongoose.Types.ObjectId(contacts[x])}, function(err,rs){
 
  			  	  	     	  if(err){
  			  	        	    res.send(err);
  			  	  	            return;
- 			  	               } 			 
+ 			  	               } 			  			  	  	     	
 
- 			  	  	     		_contacts.push(rs);
-
-                      console.log(x)
-
-                      if(x === contacts.length){
+                      
                           res.json({data:_contacts});
                           return;
-                      }
 
  			  	  	     });
 
- 			  	  }
+ 			    	  }
 
  			  })
    

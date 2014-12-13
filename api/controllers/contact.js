@@ -2,7 +2,7 @@ module.exports = exports = function(server){
 	
     var Usuario = require('../models/usuario');
     var Empresa = require('..models/empresa');
-    var mongoose + require('mongoose');
+    var mongoose = require('mongoose');
 
     function getContacts(req, res){
               var REQ = req.params;

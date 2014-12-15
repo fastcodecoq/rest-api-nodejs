@@ -26,15 +26,11 @@ module.exports = exports = function(server){
  			  	  var contacts = rs.contact;                      
                 
  			  	  var promise = Usuario.find( { _id: { $in: contacts } } ).exec();
-            promise.then(function(err,rs){
-
-                      if(err){
-                        res.send(err);
-                          return;
-                         }                            
+            promise.then(function(rs){                                        
 
                       
- 
+                       console.log('hey')
+                
 
                    });          
 

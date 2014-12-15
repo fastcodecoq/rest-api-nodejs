@@ -13,7 +13,9 @@ var SolicitudServicioSchema = new mongoose.Schema({
   accepted : {type : Boolean, default: false},
   readed : {type : Boolean, default: false},
   description : {type: String},
-  _perfil :  {type: Schema.Types.ObjectId, ref: 'PerfilLaboral'}
+  _perfil :  {type: Schema.Types.ObjectId, ref: 'PerfilLaboral'},
+  _date : Date,
+  vigency : Number
 
 });
 

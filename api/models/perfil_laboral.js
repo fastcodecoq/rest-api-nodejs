@@ -11,13 +11,13 @@ var location = require('./plugins/location');
 var perfil_laboralSchema = new Schema({
 	  name : { type : String, trim : true, required: true},
 	  area : { type : [{ type : String, trim : true, lowercase:true}], required: true},
+	  subarea : { type : [{ type : String, trim : true, lowercase:true}], required: true},	 
 	  profesion: { type : String, trim : true, lowercase:true, required: true},
 	  experience: { type : String, trim : true, lowercase:true},
-	  salary_range: { type : String, trim : true},
+	  salary: { type : Object, trim : true},
 	  functions: { type : String, trim : true, lowercase:true, required: true},
 	  priorities: { type : String, trim : true, lowercase:true},
-	  results_expected: { type : String, trim : true, lowercase:true},
-	  english_level: { type : String, trim : true},
+	  results_expected: { type : String, trim : true, lowercase:true},	  
 	  academic_level: { type : String, trim : true, lowercase:true, required: true},
 	  academic_title: { type : String, trim : true, lowercase:true, required: true},
 	  genre: { type : String, trim : true, lowercase:true},
@@ -28,7 +28,8 @@ var perfil_laboralSchema = new Schema({
 	  min_experience_years: {type: Number},
 	  max_experience_years: {type: Number},	  
 	  status: {type: Number},	  
-	  contract_type: {type: Number},	  
+	  contract_type: {type: Number},	
+	  idioma : [Object],  
 	  _candidates : [{type: Schema.Types.ObjectId, ref : 'Candidate'}],
 	  _orden_servicio : {type : Schema.Types.ObjectId, ref: 'OrdenServicio', required: true}
 });

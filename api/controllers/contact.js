@@ -34,7 +34,7 @@ module.exports = exports = function(server){
                          }                            
 
                       
-                          res.send({data:rs});
+                          res.send({'data':rs, 'message' : 'ok'});
                           return;
 
                    });          

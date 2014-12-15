@@ -45,13 +45,13 @@ var uploader = function (server){
 
 
 
-       server.get(global.apiBaseUri + 'api/uploader',get);
-       server.post(global.apiBaseUri + 'api/uploader',post);
-       server.put(global.apiBaseUri + 'api/uploader/:fileid',put);
-       server.del(global.apiBaseUri + 'api/uploader/:fileid',del);
+       server.get(global.apiBaseUri + '/api/uploader',get);
+       server.post(global.apiBaseUri + '/api/uploader',post);
+       server.put(global.apiBaseUri + '/api/uploader/:fileid',put);
+       server.del(global.apiBaseUri + '/api/uploader/:fileid',del);
 
               console.log('/api/s3');
-              
+
 } 
 
 

@@ -31,7 +31,7 @@ var perfil_laboralSchema = new Schema({
 	  contract_type: {type: Number},	
 	  idioma : [Object],  
 	  _candidates : [{type: Schema.Types.ObjectId, ref : 'Candidate'}],
-	  _orden_servicio : {type : Schema.Types.ObjectId, ref: 'OrdenServicio', required: true}
+	  _orden_servicio : {type : Schema.Types.ObjectId, ref: 'OrdenServicio'}
 });
 
 

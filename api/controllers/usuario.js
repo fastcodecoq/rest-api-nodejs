@@ -69,7 +69,7 @@ var ctrlUsuario = function (server) {
       }
 
       if(usuario.length === 0)
-      {
+       {
         res.send(200,{message:'Not records found'});        
         return;        
        }

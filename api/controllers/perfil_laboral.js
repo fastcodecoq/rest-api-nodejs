@@ -49,7 +49,7 @@ var ctrlPerfil_laboral = function (server) {
 // Save the perfil_laboral and check for errors
     perfil_laboral.save(function (err) {
       if (err) {
-        res.send(new Error(err));
+        res.send(500, new Error(err));
         return;
       }
       res.json({message: 'Perfil_laboral added', data: perfil_laboral});

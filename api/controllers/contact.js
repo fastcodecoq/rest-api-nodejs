@@ -27,8 +27,9 @@ module.exports = exports = function(server){
                 
  			  	  var promise = Usuario.find( { _id: { $in: contacts } } ).exec();
             promise.then(function(rs){                                        
+                          
+                          rs.business = REQ.empresaid;
 
-                      
                           res.json({'data':rs});
                           return;
 

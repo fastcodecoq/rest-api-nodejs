@@ -44,7 +44,7 @@ var uploader = function (server){
 
 
        server.get(global.apiBaseUri + 'api/uploader',get);
-       server.post(global.apiBaseUri + 'api/uploader',put);
+       server.post(global.apiBaseUri + 'api/uploader',post);
        server.put(global.apiBaseUri + 'api/uploader/:fileid',put);
        server.del(global.apiBaseUri + 'api/uploader/:fileid',del);
 

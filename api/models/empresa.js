@@ -41,6 +41,6 @@ EmpresaSchema.plugin(timestamps);
 EmpresaSchema.plugin(active);
 EmpresaSchema.plugin(avatar);
 var metadata = require('./plugins/metadata');
-UsuarioSchema.plugin(metadata);
+EmpresaSchema.plugin(metadata);
 // Export the Mongoose model
 module.exports = mongoose.model('Empresa', EmpresaSchema);

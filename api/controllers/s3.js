@@ -14,6 +14,7 @@ var uploader = function (server){
                                         } 
                                     });
 
+       function get(req, res){}
 
        function post(req, res){
            //code

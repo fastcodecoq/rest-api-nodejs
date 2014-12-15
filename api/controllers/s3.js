@@ -1,4 +1,4 @@
-var uploader = function (server){
+var uploaderCtrl = function (server){
 
 
 
@@ -55,7 +55,7 @@ var uploader = function (server){
 } 
 
 
-module.exports = uploader;
+module.exports = uploaderCtrl;
 
 
 

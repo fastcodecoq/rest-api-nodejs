@@ -8,14 +8,11 @@ var active = require('./plugins/active');
 var fullname = require('./plugins/fullname');
 var tel = require('./plugins/tel');
 var avatar = require('./plugins/avatar');
+var metadata = require('./plugins/metadata');
 var Schema = mongoose.Schema;
 
 // Define our Empresa schema
-var UsuarioSchema = new mongoose.Schema({  
-  config : {
-      type : Object,
-      default : {}
-  },
+var UsuarioSchema = new mongoose.Schema({    
   terms : {type : Boolean, default: false}  
 });
 
@@ -28,8 +25,8 @@ UsuarioSchema.plugin(email);
 //add active
 UsuarioSchema.plugin(active);
 //add createdAt, updatedAt fields
-UsuarioSchema.plugin(timestamps)
-
+UsuarioSchema.plugin(timestamps);
+UsuarioSchema.plugin(metadata);
 UsuarioSchema.plugin(tel);
 UsuarioSchema.plugin(avatar);
 

@@ -29,8 +29,8 @@ module.exports = exports = function(server){
             promise.then(function(rs){                                        
 
                       
-                       console.log('hey')
-                
+                          res.json({'data':rs});
+                          return;
 
                    });          
 

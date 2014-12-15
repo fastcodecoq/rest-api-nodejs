@@ -1,5 +1,7 @@
 var uploader = function (server){
 
+
+
        var s3 = require('s3');
        var client = s3.createClient({
                                       maxAsyncS3: 20,     
@@ -48,7 +50,9 @@ var uploader = function (server){
        server.put(global.apiBaseUri + 'api/uploader/:fileid',put);
        server.del(global.apiBaseUri + 'api/uploader/:fileid',del);
 
-}
+              console.log('/api/s3');
+              
+} 
 
 
 module.exports = uploader;

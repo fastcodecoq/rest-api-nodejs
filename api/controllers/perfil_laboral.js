@@ -50,12 +50,12 @@ var ctrlPerfil_laboral = function (server) {
     console.log(perfil_laboral);    
 
 // Save the perfil_laboral and check for errors
-    perfil_laboral.save(function (err) {
+    perfil_laboral.save(function (err, rs) {
       if (err) {
         res.send(500, new Error(err));
         return;
       }
-      res.json({message: 'Perfil_laboral added', data: perfil_laboral});
+      res.json({message: 'Perfil_laboral added', data: rs});
     });
   }
 

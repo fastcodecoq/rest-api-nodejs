@@ -29,7 +29,7 @@ var ctrlSolicitud_servicio = function (server) {
 // Save the solicitud_servicio and check for errors
     solicitud_servicio.save(function (err) {
       if (err) {
-        res.send(err);
+        res.send(new Error(err));
         return;
       }
       res.json({message: 'Solicitud_servicio added', data: solicitud_servicio});

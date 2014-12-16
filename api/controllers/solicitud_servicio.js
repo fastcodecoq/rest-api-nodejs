@@ -21,6 +21,7 @@ var ctrlSolicitud_servicio = function (server) {
     !REQ.description  || (solicitud_servicio.description = REQ.description);    
     !REQ.accepted  || (solicitud_servicio.accepted = REQ.accepted);    
     !REQ.readed  || (solicitud_servicio.accepted = REQ.readed);            
+    !REQ.date  || (solicitud_servicio._date = REQ.date);            
     !REQ.location  || (solicitud_servicio.location = REQ.location);            
 
    
@@ -95,6 +96,7 @@ var ctrlSolicitud_servicio = function (server) {
     !REQ.accepted  || (data.accepted = REQ.accepted);    
     !REQ.readed  || (data.accepted = REQ.readed);            
     !REQ.location  || (data.location = REQ.location);            
+    !REQ.date  || (data._date = REQ.date);            
 
     
 

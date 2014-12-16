@@ -42,7 +42,7 @@ var ctrlOrden_servicio = function (server) {
 // Save the orden_servicio and check for errors
     orden_servicio.save(function (err) {
       if (err) {
-        res.send(err);
+        res.send(new Error(err));
         return;
       }
       res.json({message: 'Orden_servicio added', data: orden_servicio});

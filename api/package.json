@@ -19,6 +19,7 @@
 	   "mongoose-timestamp" : "latest",
 	   "crypto" : "latest",
 	   "rand-token" : "latest",
+	   "mongoose-auto-increment" : "latest",
 	   "password-hash" : "latest"
 	},
 	"scripts" : {

@@ -27,6 +27,7 @@ var ctrlUsuario = function (server) {
     !REQ.cv || (usuario.cv = REQ.cv);
     !REQ.attached_cv  || (usuario.attached_cv = REQ.attached_cv);
     !REQ.active  || (usuario.active = REQ.active);    
+    !REQ.metadata  || (usuario.metadata = REQ.metadata);    
 
     
 
@@ -97,7 +98,9 @@ var ctrlUsuario = function (server) {
     !REQ.candidate_data || (data.candidate_data = REQ.candidate_data);      
     !REQ.active || (data.active = REQ.active);  
     !REQ.cv || (data.cv = REQ.cv);
-    !REQ.attached_cv  || (data.attached_cv = REQ.attached_cv);    
+    !REQ.attached_cv  || (data.attached_cv = REQ.attached_cv);  
+    !REQ.metadata  || (data.metadata = REQ.metadata);    
+
 
 
     Usuario.update({

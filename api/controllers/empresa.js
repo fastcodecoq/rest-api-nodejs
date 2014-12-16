@@ -24,6 +24,7 @@ var ctrlEmpresa = function (server) {
     !REQ.competences  || (empresa.competences = REQ.competences);    
     !REQ.anticipos  || (empresa.anticipos = REQ.anticipos);    
     !REQ.active  || (empresa.active = REQ.active);    
+    !REQ.metadata  || (empresa.metadata = REQ.metadata);    
     
 
 
@@ -106,6 +107,8 @@ var ctrlEmpresa = function (server) {
     !REQ.competences  || (data.competences = REQ.competences);    
     !REQ.anticipos  || (data.anticipos = REQ.anticipos);   
     !REQ.active  || (data.active = REQ.active);    
+    !REQ.metadata  || (data.metadata = REQ.metadata);    
+
 
     if(REQ.contact)
        {

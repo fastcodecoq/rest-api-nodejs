@@ -26,6 +26,7 @@ var ctrlOrden_servicio = function (server) {
     !REQ.status  || (orden_servicio.status = REQ.status);    
     !REQ.location  || (orden_servicio.location = REQ.location);    
     !REQ.type || (orden_servicio.type = REQ.type);    
+    !REQ.metadata  || (orden_servicio.metadata = REQ.metadata);    
   
 
     if(REQ.contact)
@@ -109,7 +110,7 @@ var ctrlOrden_servicio = function (server) {
     !REQ.status  || (data.status = REQ.status);    
     !REQ.location  || (data.location = REQ.location);    
     !REQ.type || (data.type = REQ.type);    
-    
+    !REQ.metadata  || (data.metadata = REQ.metadata);    
     
 
     if(REQ.contact)

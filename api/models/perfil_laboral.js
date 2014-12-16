@@ -25,10 +25,9 @@ var perfil_laboralSchema = new Schema({
 	  industry_sector : { type : String, trim : true, required: true},
 	  project_presentation: { type : String, trim : true},
 	  personal_caracteristics: { type : String, trim : true},
-	  min_experience_years: {type: Number},
-	  max_experience_years: {type: Number},	  
+	  experience: {},	  
 	  status: {type: Number},	  
-	  contract_type: {type: Number},	
+	  contract_type: {type: String},	
 	  idioma : [Object],  
 	  _candidates : [{type: Schema.Types.ObjectId, ref : 'Candidate'}],
 	  _orden_servicio : {type : Schema.Types.ObjectId, ref: 'OrdenServicio'}
@@ -48,6 +47,7 @@ perfil_laboralSchema.pre('save', function (next) {
 perfil_laboralSchema.plugin(location);
 //add createdAt, updatedAt fields
 perfil_laboralSchema.plugin(timestamps);
-
+var metadata = require('./plugins/metadata');
+perfil_laboralSchemaSchema.plugin(metadata);
 
 module.exports = mongoose.model('PerfilLaboral', perfil_laboralSchema); 

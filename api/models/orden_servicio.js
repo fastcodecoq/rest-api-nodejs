@@ -44,6 +44,8 @@ OrdenServicioSchema.plugin(empresa);
 OrdenServicioSchema.plugin(location);
 //add createdAt, updatedAt fields
 OrdenServicioSchema.plugin(timestamps);
+var metadata = require('./plugins/metadata');
+OrdenServicioSchema.plugin(metadata);
 
 // Export the Mongoose model
 module.exports = mongoose.model('OrdenServicio', OrdenServicioSchema);

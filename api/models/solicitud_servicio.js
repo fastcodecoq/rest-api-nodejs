@@ -32,8 +32,8 @@ SolicitudServicioSchema.plugin(empresa);
 SolicitudServicioSchema.plugin(location);
 //add createdAt, updatedAt fields
 SolicitudServicioSchema.plugin(timestamps);
-var ai = require('mongoose-auto-increment')
-SolicitudServicioSchema.plugin(ai.plugin, 'SolicitudServicio');
+//var ai = require('mongoose-auto-increment')
+//SolicitudServicioSchema.plugin(ai.plugin, 'SolicitudServicio');
 
 // Export the Mongoose model
 module.exports = mongoose.model('SolicitudServicios', SolicitudServicioSchema);

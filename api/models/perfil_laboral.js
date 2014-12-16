@@ -24,8 +24,7 @@ var perfil_laboralSchema = new Schema({
 	  notes: { type : String, trim : true},
 	  industry_sector : { type : String, trim : true, required: true},
 	  project_presentation: { type : String, trim : true},
-	  personal_caracteristics: { type : String, trim : true},
-	  experience: {},	  
+	  personal_caracteristics: { type : String, trim : true},  
 	  status: {type: Number},	  
 	  contract_type: {type: String},	
 	  idioma : [Object],  
@@ -48,6 +47,6 @@ perfil_laboralSchema.plugin(location);
 //add createdAt, updatedAt fields
 perfil_laboralSchema.plugin(timestamps);
 var metadata = require('./plugins/metadata');
-perfil_laboralSchemaSchema.plugin(metadata);
+perfil_laboralSchema.plugin(metadata);
 
 module.exports = mongoose.model('PerfilLaboral', perfil_laboralSchema); 

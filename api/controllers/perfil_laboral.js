@@ -29,6 +29,7 @@ var ctrlPerfil_laboral = function (server) {
     !REQ.academic_level  || (perfil_laboral.academic_level = REQ.academic_level);    
     !REQ.academic_title  || (perfil_laboral.academic_title = REQ.academic_title);    
     !REQ.notes  || (perfil_laboral.notes = REQ.notes);    
+    !REQ.metadata  || (perfil_laboral.metadata = REQ.metadata);    
     !REQ.level  || (perfil_laboral.level = REQ.level);    
     !REQ.genre  || (perfil_laboral.genre = REQ.genre);    
     !REQ.subarea  || (perfil_laboral.subarea = REQ.subarea);                  
@@ -125,15 +126,14 @@ var ctrlPerfil_laboral = function (server) {
     !REQ.academic_title  || (data.academic_title = REQ.academic_title);    
     !REQ.genre  || (data.genre = REQ.genre);    
     !REQ.notes  || (data.notes = REQ.notes);    
-    !REQ.level  || (perfil_laboral.level = REQ.level);    
-    !REQ.genre  || (perfil_laboral.genre = REQ.genre);    
-    !REQ.subarea  || (perfil_laboral.subarea = REQ.subarea);                  
-    !REQ.industry_sector  || (perfil_laboral.industry_sector = REQ.industry_sector); 
+    !REQ.level  || (data.level = REQ.level);    
+    !REQ.genre  || (data.genre = REQ.genre);    
+    !REQ.subarea  || (data.subarea = REQ.subarea);                  
+    !REQ.industry_sector  || (data.industry_sector = REQ.industry_sector); 
     !REQ.project_presentation  || (data.project_presentation = REQ.project_presentation);    
-    !REQ.min_experience_years  || (data.min_experience_years = REQ.min_experience_years);    
-    !REQ.max_experience_years  || (data.max_experience_years = REQ.max_experience_years);    
     !REQ.status  || (data.status = REQ.status);    
     !REQ.contract_type  || (data.contract_type = REQ.contract_type);    
+    !REQ.metadata  || (data.metadata = REQ.metadata);    
 
     if(REQ.candidate)
        {

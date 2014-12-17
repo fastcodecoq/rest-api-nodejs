@@ -34,6 +34,7 @@ var OrdenServicioSchema = new mongoose.Schema({
     required: true
   },
   contact : [{ type : Schema.Types.ObjectId , ref : 'Usuario'}],
+  _solicitud : { type : Schema.Types.ObjectId , ref : 'SolicitudServicios'},
   type : Number,
   anticipos: [Object]
   

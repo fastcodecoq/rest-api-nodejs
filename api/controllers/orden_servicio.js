@@ -28,7 +28,7 @@ var ctrlOrden_servicio = function (server) {
     !REQ.type || (orden_servicio.type = REQ.type);    
     !REQ.anticipos || (orden_servicio.anticipos = REQ.anticipos);    
     !REQ.metadata  || (orden_servicio.metadata = REQ.metadata);    
-    !REQ.solicitud  || (orden_servicio._solicitud = REQ.solicitud);    
+    !REQ.solicitud  || (orden_servicio._solicitud = mongoose.Types.ObjectId(REQ.solicitud));    
   
 
     if(REQ.contact)

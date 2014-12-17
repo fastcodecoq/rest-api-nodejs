@@ -27,11 +27,8 @@ var ctrlOrden_servicio = function (server) {
     !REQ.location  || (orden_servicio.location = REQ.location);    
     !REQ.type || (orden_servicio.type = REQ.type);    
     !REQ.metadata  || (orden_servicio.metadata = REQ.metadata);    
-  
-
-    if(REQ.contact)
-       for(x in REQ.contact)
-          orden_servicio.contact.push(mongoose.Types.ObjectId(REQ.contact))
+    !REQ.contact  || (orden_servicio.contact = REQ.contact);    
+    
     
 
     

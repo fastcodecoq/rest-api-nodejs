@@ -29,12 +29,8 @@ var ctrlOrden_servicio = function (server) {
     !REQ.anticipos || (orden_servicio.anticipos = REQ.anticipos);    
     !REQ.metadata  || (orden_servicio.metadata = REQ.metadata);    
     !REQ.solicitud  || (orden_servicio._solicitud = mongoose.Types.ObjectId(REQ.solicitud));    
+    !REQ.contact  || (orden_servicio.contact = mongoose.Types.ObjectId(REQ.contact));
   
-
-    if(REQ.contact)
-       for(x in REQ.contact)
-          orden_servicio.contact.push(mongoose.Types.ObjectId(REQ.contact))
-    
 
     
 
@@ -68,7 +64,7 @@ var ctrlOrden_servicio = function (server) {
 
 // Use the Orden_servicio model to find all orden_servicio
     Orden_servicio.find(query)
-    .populate('_empresa _contacto _responsible')
+    .populate('_empresa _contacto _respon')
     .exec(function (err, orden_servicios) {
       if (err) {
         res.send(err);
@@ -113,11 +109,7 @@ var ctrlOrden_servicio = function (server) {
     !REQ.location  || (data.location = REQ.location);    
     !REQ.type || (data.type = REQ.type);    
     !REQ.metadata  || (data.metadata = REQ.metadata);    
-    
-
-    if(REQ.contact)
-       for(x in REQ.contact)
-           data.contact.push(mongoose.Types.ObjectId(REQ.contact))
+    !REQ.contact  || (data.contact = mongoose.Types.ObjectId(REQ.contact));
     
     
 

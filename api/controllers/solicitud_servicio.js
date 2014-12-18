@@ -22,7 +22,9 @@ var ctrlSolicitud_servicio = function (server) {
     !REQ.accepted  || (solicitud_servicio.accepted = REQ.accepted);    
     !REQ.readed  || (solicitud_servicio.accepted = REQ.readed);            
     !REQ.date  || (solicitud_servicio._date = REQ.date);            
-    !REQ.location  || (solicitud_servicio.location = REQ.location);            
+    !REQ.location  || (solicitud_servicio.location = REQ.location);   
+    !REQ._perfil  || (solicitud_servicio._perfil = mongoose.Types.ObjectId(REQ._perfil));   
+
 
    
     console.log(solicitud_servicio);    
@@ -97,6 +99,7 @@ var ctrlSolicitud_servicio = function (server) {
     !REQ.readed  || (data.accepted = REQ.readed);            
     !REQ.location  || (data.location = REQ.location);            
     !REQ.date  || (data._date = REQ.date);            
+    !REQ._perfil  || (data._perfil = mongoose.Types.ObjectId(REQ._perfil));   
 
     
 

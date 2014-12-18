@@ -157,7 +157,11 @@ var ctrlPerfil_laboral = function (server) {
         res.send(err);
         return;
       }
-      res.json({message: num + ' updated'});
+      
+      var updated = num > 0 ? true: false;
+      res.json({message: num + ' updated', updated : updated});      
+      
+
     });
   }
 

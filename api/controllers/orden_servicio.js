@@ -68,7 +68,7 @@ var ctrlOrden_servicio = function (server) {
 
 // Use the Orden_servicio model to find all orden_servicio
     Orden_servicio.find(query)
-    .populate('_empresa _contacto')
+    .populate('_empresa _contacto _responsible')
     .exec(function (err, orden_servicios) {
       if (err) {
         res.send(err);

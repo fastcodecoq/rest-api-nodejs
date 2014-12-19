@@ -81,6 +81,7 @@ module.exports = exports = function(server){
   
   server.get(global.apiBaseUri + '/contacts/empresa/:empresaid', get);
   server.get(global.apiBaseUri + '/contacts/:contactid', get);
+  server.get(global.apiBaseUri + '/contacts', get);
   server.post(global.apiBaseUri + '/contacts', post);
 
 

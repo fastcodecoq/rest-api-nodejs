@@ -177,7 +177,7 @@ module.exports = exports = function(server){
   server.post(global.apiBaseUri + '/contacts', post);
 
   
-  server.get(global.apiBaseUri + '/contacts/empresa/:empresaid', getContacts);
+  server.get(global.apiBaseUri + '/contacts/get/empresa/:empresaid', getContacts);
   server.put(global.apiBaseUri + '/empresa/:empresaid/contacts/:userid', putContact);
 
 

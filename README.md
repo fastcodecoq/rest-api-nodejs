@@ -521,6 +521,8 @@ _______
 Método: GET
 URI: /api/contacts || /api/contacts/:empresaid || /api/contacts/:contactid
  
+ 54836e5c08be31d109d7af40
+ 548cb376b7f93fe9065a000d
 
 
 MODIFICAR
@@ -536,7 +538,7 @@ Params:
 _usuario String 
 _empresa String 
 metadata Object
-active (default true)
+active 
 ```
 
 

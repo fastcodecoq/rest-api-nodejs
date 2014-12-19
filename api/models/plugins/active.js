@@ -1,6 +1,6 @@
 module.exports = exports = function activePlugin(schema, required) {
 
-    required || (required = false)
+    required || (required = true)
 
   schema.add({  			
 		active : {

@@ -422,3 +422,126 @@ ________
 
 Método: DELETE
 URI: /api/candidate/:candidateid
+
+
+
+SOLICITUD SERVICIO
+------------------
+
+CREAR 
+_____
+
+
+Método: POST 
+URI: /api/solicitud_servicio 
+Params: 
+
+```javascript
+name String (required)
+empresaid String (empresaid required)
+type String 
+accepted Boolean (default false)
+readed Boolean (default false)
+description String 
+location Object
+         {
+             address : String,
+             city : String,
+             country : String,
+             lat : Number,
+             lng : Number
+         }
+active Boolean (Defautl truee)
+```
+
+
+OBTENER
+_______
+
+Método: GET
+URI: /api/solicitud_servicio/:solicitudservicioid || /api/solicitud_servicio
+ 
+
+
+MODIFICAR
+_________
+
+
+Método: PUT / UPDATE
+URI: /api/solicitud_servicio/:solicitudservicioid
+Params: 
+
+```javascript
+name String (required)
+empresaid String (empresaid required)
+type String 
+accepted Boolean (default false)
+readed Boolean (default false)
+description String 
+location Object
+         {
+             address : String,
+             city : String,
+             country : String,
+             lat : Number,
+             lng : Number
+         }
+active Boolean (Defautl truee)
+```
+
+ELIMINAR
+________
+
+Método: DELETE
+URI: /api/solicitud_servicio/:solicitudservicioid
+
+
+CONTACTO
+--------
+
+CREAR 
+_____
+
+
+Método: POST 
+URI: /api/contacts 
+Params: 
+
+```javascript
+_usuario String (required)
+_empresa String (required)
+metadata Object
+active (default true)
+```
+
+
+OBTENER
+_______
+
+Método: GET
+URI: /api/contacts || /api/contacts/:empresaid || /api/contacts/:contactid
+ 
+
+
+MODIFICAR
+_________
+
+
+Método: PUT / UPDATE
+URI: /api/contacts/:candidateid
+Params: 
+
+
+```javascript
+_usuario String 
+_empresa String 
+metadata Object
+active (default true)
+```
+
+
+ELIMINAR
+________
+
+Método: DELETE
+URI: /api/contact/:contactid

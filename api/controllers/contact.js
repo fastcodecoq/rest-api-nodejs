@@ -1,37 +1,74 @@
 module.exports = exports = function(server){
 	
-    var Usuario = require('../models/usuario');
-    var Empresa = require('../models/empresa');
+    var Contact = require('../models/contact');
     var mongoose = require('mongoose');
 
-    function getContacts(req, res){
+
+      function post(req, res) {
+// Create a new instance of the Candidate model
+    var contact = new Contact;
+
+// Set the contact properties that came from the POST data
+    var REQ = req.params;    
+
+    console.log(REQ, 'req')
+
+    !REQ._usuario  || (contact._usuario = mongoose.Types.ObjectId(REQ._usuario));
+    !REQ._empresa  || (contact._empresa = mongoose.Types.ObjectId(REQ._empresa));
+
+   
+    console.log(contact);    
+
+// Save the contact and check for errors
+    contact.save(function (err) {
+      if (err) {
+        res.send(err);
+        return;
+      }
+      res.json({message: 'Contact added', data: contact});
+    });
+  }
+
+
+    function del(req, res) {
+// Use the Contact model to find a specific contact and remove it
+    Contact.remove({_id: mongoose.Types.ObjectId(req.params.contactid)}, function (err) {
+      if (err) {
+        res.send(err);
+      }
+      res.json({message: 'Contact removed'});
+    });
+  }
+
+
+
+
+    function get(req, res){
 
               var REQ = req.params;
 
-              if(!REQ.empresaid)
-              	  {
-              	  	res.send(new Error('Invalid Params'));
-              	  	return;
-              	  }
- 				
- 			  Empresa.findOne({_id : mongoose.Types.ObjectId(REQ.empresaid)}, function(err, rs){
 
- 			  	  if(err){
- 			  	  	    res.send(err);
- 			  	  	    return;
- 			  	  }
+        var query = {};
+
+
+        !REQ.empresaid || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));
+        !REQ.contactid || (query._id = mongoose.Types.ObjectId(REQ.contactid));
+
+ 				
+ 			  Contact.find( query)
+        .populate('_usuario _empresa')
+        .exec(function(err, rs){
+
+
+              if(err){
+                  res.send(err);
+                  return;
+            }
 
             console.log(rs);
 
- 			  	  var contacts = rs.contact;                      
-                
- 			  	  var promise = Usuario.find( { _id: { $in: contacts } } ).exec();
-            promise.then(function(_rs){                                        
-                          
-                          res.json({'data': {contacts : _rs, business: rs}});
+                       res.json({'data': {contacts : rs}});
                           return;
-
-                   });          
 
 
  			  });
@@ -39,62 +76,12 @@ module.exports = exports = function(server){
     }
 
 
-      function putContact(req, res) {
-
-    var data = {};
-    var REQ = req.params;
-
-
-    if(!REQ.empresaid || !REQ.userid)
-          {
-            res.send(500,'invalid params');
-            return;
-          }
-
-
-
-
-
-    // making the query for update
-
-    var query = {};
-
-  
-    !REQ.empresaid || (query._id = mongoose.Types.ObjectId(REQ.empresaid));
   
 
-    console.log(query);
   
-    Empresa.findOne(query, function (err, empresa) {
-      
-      if (err) {
-        res.send(500,err);
-        return;
-        
-      }
-      
-        console.log(empresa);
-        empresa.contact.push(mongoose.Types.ObjectId(REQ.userid));
-        empresa.save(function(err){
-           if (err) {
-            res.send(500,err);
-            return;
-            
-            } 
-
-            res.json({message: ' Contact added'});
-        });
-
-    });
-        
-
-// Use the Empresa model to find a specific empresa
-   
-  }
-
-  
-  server.get(global.apiBaseUri + '/contacts/empresa/:empresaid', getContacts);
-  server.put(global.apiBaseUri + '/empresa/:empresaid/contacts/:userid', putContact);
+  server.get(global.apiBaseUri + '/contacts/empresa/:empresaid', get);
+  server.get(global.apiBaseUri + '/contacts/:contactid', get);
+  server.post(global.apiBaseUri + '/contacts', post);
 
 
 }

@@ -87,7 +87,7 @@ module.exports = exports = function(server){
     !REQ._usuario  || (data._usuario = mongoose.Types.ObjectId(REQ._usuario));
     !REQ._empresa  || (data._empresa = mongoose.Types.ObjectId(REQ._empresa));
     !REQ.active || (data.active = REQ.active);
-    !REQ.metadata || (data.metadata = mongoose.Types.ObjectId(REQ.metadata));
+    !REQ.metadata || (data.metadata = REQ.metadata);
 
    
     console.log(contact);    

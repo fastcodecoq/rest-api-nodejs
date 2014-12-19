@@ -528,7 +528,7 @@ _________
 
 
 Método: PUT / UPDATE
-URI: /api/contacts/:candidateid
+URI: /api/contacts/:contactid
 Params: 
 
 

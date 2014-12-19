@@ -54,7 +54,8 @@ module.exports = exports = function(server){
 
     !REQ._usuario  || (contact._usuario = mongoose.Types.ObjectId(REQ._usuario));
     !REQ._empresa  || (contact._empresa = mongoose.Types.ObjectId(REQ._empresa));
-
+    !REQ.active || (contact.active = REQ.active);
+    !REQ.metadata || (contact.metadata = mongoose.Types.ObjectId(REQ.metadata));
    
     console.log(contact);    
 
@@ -66,6 +67,49 @@ module.exports = exports = function(server){
       }
       res.json({message: 'Contact added', data: contact});
     });
+  }
+
+
+
+
+      function put(req, res) {
+// Create a new instance of the Candidate model
+    var contact = new Contact;
+
+// Set the contact properties that came from the POST data
+    var REQ = req.params;    
+
+    console.log(REQ, 'req')
+
+    !REQ._usuario  || (data._usuario = mongoose.Types.ObjectId(REQ._usuario));
+    !REQ._empresa  || (data._empresa = mongoose.Types.ObjectId(REQ._empresa));
+    !REQ.active || (data.active = REQ.active);
+    !REQ.metadata || (data.metadata = mongoose.Types.ObjectId(REQ.metadata));
+
+   
+    console.log(contact);    
+
+
+      if(!REQ.contactid)
+      {
+          res.send(500,'invalid params');
+            return;
+      }
+
+        
+        !REQ.contactid || (query._id = mongoose.Types.ObjectId(REQ.contactid));
+
+
+
+// Update the contact and check for errors
+    
+     Contact.update(query, data, function (err, num, raw) {
+      if (err) {
+        res.send(err);
+      }
+      res.json({message: num + ' updated'});
+    });
+
   }
 
 
@@ -173,6 +217,7 @@ module.exports = exports = function(server){
   
   server.get(global.apiBaseUri + '/contacts/empresa/:empresaid', get);
   server.get(global.apiBaseUri + '/contacts/:contactid', get);
+  server.put(global.apiBaseUri + '/contacts/:contactid', put);
   server.get(global.apiBaseUri + '/contacts', get);
   server.post(global.apiBaseUri + '/contacts', post);
 

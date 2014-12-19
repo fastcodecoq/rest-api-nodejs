@@ -67,7 +67,7 @@ module.exports = exports = function(server){
 
             console.log(rs);
 
-                       res.json({'data': {contacts : rs}});
+                       res.json({'data': rs});
                           return;
 
 

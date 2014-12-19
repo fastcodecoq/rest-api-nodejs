@@ -1,7 +1,46 @@
 module.exports = exports = function(server){
-	
+  
     var Contact = require('../models/contact');
     var mongoose = require('mongoose');
+     var Usuario = require('../models/usuario');
+    var Empresa = require('../models/empresa');
+
+
+
+    function getContacts(req, res){
+
+              var REQ = req.params;
+
+              if(!REQ.empresaid)
+                  {
+                    res.send(new Error('Invalid Params'));
+                    return;
+                  }
+        
+        Empresa.findOne({_id : mongoose.Types.ObjectId(REQ.empresaid)}, function(err, rs){
+
+            if(err){
+                  res.send(err);
+                  return;
+            }
+
+            console.log(rs);
+
+            var contacts = rs.contact;                      
+                
+            var promise = Usuario.find( { _id: { $in: contacts } } ).exec();
+            promise.then(function(_rs){                                        
+                          
+                          res.json({'data': {contacts : _rs, business: rs}});
+                          return;
+
+                   });          
+
+
+        });
+   
+    }
+
 
 
       function post(req, res) {
@@ -54,8 +93,8 @@ module.exports = exports = function(server){
         !REQ.empresaid || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));
         !REQ.contactid || (query._id = mongoose.Types.ObjectId(REQ.contactid));
 
- 				
- 			  Contact.find( query)
+        
+        Contact.find( query)
         .populate('_usuario _empresa')
         .exec(function(err, rs){
 
@@ -71,10 +110,63 @@ module.exports = exports = function(server){
                           return;
 
 
- 			  });
+        });
    
     }
 
+
+         function putContact(req, res) {
+
+    var data = {};
+    var REQ = req.params;
+
+
+    if(!REQ.empresaid || !REQ.userid)
+          {
+            res.send(500,'invalid params');
+            return;
+          }
+
+
+
+
+
+    // making the query for update
+
+    var query = {};
+
+  
+    !REQ.empresaid || (query._id = mongoose.Types.ObjectId(REQ.empresaid));
+  
+
+    console.log(query);
+  
+    Empresa.findOne(query, function (err, empresa) {
+      
+      if (err) {
+        res.send(500,err);
+        return;
+        
+      }
+      
+        console.log(empresa);
+        empresa.contact.push(mongoose.Types.ObjectId(REQ.userid));
+        empresa.save(function(err){
+           if (err) {
+            res.send(500,err);
+            return;
+            
+            } 
+
+            res.json({message: ' Contact added'});
+        });
+
+    });
+        
+
+// Use the Empresa model to find a specific empresa
+   
+  }
 
   
 
@@ -84,8 +176,15 @@ module.exports = exports = function(server){
   server.get(global.apiBaseUri + '/contacts', get);
   server.post(global.apiBaseUri + '/contacts', post);
 
+  
+  server.get(global.apiBaseUri + '/contacts/empresa/:empresaid', getContacts);
+  server.put(global.apiBaseUri + '/empresa/:empresaid/contacts/:userid', putContact);
+
 
 }
+
+
+
 
 
 

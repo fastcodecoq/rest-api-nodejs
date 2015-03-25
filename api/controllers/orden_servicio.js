@@ -30,7 +30,16 @@ var ctrlOrden_servicio = function (server) {
     !REQ.metadata  || (orden_servicio.metadata = REQ.metadata);    
     !REQ.solicitud  || (orden_servicio._solicitud = mongoose.Types.ObjectId(REQ.solicitud));    
     !REQ.contact  || (orden_servicio.contact = mongoose.Types.ObjectId(REQ.contact));
+    !REQ.cargo  || (orden_servicio.cargo = mongoose.Types.ObjectId(REQ.cargo));
+    !REQ.candidato  || (orden_servicio._candidato.push(mongoose.Types.ObjectId(REQ.candidato)));
+    !REQ.tipo_evaluacion  || (orden_servicio._tipo_evaluacion = mongoose.Types.ObjectId(REQ.tipo_evaluacion));
+    !REQ.consultora  || (orden_servicio._consultora = mongoose.Types.ObjectId(REQ.consultora));
+    !REQ.coordinadora  || (orden_servicio._coordinadora = mongoose.Types.ObjectId(REQ.coordinadora));
+    !REQ.consultora_externa  || (orden_servicio.consultora_externa = REQ.consultora_externa);
+    !REQ.candidato_interno  || (orden_servicio.candidato_interno = REQ.candidato_interno);
+    !REQ.modelo_competencia  || (orden_servicio._modelo_competencia = mongoose.Types.ObjectId(REQ.modelo_competencia));    
   
+
 
     
 
@@ -109,7 +118,16 @@ var ctrlOrden_servicio = function (server) {
     !REQ.location  || (data.location = REQ.location);    
     !REQ.type || (data.type = REQ.type);    
     !REQ.metadata  || (data.metadata = REQ.metadata);    
+    !REQ.solicitud  || (data._solicitud = mongoose.Types.ObjectId(REQ.solicitud));    
     !REQ.contact  || (data.contact = mongoose.Types.ObjectId(REQ.contact));
+    !REQ.cargo  || (data.cargo = mongoose.Types.ObjectId(REQ.cargo));
+    //!REQ.candidato  || (data._candidato.push(mongoose.Types.ObjectId(REQ.candidato)));
+    !REQ.tipo_evaluacion  || (data._tipo_evaluacion = mongoose.Types.ObjectId(REQ.tipo_evaluacion));
+    !REQ.consultora  || (data._consultora = mongoose.Types.ObjectId(REQ.consultora));
+    !REQ.coordinadora  || (data._coordinadora = mongoose.Types.ObjectId(REQ.coordinadora));
+    !REQ.consultora_externa  || (data.consultora_externa = REQ.consultora_externa);
+    !REQ.candidato_interno  || (data.candidato_interno = REQ.candidato_interno);
+    !REQ.modelo_competencia  || (data._modelo_competencia = mongoose.Types.ObjectId(REQ.modelo_competencia));   
     
     
 

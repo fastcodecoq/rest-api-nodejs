@@ -14,10 +14,11 @@ var user = require('./plugins/user');
 var empresa = require('./plugins/empresa');
 var fullname = require('./plugins/fullname');
 var metadata = require('./plugins/metadata');
+var perfil = require('./plugins/perfil');
 
 
 var nameSchema = new Schema({
-	  name : { type : String, trim : true}
+	  name : { type : String, trim : true, default: new Date().getTime()}
 });
 
 
@@ -31,15 +32,10 @@ nameSchema.pre('save', function (next) {
 
 
 //add plugins
-nameSchema.plugin(fullname);
-nameSchema.plugin(location);
-nameSchema.plugin(candidate_data);
-nameSchema.plugin(email);
-nameSchema.plugin(privilege);
-nameSchema.plugin(user);
 nameSchema.plugin(empresa);
+nameSchema.plugin(perfil);
 nameSchema.plugin(timestamps);
 OrdenServicioSchema.plugin(metadata);
 
 
-module.exports = mongoose.model('Model', nameSchema); 
+module.exports = mongoose.model('Cargo', nameSchema); 

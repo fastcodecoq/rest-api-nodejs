@@ -12,7 +12,7 @@ var active = require('./plugins/active');
 
 
 var candidateSchema = new Schema({
-	 _cv : {type: Schema.Types.ObjectId}
+	 _perfil : {type: Schema.Types.ObjectId, ref: 'PerfilLaboral'}
 });
 
 
@@ -23,6 +23,8 @@ candidateSchema.plugin(location);
 candidateSchema.plugin(candidate_data);
 candidateSchema.plugin(timestamps);
 candidateSchema.plugin(active);
+var metadata = require('./plugins/metadata');
+OrdenServicioSchema.plugin(metadata);
 
 
 

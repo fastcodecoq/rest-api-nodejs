@@ -23,7 +23,12 @@ var ctrlSolicitud_servicio = function (server) {
     !REQ.readed  || (solicitud_servicio.accepted = REQ.readed);            
     !REQ.date  || (solicitud_servicio._date = REQ.date);            
     !REQ.location  || (solicitud_servicio.location = REQ.location);   
-    !REQ._perfil  || (solicitud_servicio._perfil = mongoose.Types.ObjectId(REQ._perfil));   
+    !REQ.vacantes  || (solicitud_servicio.vacantes = REQ.vacantes); 
+    !REQ.status  || (solicitud_servicio.status = REQ.status);                
+    !REQ.cargo  || (solicitud_servicio._cargo = mongoose.Types.ObjectId(REQ.cargo));   
+    !REQ.contacto  || (solicitud_servicio._contacto = mongoose.Types.ObjectId(REQ.contacto));   
+    !REQ.responsable  || (solicitud_servicio._responsable = mongoose.Types.ObjectId(REQ.responsable));   
+    !REQ.modelo_competencia  || (solicitud_servicio._modelo_competencia = mongoose.Types.ObjectId(REQ.modelo_competencia));   
 
 
    
@@ -99,8 +104,12 @@ var ctrlSolicitud_servicio = function (server) {
     !REQ.readed  || (data.accepted = REQ.readed);            
     !REQ.location  || (data.location = REQ.location);            
     !REQ.date  || (data._date = REQ.date);            
-    !REQ._perfil  || (data._perfil = mongoose.Types.ObjectId(REQ._perfil));   
-
+    !REQ.vacantes  || (data.vacantes = REQ.vacantes); 
+    !REQ.status  || (data.status = REQ.status);                
+    !REQ.cargo  || (data._cargo = mongoose.Types.ObjectId(REQ.cargo));   
+    !REQ.contacto  || (data._contacto = mongoose.Types.ObjectId(REQ.contacto));   
+    !REQ.responsable  || (data._responsable = mongoose.Types.ObjectId(REQ.responsable));   
+    !REQ.modelo_competencia  || (data._modelo_competencia = mongoose.Types.ObjectId(REQ.modelo_competencia));   
     
 
 

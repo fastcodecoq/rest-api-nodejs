@@ -1,18 +1,15 @@
-
-  module.exports = exports = function empresaPlugin(schema, options) {
+  module.exports = exports = function perfilPlugin(schema, options) {
 
   ObjectId = require('mongoose').Schema.Types.ObjectId;
 
   options || (options = {});
 
   schema.add({
-  	_empresa: {
+  	_perfil: {
     
     type: ObjectId,
-    ref: 'Empresa'
-       
+    ref: 'PerfilLaboral'
        }
-
-   });
+  });
 
 };

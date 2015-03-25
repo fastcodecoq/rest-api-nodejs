@@ -17,7 +17,12 @@ var metadata = require('./plugins/metadata');
 
 
 var nameSchema = new Schema({
-	  name : { type : String, trim : true}
+	  name : { type : String, trim : true},
+	  valor : { type : String, trim : true},
+	  prefijo : { type : String, trim : true},
+	  sufijo : { type : String, trim : true},
+	  tipo : { type : String, trim : true},	 
+	  _tipo : { type : Schema.Types.ObjectId, trim : true}
 });
 
 
@@ -31,15 +36,8 @@ nameSchema.pre('save', function (next) {
 
 
 //add plugins
-nameSchema.plugin(fullname);
-nameSchema.plugin(location);
-nameSchema.plugin(candidate_data);
-nameSchema.plugin(email);
-nameSchema.plugin(privilege);
-nameSchema.plugin(user);
-nameSchema.plugin(empresa);
 nameSchema.plugin(timestamps);
 OrdenServicioSchema.plugin(metadata);
 
 
-module.exports = mongoose.model('Model', nameSchema); 
+module.exports = mongoose.model('ListaValor', nameSchema); 

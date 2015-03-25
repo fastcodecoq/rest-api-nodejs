@@ -14,11 +14,13 @@ var user = require('./plugins/user');
 var empresa = require('./plugins/empresa');
 var fullname = require('./plugins/fullname');
 var metadata = require('./plugins/metadata');
+var descripcion = require('./plugins/descripcion');
 
 
 var nameSchema = new Schema({
-	  name : { type : String, trim : true}
-});
+	  name : { type : String, trim : true, required: true},
+	  nivel: { type : String, trim : true, required: true}	  
+});	
 
 
 nameSchema.pre('save', function (next) {
@@ -31,15 +33,9 @@ nameSchema.pre('save', function (next) {
 
 
 //add plugins
-nameSchema.plugin(fullname);
-nameSchema.plugin(location);
-nameSchema.plugin(candidate_data);
-nameSchema.plugin(email);
-nameSchema.plugin(privilege);
-nameSchema.plugin(user);
 nameSchema.plugin(empresa);
 nameSchema.plugin(timestamps);
 OrdenServicioSchema.plugin(metadata);
 
 
-module.exports = mongoose.model('Model', nameSchema); 
+module.exports = mongoose.model('Competencia', nameSchema); 

@@ -30,14 +30,22 @@ var OrdenServicioSchema = new mongoose.Schema({
     type: Date
   },
   status: {
-    type: Number,
+    type: String,
     required: true
   },
   contact : { type : Schema.Types.ObjectId , ref : 'Usuario'},
   _solicitud : { type : Schema.Types.ObjectId , ref : 'SolicitudServicios'},
   type : Number,
-  anticipos: [Object]
-  
+  anticipos: [Object],
+  _cargo : {type: Schema.Types.ObjectId, ref: 'Cargo'},
+  candidato_interno: Boolean,
+  _candidato: [{type: Schema.Types.ObjectId, ref: 'Usuario'}],
+  _tipo_evaluacion: {type: Schema.Types.ObjectId, ref: 'TipoEvaluacion'},
+  consultora_externa: {type: Boolean, required:true},
+  _consultora : {type: Schema.Types.ObjectId, ref: 'Usuario'},
+  _coordinadora: {type: Schema.Types.ObjectId, ref: 'Usuario'},
+  _modelo_compentencia : {type: Schema.Types.ObjectId, ref: 'ModeloCompetencia'},
+  _orden_servicio : [{type: Schema.Types.ObjectId, ref: 'OrdenServicio'}]
 });
 
 

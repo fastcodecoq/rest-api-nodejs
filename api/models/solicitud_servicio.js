@@ -7,7 +7,7 @@ var perfil = require('./plugins/perfil');
 var cargo = require('./plugins/cargo');
 var contacto = require('./plugins/contacto');
 var responsable = require('./plugins/responsable');
-var modelo_compentencia = require('./plugins/modelo_compentencia');
+var modelo_compentencia = require('./plugins/modelo_competencia');
 
 var Schema = mongoose.Schema;
 

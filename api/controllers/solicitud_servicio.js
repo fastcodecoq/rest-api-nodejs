@@ -13,11 +13,12 @@ var ctrlSolicitud_servicio = function (server) {
 // Set the solicitud_servicio properties that came from the POST data
     var REQ = req.params;    
 
+    console.log(REQ);
 
     
     !REQ.name  || (solicitud_servicio.name = REQ.name);          
     !REQ.type  || (solicitud_servicio.type = REQ.type);
-    !REQ.empresaid  || (solicitud_servicio._empresa = mongoose.Types.ObjectId(REQ.empresaid));    
+    !REQ.empresa  || (solicitud_servicio._empresa = mongoose.Types.ObjectId(REQ.empresa));    
     !REQ.description  || (solicitud_servicio.description = REQ.description);    
     !REQ.accepted  || (solicitud_servicio.accepted = REQ.accepted);    
     !REQ.readed  || (solicitud_servicio.accepted = REQ.readed);            

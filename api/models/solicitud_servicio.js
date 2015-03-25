@@ -47,7 +47,7 @@ SolicitudServicioSchema.plugin(modelo_compentencia);
 //var ai = require('mongoose-auto-increment')
 //SolicitudServicioSchema.plugin(ai.plugin, 'SolicitudServicio');
 var metadata = require('./plugins/metadata');
-OrdenServicioSchema.plugin(metadata);
+SolicitudServicioSchema.plugin(metadata);
 
 // Export the Mongoose model
 module.exports = mongoose.model('SolicitudServicios', SolicitudServicioSchema);

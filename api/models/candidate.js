@@ -24,7 +24,7 @@ candidateSchema.plugin(candidate_data);
 candidateSchema.plugin(timestamps);
 candidateSchema.plugin(active);
 var metadata = require('./plugins/metadata');
-OrdenServicioSchema.plugin(metadata);
+candidateSchema.plugin(metadata);
 
 
 

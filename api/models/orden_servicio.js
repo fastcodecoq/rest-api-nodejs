@@ -11,7 +11,7 @@ var OrdenServicioSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  _responsible: {
+  _responsable: {
     type: Schema.Types.ObjectId,
     required: true,
     ref: 'Usuario'
@@ -33,8 +33,8 @@ var OrdenServicioSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  contact : { type : Schema.Types.ObjectId , ref : 'Usuario'},
-  _solicitud : { type : Schema.Types.ObjectId , ref : 'SolicitudServicios'},
+  _contact : { type : Schema.Types.ObjectId , ref : 'Usuario'},
+  _solicitud_servicio : { type : Schema.Types.ObjectId , ref : 'SolicitudServicios'},
   type : Number,
   anticipos: [Object],
   _cargo : {type: Schema.Types.ObjectId, ref: 'Cargo'},
@@ -43,6 +43,7 @@ var OrdenServicioSchema = new mongoose.Schema({
   _tipo_evaluacion: {type: Schema.Types.ObjectId, ref: 'TipoEvaluacion'},
   consultora_externa: {type: Boolean, required:true},
   _consultora : {type: Schema.Types.ObjectId, ref: 'Usuario'},
+  _consultora_externa : {type: Schema.Types.ObjectId, ref: 'Usuario'},
   _coordinadora: {type: Schema.Types.ObjectId, ref: 'Usuario'},
   _modelo_compentencia : {type: Schema.Types.ObjectId, ref: 'ModeloCompetencia'},
   _orden_servicio : [{type: Schema.Types.ObjectId, ref: 'OrdenServicio'}]

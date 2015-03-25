@@ -21,7 +21,6 @@ var SolicitudServicioSchema = new mongoose.Schema({
   readed : {type : Boolean, default: false},
   description : {type: String},
   vacantes : {type:Number},
-  _date : {type :Date, required: true},
   vigency : Number,
   _orden_servicio : [{type: Schema.Types.ObjectId, ref:'OrdenServicio'}]
 

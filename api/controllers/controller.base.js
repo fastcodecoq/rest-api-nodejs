@@ -12,16 +12,16 @@ var ctrlName = function (server){
       
 
 
-   // Use the Empresa model to find all empresa
-    Model.find(query, function (err, model) {
-      if (err) {
-        res.send(err);
-        return;
-      }
-      res.json({data:model});      
-    });
+       // Use the model to find all empresa
+        Model.find(query, function (err, model) {
+          if (err) {
+            res.send(err);
+            return;
+          }
+          res.json({data:model});      
+        });
 
-   }
+     }
 
        function del(req, res, next){
        	// code

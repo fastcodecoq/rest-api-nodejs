@@ -35,7 +35,7 @@ nameSchema.pre('save', function (next) {
 nameSchema.plugin(empresa);
 nameSchema.plugin(perfil);
 nameSchema.plugin(timestamps);
-OrdenServicioSchema.plugin(metadata);
+nameSchema.plugin(metadata);
 
 
 module.exports = mongoose.model('Cargo', nameSchema); 

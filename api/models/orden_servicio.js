@@ -8,13 +8,12 @@ var Schema = mongoose.Schema;
 // Define our Orden de Servicio schema
 var OrdenServicioSchema = new mongoose.Schema({
   name: {
-    type: String,
-    required: true
+    type: String
   },
   _responsable: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: 'Usuario'
+    ref: 'Contacto'
   },
   description: {
     type: String,    
@@ -33,7 +32,7 @@ var OrdenServicioSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  _contact : { type : Schema.Types.ObjectId , ref : 'Usuario'},
+  _contact : { type : Schema.Types.ObjectId , ref : 'Contacto'},
   _solicitud_servicio : { type : Schema.Types.ObjectId , ref : 'SolicitudServicios'},
   type : Number,
   anticipos: [Object],

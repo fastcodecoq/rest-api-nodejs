@@ -109,7 +109,7 @@ var ctrlOrden_servicio = function (server) {
         
     !REQ.name  || (data.name = REQ.name);          
     !REQ.responsible  || (data._responsible = mongoose.Types.ObjectId(REQ.responsible));
-    !REQ.empresa  || (data._empresa = mongoose.Types.ObjectId(REQ.empresaid));    
+    !REQ.empresa  || (data._empresa = mongoose.Types.ObjectId(REQ.empresa));    
     !REQ.description  || (data.description = REQ.description);    
     !REQ.rate  || (data.rate = REQ.rate);    
     !REQ.start_date  || (data.start_date = REQ.start_date);    

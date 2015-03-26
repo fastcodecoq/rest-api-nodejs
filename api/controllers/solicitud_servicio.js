@@ -65,7 +65,7 @@ var ctrlSolicitud_servicio = function (server) {
     Solicitud_servicio.find(query)
     .lean()
     .populate('_empresa')
-    .populate('_contacto')
+    .populate('_contacto', {path:'_contacto._usuario', model: 'User'})
     .populate('_responsable')
     //.populate('_cargo')
     //.populate('_modelo_competencia')

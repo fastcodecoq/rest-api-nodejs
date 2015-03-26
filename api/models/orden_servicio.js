@@ -12,7 +12,6 @@ var OrdenServicioSchema = new mongoose.Schema({
   },
   _responsable: {
     type: Schema.Types.ObjectId,
-    required: true,
     ref: 'Contacto'
   },
   description: {

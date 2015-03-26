@@ -66,7 +66,7 @@ var ctrlSolicitud_servicio = function (server) {
     .populate('_contacto')
     .populate('_responsable')
     //.populate('_cargo')
-    .populate('_modelo_competencia')
+    //.populate('_modelo_competencia')
     .exec(function (err, solicitud_servicios) {
       if (err) {
         res.send(err);

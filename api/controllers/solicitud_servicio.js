@@ -64,8 +64,8 @@ var ctrlSolicitud_servicio = function (server) {
 // Use the Solicitud_servicio model to find all solicitud_servicio
     Solicitud_servicio.find(query)
     .lean()
-    .populate('_empresa')
     .populate('_contacto')
+    //.populate('_contacto')
     .populate('_responsable')
     //.populate('_cargo')
     //.populate('_modelo_competencia')

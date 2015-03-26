@@ -8,7 +8,7 @@
   	_contacto: {
     
     type: ObjectId,
-    ref: 'Usuario'
+    ref: 'Contact'
        }
   });
 

@@ -8,7 +8,7 @@
   	_responsable: {
     
     type: ObjectId,
-    ref: 'Usuario'
+    ref: 'Contact'
        }
   });
 

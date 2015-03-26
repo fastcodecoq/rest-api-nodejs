@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var timestamps = require('mongoose-timestamp');
 var location = require('./plugins/location');
 var empresa = require('./plugins/empresa');
-var perfil = require('./plugins/perfil');
 var cargo = require('./plugins/cargo');
 var contacto = require('./plugins/contacto');
 var responsable = require('./plugins/responsable');

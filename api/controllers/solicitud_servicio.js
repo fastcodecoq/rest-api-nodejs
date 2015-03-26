@@ -73,6 +73,8 @@ var ctrlSolicitud_servicio = function (server) {
         return;
       }
 
+      console.log(solicitud_servicios,' contacto');
+
 
       if(solicitud_servicios.length === 0)
       {

@@ -65,7 +65,7 @@ var ctrlSolicitud_servicio = function (server) {
     Solicitud_servicio.find(query)
     .lean()
     .populate('_empresa')
-    .populate('_contacto', {path:'_contacto._usuario', select: 'name', model: User})
+    .populate('_contacto')
     .populate('_responsable')
     //.populate('_cargo')
     //.populate('_modelo_competencia')
@@ -78,13 +78,21 @@ var ctrlSolicitud_servicio = function (server) {
       console.log(solicitud_servicios,' contacto');
 
 
-      if(solicitud_servicios.length === 0)
+      User
+      .populate(solicitud_servicios, {path : '_Usuario'}, function(err, rs){
+
+             if(solicitud_servicios.length === 0)
       {
         res.send(200,{message:'Not records found'});        
         return;        
        }
 
-      res.json({data:solicitud_servicios});
+      res.json({data:rs});
+
+      });
+
+
+     
     });
 
 

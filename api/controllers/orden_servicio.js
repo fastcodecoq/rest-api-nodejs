@@ -18,7 +18,7 @@ var ctrlOrden_servicio = function (server) {
     
     !REQ.name  || (orden_servicio.name = REQ.name);          
     !REQ.responsible  || (orden_servicio._responsible = mongoose.Types.ObjectId(REQ.responsible));
-    !REQ.empresaid  || (orden_servicio._empresa = mongoose.Types.ObjectId(REQ.empresaid));    
+    !REQ.empresa  || (orden_servicio._empresa = mongoose.Types.ObjectId(REQ.empresa));    
     !REQ.description  || (orden_servicio.description = REQ.description);    
     !REQ.rate  || (orden_servicio.rate = REQ.rate);    
     !REQ.start_date  || (orden_servicio.start_date = REQ.start_date);    

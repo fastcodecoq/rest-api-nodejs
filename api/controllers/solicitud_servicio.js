@@ -4,6 +4,7 @@ var ctrlSolicitud_servicio = function (server) {
 
   // Load required packages
   var Solicitud_servicio = require('../models/solicitud_servicio');
+  var User = require('../models/usuario');
   var mongoose = require('mongoose');
 
   function post(req, res) {

@@ -33,15 +33,9 @@ var ctrlSolicitud_servicio = function (server) {
     !REQ.candidato_interno  || (solicitud_servicio._candidato_interno = REQ.candidato_interno);   
     !REQ.numero_orden_pedido  || (solicitud_servicio.numero_orden_pedido = REQ.numero_orden_pedido);   
     !REQ.tipo_evaluacion  || (solicitud_servicio.tipo_evaluacion = REQ.tipo_evaluacion);   
+    !REQ.candidato  || (solicitud_servicio._candidato = mongoose.Types.ObjectId(REQ.candidato));   
 
-    if(REQ.candidato)
-    {
 
-      solicitud_servicio._candidato = []
-
-      for(x in REQ.candidato)
-        solicitud_servicio._candidato.push(mongoose.Types.ObjectId(REQ.candidato[x]));           
-    }
 
    
     console.log(solicitud_servicio);    

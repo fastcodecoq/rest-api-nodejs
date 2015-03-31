@@ -9,3 +9,5 @@
       tipo_documento : String,
       numero_documento : String  
   });
+
+}

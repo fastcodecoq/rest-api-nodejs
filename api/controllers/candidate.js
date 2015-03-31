@@ -20,6 +20,8 @@ var ctrlCandidate = function (server) {
     !REQ.perfil || (candidate._perfil = mongoose.Types.ObjectId(REQ.perfil));    
     !REQ.tipo_documento  || (candidate.tipo_documento = REQ.tipo_documento);
     !REQ.numero_documento  || (candidate.numero_documento = REQ.numero_documento);
+    !REQ.metadata  || (candidate.metadata = REQ.metadata);
+
 
     console.log(candidate);    
 
@@ -76,9 +78,10 @@ var ctrlCandidate = function (server) {
     
     !REQ.userid  || (data._usuario = mongoose.Types.ObjectId(REQ.userid));            
     !REQ.active  || (data.active = mongoose.Types.ObjectId(REQ.active));
-    !REQ.perfil || (candidate._perfil = mongoose.Types.ObjectId(REQ.perfil));    
-    !REQ.tipo_documento  || (candidate.tipo_documento = REQ.tipo_documento);
-    !REQ.numero_documento  || (candidate.numero_documento = REQ.numero_documento);
+    !REQ.perfil || (data._perfil = mongoose.Types.ObjectId(REQ.perfil));    
+    !REQ.tipo_documento  || (data.tipo_documento = REQ.tipo_documento);
+    !REQ.numero_documento  || (data.numero_documento = REQ.numero_documento);
+    !REQ.metadata  || (data.metadata = REQ.metadata);
 
 
    if(!REQ.userid)

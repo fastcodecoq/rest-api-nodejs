@@ -20,18 +20,28 @@ var ctrlSolicitud_servicio = function (server) {
     !REQ.name  || (solicitud_servicio.name = REQ.name);          
     !REQ.type  || (solicitud_servicio.type = REQ.type);
     !REQ.empresa  || (solicitud_servicio._empresa = mongoose.Types.ObjectId(REQ.empresa));    
-    !REQ.metadata  || (solicitud_servicio.metadata = REQ.metadata);    
-    !REQ.accepted  || (solicitud_servicio.accepted = REQ.accepted);    
+    !REQ.metadata  || (solicitud_servicio.metadata = REQ.metadata);       
     !REQ.readed  || (solicitud_servicio.accepted = REQ.readed);            
-    !REQ.date  || (solicitud_servicio._date = REQ.date);            
-    !REQ.location  || (solicitud_servicio.location = REQ.location);   
+    !REQ.date  || (solicitud_servicio._date = REQ.date);             
     !REQ.vacantes  || (solicitud_servicio.vacantes = REQ.vacantes); 
     !REQ.status  || (solicitud_servicio.status = REQ.status);                
     !REQ.cargo  || (solicitud_servicio._cargo = mongoose.Types.ObjectId(REQ.cargo));   
+    !REQ.modelo_competencia  || (solicitud_servicio._modelo_competencia = mongoose.Types.ObjectId(REQ.modelo_competencia));       
     !REQ.contacto  || (solicitud_servicio._contacto = mongoose.Types.ObjectId(REQ.contacto));   
     !REQ.responsable  || (solicitud_servicio._responsable = mongoose.Types.ObjectId(REQ.responsable));   
-    !REQ.modelo_competencia  || (solicitud_servicio._modelo_competencia = mongoose.Types.ObjectId(REQ.modelo_competencia));   
+    !REQ.responsable_factura  || (solicitud_servicio._responsable_factura = mongoose.Types.ObjectId(REQ.responsable_factura));   
+    !REQ.candidato_interno  || (solicitud_servicio._candidato_interno = REQ.candidato_interno);   
+    !REQ.numero_orden_pedido  || (solicitud_servicio.numero_orden_pedido = REQ.numero_orden_pedido);   
+    !REQ.tipo_evaluacion  || (solicitud_servicio.tipo_evaluacion = REQ.tipo_evaluacion);   
 
+    if(REQ.candidato)
+    {
+
+      solicitud_servicio._candidato = []
+
+      for(x in REQ.candidato)
+        solicitud_servicio._candidato.push(mongoose.Types.ObjectId(REQ.candidato[x]));           
+    }
 
    
     console.log(solicitud_servicio);    
@@ -127,7 +137,10 @@ var ctrlSolicitud_servicio = function (server) {
     !REQ.contacto  || (data._contacto = mongoose.Types.ObjectId(REQ.contacto));   
     !REQ.responsable  || (data._responsable = mongoose.Types.ObjectId(REQ.responsable));   
     !REQ.modelo_competencia  || (data._modelo_competencia = mongoose.Types.ObjectId(REQ.modelo_competencia));   
-    
+    !REQ.responsable_factura  || (data._responsable_factura = mongoose.Types.ObjectId(REQ.responsable_factura));   
+    !REQ.candidato_interno  || (data._candidato_interno = REQ.candidato_interno);   
+    !REQ.numero_orden_pedido  || (data.numero_orden_pedido = REQ.numero_orden_pedido);   
+    !REQ.tipo_evaluacion  || (data.tipo_evaluacion = REQ.tipo_evaluacion);   
 
 
     var query = {};

@@ -108,6 +108,8 @@ var ctrlCandidate = function (server) {
       if (err) {
         res.send(err);
       }
+
+
       res.json({message: 'Candidate removed'});
     });
   }

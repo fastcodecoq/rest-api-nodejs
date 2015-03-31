@@ -19,12 +19,12 @@ var candidateSchema = new Schema({
 
 //add createdAt, updatedAt fields
 candidateSchema.plugin(user);
-candidateSchema.plugin(location);
-candidateSchema.plugin(candidate_data);
 candidateSchema.plugin(timestamps);
 candidateSchema.plugin(active);
 var metadata = require('./plugins/metadata');
 candidateSchema.plugin(metadata);
+var documento = require('./plugins/documento');
+candidateSchema.plugin(documento);
 
 
 

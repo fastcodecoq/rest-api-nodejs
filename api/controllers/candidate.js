@@ -13,14 +13,14 @@ var ctrlCandidate = function (server) {
 // Set the candidate properties that came from the POST data
     var REQ = req.params;    
 
-    console.log(REQ, 'req')
+    console.log(REQ, 'req');
 
-    !REQ.userid  || (candidate._usuario = mongoose.Types.ObjectId(REQ.userid));
-    !REQ.location  || (candidate.location = REQ.location);
-    !REQ._cv  || (candidate._cv = mongoose.Types.ObjectId(REQ.cv));
+    !REQ.usuario  || (candidate._usuario = mongoose.Types.ObjectId(REQ.usuario));    
     !REQ.active  || (candidate.active = mongoose.Types.ObjectId(REQ.active));
+    !REQ.perfil || (candidate._perfil = mongoose.Types.ObjectId(REQ.perfil));    
+    !REQ.tipo_documento  || (candidate.tipo_documento = REQ.tipo_documento);
+    !REQ.numero_documento  || (candidate.numero_documento = REQ.numero_documento);
 
-   
     console.log(candidate);    
 
 // Save the candidate and check for errors
@@ -42,18 +42,20 @@ var ctrlCandidate = function (server) {
 
 
       !REQ.candidateid  || (query._id = mongoose.Types.ObjectId(REQ.candidateid));      
+      !REQ.usuarioid  || (query._usuario = mongoose.Types.ObjectId(REQ.usuarioid));  
 
-      !REQ.usuarioid  || (query._usuario = mongoose.Types.ObjectId(REQ.usuarioid));      
+      var Perfil = require('../models/perfil_laboral');    
 
 // Use the Candidate model to find all candidate
     Candidate.find(query)
-    .populate('_usuario _cv')
+    .populate('_usuario')
+    .populate({path:'_perfil', model: Perfil})
     .exec(function (err, candidates) {
       if (err) {
         res.send(err);
         return;
       }
-
+      
       if(candidates.length === 0)
       {
         res.send(200,{message:'Not records found'});
@@ -72,9 +74,11 @@ var ctrlCandidate = function (server) {
     var data = {};
     var REQ = req.params;
     
-    !REQ.userid  || (data._usuario = mongoose.Types.ObjectId(REQ.userid));          
-    !REQ._cv  || (data._cv = mongoose.Types.ObjectId(REQ.cv));          
+    !REQ.userid  || (data._usuario = mongoose.Types.ObjectId(REQ.userid));            
     !REQ.active  || (data.active = mongoose.Types.ObjectId(REQ.active));
+    !REQ.perfil || (candidate._perfil = mongoose.Types.ObjectId(REQ.perfil));    
+    !REQ.tipo_documento  || (candidate.tipo_documento = REQ.tipo_documento);
+    !REQ.numero_documento  || (candidate.numero_documento = REQ.numero_documento);
 
 
    if(!REQ.userid)
@@ -110,7 +114,7 @@ var ctrlCandidate = function (server) {
   server.get(global.apiBaseUri + '/candidate/:candidateid', get);    
   server.get(global.apiBaseUri + '/candidate', get);    
   server.get(global.apiBaseUri + '/candidate/usuario/:userid', get);
-  server.post(global.apiBaseUri + '/candidate/usuario/:userid', post);
+  server.post(global.apiBaseUri + '/candidate', post);
   server.put(global.apiBaseUri + '/candidate/:candidateid', put);
   server.del(global.apiBaseUri + '/candidate/:candidateid', del);
 

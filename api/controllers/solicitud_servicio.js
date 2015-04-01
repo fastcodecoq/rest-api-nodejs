@@ -86,7 +86,7 @@ var ctrlSolicitud_servicio = function (server) {
 
 
       User
-      .populate(solicitud_servicios, {path : '_contacto._usuario _candidato._usuario  _responsable._usuario _responsable_factura._usuario', model: User}, function(err, rs){
+      .populate(solicitud_servicios, {path : '_contacto._usuario  _responsable._usuario _responsable_factura._usuario', model: User}, function(err, rs){
 
              if(solicitud_servicios.length === 0)
       {

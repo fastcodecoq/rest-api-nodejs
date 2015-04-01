@@ -28,7 +28,7 @@ var ctrlOrden_servicio = function (server) {
     !REQ.type || (orden_servicio.type = REQ.type);    
     !REQ.anticipos || (orden_servicio.anticipos = REQ.anticipos);    
     !REQ.metadata  || (orden_servicio.metadata = REQ.metadata);    
-    !REQ.solicitud  || (orden_servicio._solicitud = mongoose.Types.ObjectId(REQ.solicitud));    
+    !REQ.solicitud  || (orden_servicio._solicitud_servicio = mongoose.Types.ObjectId(REQ.solicitud));    
     !REQ.contact  || (orden_servicio.contact = mongoose.Types.ObjectId(REQ.contact));
     !REQ.cargo  || (orden_servicio.cargo = mongoose.Types.ObjectId(REQ.cargo));
     !REQ.candidato  || (orden_servicio._candidato.push(mongoose.Types.ObjectId(REQ.candidato)));

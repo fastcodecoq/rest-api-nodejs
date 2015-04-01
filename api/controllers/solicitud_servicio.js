@@ -64,13 +64,14 @@ var ctrlSolicitud_servicio = function (server) {
       !REQ.solicitud_servicioid  || (query._id = mongoose.Types.ObjectId(REQ.solicitud_servicioid));
 
 
+      var Candidato = require('../models/candidate');
 
 // Use the Solicitud_servicio model to find all solicitud_servicio
     Solicitud_servicio.find(query)
     .lean()
     .populate('_empresa')
     .populate('_contacto')
-    .populate('_candidato')
+    .populate({path:'_candidato', model: Candidato})
     .populate('_responsable')
     .populate('_responsable_factura')
     //.populate('_cargo')

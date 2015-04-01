@@ -79,22 +79,31 @@ var ctrlOrden_servicio = function (server) {
 // Use the Orden_servicio model to find all orden_servicio
     Orden_servicio.find(query)
     .populate({path : '_empresa', model : Empresa})
-    .populate({path : '_solicitud_servicio', model : Solicitud_servicio})
-    .populate({ path : '_solicitud_servicio.contacto _solicitud_servicio.responsable _solicitud_servicio._resposable_factura' , model : Contacto})   
+    .populate({path : '_solicitud_servicio', model : Solicitud_servicio})  
     .exec(function (err, orden_servicios) {
       if (err) {
         res.send(err);
         return;
       }
 
-     if(orden_servicios.length === 0)
+    
+
+
+       Contacto
+       .populate(orden_servicios, {path:'_solicitud_servicio._contacto _solicitud_servicio._responsable _solicitud_servicio._responsabl_factura', model: Contacto})
+       .exec(function(err, rs){
+         if(orden_servicios.length === 0)
       {
         res.send(200,{message:'Not records found'});        
         return;        
        }
 
-      res.json({data:orden_servicios});
-    });
+res.json({data:rs});
+
+
+       })
+
+          });
 
 
   }

@@ -70,7 +70,7 @@ var ctrlOrden_servicio = function (server) {
       !REQ.orden_servicioid  || (query._id = mongoose.Types.ObjectId(REQ.orden_servicioid));
 
       var Empresa = require('../models/empresa');
-      var Contacto = require('../models/contacto');
+      var Contacto = require('../models/contact');
       var Usuario = require('../models/usuario');
 
 // Use the Orden_servicio model to find all orden_servicio

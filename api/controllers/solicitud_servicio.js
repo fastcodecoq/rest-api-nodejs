@@ -139,7 +139,6 @@ var ctrlSolicitud_servicio = function (server) {
     !REQ.numero_orden_pedido  || (data.numero_orden_pedido = REQ.numero_orden_pedido);   
     !REQ.tipo_evaluacion  || (data.tipo_evaluacion = REQ.tipo_evaluacion);   
 
-
     var query = {};
 
     !REQ.solicitud_servicioid  || (query._id = mongoose.Types.ObjectId(REQ.solicitud_servicioid));    

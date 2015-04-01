@@ -7,7 +7,7 @@ var privilege = require('./plugins/privileges');
 var user = require('./plugins/user');
 var active = require('./plugins/active');
 var avatar = require('./plugins/avatar');
-var avatar = require('./plugins/contacto');
+var contacto = require('./plugins/contacto');
 var Schema = mongoose.Schema;
 
 // Define our Empresa schema

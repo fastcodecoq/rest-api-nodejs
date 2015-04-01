@@ -28,8 +28,7 @@ var OrdenServicioSchema = new mongoose.Schema({
     type: Date
   },
   status: {
-    type: String,
-    required: true
+    {type: String, default:"abierta"}
   },
   _contact : { type : Schema.Types.ObjectId , ref : 'Contacto'},
   _solicitud_servicio : { type : Schema.Types.ObjectId , ref : 'SolicitudServicios'},

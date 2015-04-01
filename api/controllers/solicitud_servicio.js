@@ -71,7 +71,7 @@ var ctrlSolicitud_servicio = function (server) {
     .lean()
     .populate('_empresa')
     .populate('_contacto')
-    .populate({path:'_candidato', model: Candidato})
+/*    .populate({path:'_candidato', model: Candidato})*/
     .populate('_responsable')
     .populate('_responsable_factura')
     //.populate('_cargo')

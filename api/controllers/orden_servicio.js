@@ -90,8 +90,9 @@ var ctrlOrden_servicio = function (server) {
 
 
        Contacto
-       .populate(orden_servicios, {path:'_solicitud_servicio._contacto _solicitud_servicio._responsable _solicitud_servicio._responsabl_factura', model: Contacto})
-       .exec(function(err, rs){
+       .populate(orden_servicios, 
+        {path:'_solicitud_servicio._contacto _solicitud_servicio._responsable _solicitud_servicio._responsabl_factura', model: Contacto},
+        function(err, rs){
          if(orden_servicios.length === 0)
       {
         res.send(200,{message:'Not records found'});        
@@ -101,7 +102,8 @@ var ctrlOrden_servicio = function (server) {
 res.json({data:rs});
 
 
-       })
+       }
+        )
 
           });
 

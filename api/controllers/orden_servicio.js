@@ -74,10 +74,12 @@ var ctrlOrden_servicio = function (server) {
       var Empresa = require('../models/empresa');
       var Contacto = require('../models/contact');
       var Usuario = require('../models/usuario');
+      var Solicitud_servicio = require('../models/solicitud_servicio');
 
 // Use the Orden_servicio model to find all orden_servicio
     Orden_servicio.find(query)
     .populate({path : '_empresa', model : Empresa})
+    .populate({path : '_solicitud_servicio', model : Solicitud_servicio})
     .populate({ path : '_contacto' , model : Contacto})
     .populate({ path : '_contacto._usuario' , model : Usuario})
     .exec(function (err, orden_servicios) {

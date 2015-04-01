@@ -38,10 +38,11 @@ var ctrlOrden_servicio = function (server) {
     !REQ.consultora_externa  || (orden_servicio.consultora_externa = REQ.consultora_externa);
     !REQ.candidato_interno  || (orden_servicio.candidato_interno = REQ.candidato_interno);
     !REQ.modelo_competencia  || (orden_servicio._modelo_competencia = mongoose.Types.ObjectId(REQ.modelo_competencia));    
-  
-
-
-    
+    orden_servicio.metadata.evento_orden_abierta = {
+           name : "order-event",
+           description : "orden abierta",
+           date : new Date().getTime()
+    };
 
    
     console.log(orden_servicio);    
@@ -52,6 +53,7 @@ var ctrlOrden_servicio = function (server) {
         res.send(new Error(err));
         return;
       }
+
       res.json({message: 'Orden_servicio added', data: orden_servicio});
     });
   }

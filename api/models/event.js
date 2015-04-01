@@ -19,9 +19,8 @@ var metadata = require('./plugins/metadata');
 var nameSchema = new Schema({
 	  name : { type : String, trim : true}, 
 	  description : { type : String, trim : true},
-	  entity: Schema.Types.ObjectId,
+	  entity: {Schema.Types.ObjectId},
 	  entity_name: { type : String, trim : true}
-
 });
 
 

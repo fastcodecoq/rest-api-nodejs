@@ -91,15 +91,23 @@ var ctrlOrden_servicio = function (server) {
 
        Contacto
        .populate(orden_servicios, 
-        {path:'_solicitud_servicio._contacto _solicitud_servicio._responsable _solicitud_servicio._responsabl_factura', model: Contacto},
+        {path:'_solicitud_servicio._contacto _solicitud_servicio._responsable _solicitud_servicio._responsable_factura', model: Contacto},
         function(err, rs){
-         if(orden_servicios.length === 0)
-      {
-        res.send(200,{message:'Not records found'});        
-        return;        
-       }
+        
+          Usuario
+          .populate(rs,
+               {path:'_solicitud_servicio._contacto._usuario _solicitud_servicio._responsable._usuario _solicitud_servicio._responsable_factura._usuario', model:Usuario},
+               function(err, rs){
+                             if(orden_servicios.length === 0)
+                  {
+                    res.send(200,{message:'Not records found'});        
+                    return;        
+                   }
 
-res.json({data:rs});
+            res.json({data:rs});
+               }
+            )
+
 
 
        }

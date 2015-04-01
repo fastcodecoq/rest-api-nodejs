@@ -6,7 +6,6 @@
 
   schema.add({
   	_contacto: {
-    
     type: ObjectId,
     ref: 'Contact'
        }

@@ -7,6 +7,7 @@ var privilege = require('./plugins/privileges');
 var user = require('./plugins/user');
 var active = require('./plugins/active');
 var avatar = require('./plugins/avatar');
+var avatar = require('./plugins/contacto');
 var Schema = mongoose.Schema;
 
 // Define our Empresa schema
@@ -24,7 +25,6 @@ var EmpresaSchema = new mongoose.Schema({
   tel: {
     type: Number    
   },
-  contact : [{ type : Schema.Types.ObjectId , ref : 'Usuario'}],
   competences :[Object],
   esCliente : Boolean
 });
@@ -41,6 +41,7 @@ EmpresaSchema.plugin(timestamps);
 //add active
 EmpresaSchema.plugin(active);
 EmpresaSchema.plugin(avatar);
+EmpresaSchema.plugin(contacto);
 var metadata = require('./plugins/metadata');
 EmpresaSchema.plugin(metadata);
 // Export the Mongoose model

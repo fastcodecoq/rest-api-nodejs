@@ -25,6 +25,7 @@ var ctrlEmpresa = function (server) {
     !REQ.anticipos  || (empresa.anticipos = REQ.anticipos);    
     !REQ.active  || (empresa.active = REQ.active);    
     !REQ.metadata  || (empresa.metadata = REQ.metadata);    
+    !REQ.contacto  || (empresa._contacto = mongoose.Types.ObjectId(REQ.contacto));
     
 
 
@@ -108,6 +109,8 @@ var ctrlEmpresa = function (server) {
     !REQ.anticipos  || (data.anticipos = REQ.anticipos);   
     !REQ.active  || (data.active = REQ.active);    
     !REQ.metadata  || (data.metadata = REQ.metadata);    
+    !REQ.contacto  || (data._contacto = mongoose.Types.ObjectId(REQ.contacto));
+
 
 
     if(REQ.contact)

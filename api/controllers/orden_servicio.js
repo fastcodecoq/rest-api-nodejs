@@ -69,11 +69,15 @@ var ctrlOrden_servicio = function (server) {
       !REQ.empresaid  || (query._empresa = mongoose.Types.ObjectId(REQ.empresaid));  
       !REQ.orden_servicioid  || (query._id = mongoose.Types.ObjectId(REQ.orden_servicioid));
 
-
+      var Empresa = require('../models/empresa');
+      var Contacto = require('../models/contacto');
+      var Usuario = require('../models/usuario');
 
 // Use the Orden_servicio model to find all orden_servicio
     Orden_servicio.find(query)
-    .populate('_empresa _contacto _respon')
+    .populate({path : '_empresa', model : Empresa})
+    .populate({ path : '_contacto' : model : Contacto})
+    .populate({ path : '_contacto._usuario' : model : Usuario})
     .exec(function (err, orden_servicios) {
       if (err) {
         res.send(err);

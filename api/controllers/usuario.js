@@ -64,6 +64,7 @@ var ctrlUsuario = function (server) {
 
      try{
      !REQ.userid || (query._id = mongoose.Types.ObjectId(REQ.userid))    
+      }
      catch(e){
          console.log(e)
      }

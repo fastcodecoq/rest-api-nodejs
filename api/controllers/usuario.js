@@ -139,6 +139,7 @@ var ctrlUsuario = function (server) {
   console.log(global.apiBaseUri);
 
   server.get(global.apiBaseUri + '/usuario/:userid', get);
+  server.get(global.apiBaseUri + '/usuario/:type', get);
   server.get(global.apiBaseUri + '/usuario', get);
   server.post(global.apiBaseUri + '/usuario', post);
   server.put(global.apiBaseUri + '/usuario/:userid', put);

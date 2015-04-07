@@ -13,8 +13,9 @@ var Schema = mongoose.Schema;
 
 // Define our Empresa schema
 var UsuarioSchema = new mongoose.Schema({    
-  terms : {type : Boolean, default: false}  
-});
+    terms : {type : Boolean, default: false},
+    type : String
+  });
 
 //add full name
 UsuarioSchema.plugin(fullname);

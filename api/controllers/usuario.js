@@ -1,8 +1,8 @@
 
-var ctrldata = function (server) {
+var ctrlUsuario = function (server) {
 
   // Load required packages
-  var data = require('../models/data');
+  var Usuario = require('../models/usuario');
   var Credential = require('../models/credential');
   var mongoose = require('mongoose');
 
@@ -10,32 +10,32 @@ var ctrldata = function (server) {
   function post(req, res) {
 
 
-// Create a new instance of the data model
-    var data = new data;    
+// Create a new instance of the Usuario model
+    var usuario = new Usuario;    
     var REQ = req.params;    
     
-// Set the data properties that came from the POST data
-    !REQ.name  || (data.name = REQ.name);    
-    !REQ.last_name || (data.last_name = REQ.last_name);
-    !REQ._name  || (data._name = REQ._name);    
-    !REQ._last_name || (data._last_name = REQ._last_name);
-    !REQ.email || (data.email = REQ.email);  
-    !REQ.avatar  || (data.avatar = REQ.avatar);    
-    !REQ.tel || (data.tel = REQ.tel);  
-    !REQ.location || (data.location = REQ.location);  
-    !REQ.is_candidate || (data.is_candidate = REQ.is_candidate);  
-    !REQ.candidate_data || (data.candidate_data = REQ.candidate_data);      
-    !REQ.active || (data.active = REQ.active);  
-    !REQ.cv || (data.cv = REQ.cv);
-    !REQ.attached_cv  || (data.attached_cv = REQ.attached_cv);
-    !REQ.active  || (data.active = REQ.active);    
-    !REQ.metadata  || (data.metadata = REQ.metadata);    
-    !REQ.type  || (data.type = REQ.type);    
+// Set the usuario properties that came from the POST data
+    !REQ.name  || (usuario.name = REQ.name);    
+    !REQ.last_name || (usuario.last_name = REQ.last_name);
+    !REQ._name  || (usuario._name = REQ._name);    
+    !REQ._last_name || (usuario._last_name = REQ._last_name);
+    !REQ.email || (usuario.email = REQ.email);  
+    !REQ.avatar  || (usuario.avatar = REQ.avatar);    
+    !REQ.tel || (usuario.tel = REQ.tel);  
+    !REQ.location || (usuario.location = REQ.location);  
+    !REQ.is_candidate || (usuario.is_candidate = REQ.is_candidate);  
+    !REQ.candidate_data || (usuario.candidate_data = REQ.candidate_data);      
+    !REQ.active || (usuario.active = REQ.active);  
+    !REQ.cv || (usuario.cv = REQ.cv);
+    !REQ.attached_cv  || (usuario.attached_cv = REQ.attached_cv);
+    !REQ.active  || (usuario.active = REQ.active);    
+    !REQ.metadata  || (usuario.metadata = REQ.metadata);    
+    !REQ.type  || (usuario.type = REQ.type);    
 
     
 
-// Save the data and check for errors
-    data.save(function (err, data) {
+// Save the usuario and check for errors
+    usuario.save(function (err, usuario) {
      
       if (err) {
         res.send(err);
@@ -44,11 +44,11 @@ var ctrldata = function (server) {
 
        var credential = new Credential;
 
-       credential._data = mongoose.Types.ObjectId(data._id);
+       credential._usuario = mongoose.Types.ObjectId(usuario._id);
        !REQ.password || (credential.password = REQ.password);
 
        credential.save(function(err){
-          res.json({message: 'data added', data: data});
+          res.json({message: 'Usuario added', data: usuario});
        });
       
 
@@ -58,7 +58,7 @@ var ctrldata = function (server) {
 
   function get(req, res) {
 
-// Use the data model to find a specific data
+// Use the Usuario model to find a specific usuario
      var query = {};
      var REQ = req.params;     
 
@@ -66,20 +66,20 @@ var ctrldata = function (server) {
      !REQ.type || (query.type = REQ.type)    
 
 
-// Use the data model to find all data
-    data.find(query, function (err, data) {
+// Use the Usuario model to find all usuario
+    Usuario.find(query, function (err, usuario) {
       if (err) {
         res.send(err);
         return;        
       }
 
-      if(data.length === 0)
+      if(usuario.length === 0)
        {
         res.send(200,{message:'Not records found'});        
         return;        
        }
 
-      res.json({data:data});
+      res.json({data:usuario});
     });
 
   }
@@ -87,7 +87,7 @@ var ctrldata = function (server) {
 
 
   function put(req, res) {
-// Use the data model to find a specific data
+// Use the Usuario model to find a specific usuario
   
     var data = {};
     var REQ = req.params;
@@ -109,7 +109,7 @@ var ctrldata = function (server) {
     !REQ._last_name || (data._last_name = REQ._last_name);
 
 
-    data.update({
+    Usuario.update({
       _id: mongoose.Types.ObjectId(REQ.userid)
       }, data, function (err, num, raw) {
       if (err) {
@@ -126,24 +126,24 @@ var ctrldata = function (server) {
     var REQ = req.params;
 
 
-   // Use the data model to find a specific data and remove it
-    data.remove({_id: mongoose.Types.ObjectId(REQ.userid)}, function (err) {
+   // Use the Usuario model to find a specific usuario and remove it
+    Usuario.remove({_id: mongoose.Types.ObjectId(REQ.userid)}, function (err) {
       if (err) {
         res.send(err);
         return;        
       }
-      res.json({message: 'data removed'});
+      res.json({message: 'Usuario removed'});
     });
   }
 
   console.log(global.apiBaseUri);
 
-  server.get(global.apiBaseUri + '/data/:userid', get);
-  server.get(global.apiBaseUri + '/data', get);
-  server.post(global.apiBaseUri + '/data', post);
-  server.put(global.apiBaseUri + '/data/:userid', put);
-  server.del(global.apiBaseUri + '/data/:userid', del);
+  server.get(global.apiBaseUri + '/usuario/:userid', get);
+  server.get(global.apiBaseUri + '/usuario', get);
+  server.post(global.apiBaseUri + '/usuario', post);
+  server.put(global.apiBaseUri + '/usuario/:userid', put);
+  server.del(global.apiBaseUri + '/usuario/:userid', del);
 
 };
 
-module.exports = ctrldata;
+module.exports = ctrlUsuario;

@@ -71,11 +71,10 @@ var ctrlSolicitud_servicio = function (server) {
     .lean()
     .populate('_empresa')
     .populate('_contacto')
-    .populate({path:'_candidato', model: Candidato})
     .populate('_responsable')
     .populate('_responsable_factura')
+    .populate({path:'_candidato', model: User})
     //.populate('_cargo')
-    //.populate('_modelo_competencia')
     .exec(function (err, solicitud_servicios) {
       if (err) {
         res.send(err);

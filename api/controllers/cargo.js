@@ -194,7 +194,7 @@ module.exports = exports = function(server){
   server.post(global.apiBaseUri + '/cargo', post);
 
   
-  server.get(global.apiBaseUri + '/cargos/get/empresa/:empresaid', getCargos);
+  //server.get(global.apiBaseUri + '/cargos/get/empresa/:empresaid', getCargos);
   server.put(global.apiBaseUri + '/empresa/:empresaid/cargos/:userid', putCargo);
 
 

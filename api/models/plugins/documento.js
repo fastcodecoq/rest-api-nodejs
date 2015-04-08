@@ -7,7 +7,7 @@
 
   schema.add({
       tipo_documento : String,
-      numero_documento : {type:Number,trim:true,unique:true}  
+      numero_documento : {type:String,trim:true,unique:true}  
   });
 
 }

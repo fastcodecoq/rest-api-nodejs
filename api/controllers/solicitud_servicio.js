@@ -64,12 +64,14 @@ var ctrlSolicitud_servicio = function (server) {
       !REQ.solicitud_servicioid  || (query._id = mongoose.Types.ObjectId(REQ.solicitud_servicioid));
 
 
+      var Candidato = require('../models/candidate');
 
 // Use the Solicitud_servicio model to find all solicitud_servicio
     Solicitud_servicio.find(query)
     .lean()
     .populate('_empresa')
     .populate('_contacto')
+/*    .populate({path:'_candidato', model: Candidato})*/
     .populate('_responsable')
     .populate('_responsable_factura')
     //.populate('_cargo')
@@ -84,7 +86,7 @@ var ctrlSolicitud_servicio = function (server) {
 
 
       User
-      .populate(solicitud_servicios, {path : '_contacto._usuario _responsable._usuario _responsable_factura._usuario', model: User}, function(err, rs){
+      .populate(solicitud_servicios, {path : '_contacto._usuario  _responsable._usuario _responsable_factura._usuario', model: User}, function(err, rs){
 
              if(solicitud_servicios.length === 0)
       {
@@ -136,7 +138,6 @@ var ctrlSolicitud_servicio = function (server) {
     !REQ.candidato_interno  || (data._candidato_interno = REQ.candidato_interno);   
     !REQ.numero_orden_pedido  || (data.numero_orden_pedido = REQ.numero_orden_pedido);   
     !REQ.tipo_evaluacion  || (data.tipo_evaluacion = REQ.tipo_evaluacion);   
-
 
     var query = {};
 

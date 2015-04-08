@@ -17,6 +17,8 @@ var ctrlUsuario = function (server) {
 // Set the usuario properties that came from the POST data
     !REQ.name  || (usuario.name = REQ.name);    
     !REQ.last_name || (usuario.last_name = REQ.last_name);
+    !REQ._name  || (usuario._name = REQ._name);    
+    !REQ._last_name || (usuario._last_name = REQ._last_name);
     !REQ.email || (usuario.email = REQ.email);  
     !REQ.avatar  || (usuario.avatar = REQ.avatar);    
     !REQ.tel || (usuario.tel = REQ.tel);  
@@ -27,7 +29,11 @@ var ctrlUsuario = function (server) {
     !REQ.cv || (usuario.cv = REQ.cv);
     !REQ.attached_cv  || (usuario.attached_cv = REQ.attached_cv);
     !REQ.active  || (usuario.active = REQ.active);    
-    !REQ.metadata  || (usuario.metadata = REQ.metadata);    
+    !REQ.tipo_documento  || (usuario.tipo_documento = REQ.tipo_documento);    
+    !REQ.numero_documento  || (usuario.numero_documento = REQ.numero_documento);    
+    !REQ.metadata  || (usuario.metadata = REQ.metadata);  
+
+    !REQ.type  || (usuario.type = REQ.type);    
 
     
 
@@ -57,9 +63,19 @@ var ctrlUsuario = function (server) {
 
 // Use the Usuario model to find a specific usuario
      var query = {};
-     var REQ = req.params;     
+     var REQ = req.params;
 
+     console.log(REQ);    
+
+     try{
      !REQ.userid || (query._id = mongoose.Types.ObjectId(REQ.userid))    
+      }
+     catch(e){
+         console.log(e)
+     }
+     finally{
+      !REQ.type || (query.type = REQ.type)          
+     }
 
 
 // Use the Usuario model to find all usuario
@@ -99,8 +115,10 @@ var ctrlUsuario = function (server) {
     !REQ.active || (data.active = REQ.active);  
     !REQ.cv || (data.cv = REQ.cv);
     !REQ.attached_cv  || (data.attached_cv = REQ.attached_cv);  
-    !REQ.metadata  || (data.metadata = REQ.metadata);    
-
+    !REQ.metadata  || (data.metadata = REQ.metadata);   
+    !REQ.type  || (data.type = REQ.type);    
+    !REQ._name  || (data._name = REQ._name);    
+    !REQ._last_name || (data._last_name = REQ._last_name);
 
 
     Usuario.update({
@@ -133,6 +151,7 @@ var ctrlUsuario = function (server) {
   console.log(global.apiBaseUri);
 
   server.get(global.apiBaseUri + '/usuario/:userid', get);
+  server.get(global.apiBaseUri + '/usuario/type/:type', get);
   server.get(global.apiBaseUri + '/usuario', get);
   server.post(global.apiBaseUri + '/usuario', post);
   server.put(global.apiBaseUri + '/usuario/:userid', put);

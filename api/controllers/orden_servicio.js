@@ -4,6 +4,7 @@ var ctrlOrden_servicio = function (server) {
 
   // Load required packages
   var Orden_servicio = require('../models/orden_servicio');
+  var Solicitud = require('../models/solicitud_servicio');
   var mongoose = require('mongoose');
 
   function post(req, res) {
@@ -38,11 +39,13 @@ var ctrlOrden_servicio = function (server) {
     !REQ.consultora_externa  || (orden_servicio.consultora_externa = REQ.consultora_externa);
     !REQ.candidato_interno  || (orden_servicio.candidato_interno = REQ.candidato_interno);
     !REQ.modelo_competencia  || (orden_servicio._modelo_competencia = mongoose.Types.ObjectId(REQ.modelo_competencia));    
+  
     orden_servicio.metadata.evento_orden_abierta = {
            name : "order-event",
            description : "orden abierta",
            date : new Date().getTime()
     };
+
 
    
     console.log(orden_servicio);    
@@ -54,7 +57,22 @@ var ctrlOrden_servicio = function (server) {
         return;
       }
 
-      res.json({message: 'Orden_servicio added', data: orden_servicio});
+
+    Solicitud.find({_id : orden_servicio._solicitud_servicio} , function(err, solicitud){
+
+          solicitud._orden_servicio.push(mongoose.Types.ObjectId(orden_servicio._id));
+
+          solicitud.save(function(err, rs){
+
+             res.json({message: 'Orden_servicio added', data: orden_servicio});
+
+          });
+
+
+      });
+
+
+      
     });
   }
 

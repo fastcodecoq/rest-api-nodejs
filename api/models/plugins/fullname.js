@@ -13,7 +13,16 @@ module.exports = exports = function fullnamePlugin(schema, options) {
 		  last_name: {
 		    type: String,    
 		    trim: true
+		  },
+		  _name: {
+		    type: String,    
+		    trim: true
+		  },
+		  _last_name: {
+		    type: String,    
+		    trim: true
 		  }
+
   });
 
 };

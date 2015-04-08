@@ -9,6 +9,8 @@ var user = require('./plugins/user');
 var empresa = require('./plugins/empresa');
 var meta = require('./plugins/metadata');
 var active = require('./plugins/active');
+var documento = require('./plugins/documento');
+
 
 
 var contactSchema = new Schema({
@@ -29,6 +31,7 @@ contactSchema.plugin(empresa);
 contactSchema.plugin(timestamps);
 contactSchema.plugin(meta);
 contactSchema.plugin(active);
+contactSchema.plugin(documento);
 
 
 module.exports = mongoose.model('Contact', contactSchema); 

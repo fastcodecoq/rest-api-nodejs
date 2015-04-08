@@ -9,12 +9,14 @@ var fullname = require('./plugins/fullname');
 var tel = require('./plugins/tel');
 var avatar = require('./plugins/avatar');
 var metadata = require('./plugins/metadata');
+var documento = require('./plugins/documento');
 var Schema = mongoose.Schema;
 
 // Define our Empresa schema
 var UsuarioSchema = new mongoose.Schema({    
-  terms : {type : Boolean, default: false}  
-});
+    terms : {type : Boolean, default: false},
+    type : String
+  });
 
 //add full name
 UsuarioSchema.plugin(fullname);
@@ -29,6 +31,7 @@ UsuarioSchema.plugin(timestamps);
 UsuarioSchema.plugin(metadata);
 UsuarioSchema.plugin(tel);
 UsuarioSchema.plugin(avatar);
+UsuarioSchema.plugin(documento);
 
 // Export the Mongoose model
 module.exports = mongoose.model('Usuario', UsuarioSchema);

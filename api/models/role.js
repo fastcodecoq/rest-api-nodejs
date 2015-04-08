@@ -13,15 +13,10 @@ var RoleSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  nit: {
-    type: Number,
-    required: true
-  }, 
+  privileges : Object
 });
 
 
-//add userid
-RoleSchema.plugin(user);
 //add empresaid
 RoleSchema.plugin(empresa);
 //add createdAt, updatedAt fields

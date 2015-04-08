@@ -114,11 +114,6 @@ module.exports = exports = function(server){
         .exec(function(err, rs){
 
 
-
-          Empresa
-          .populate()
-
-
               if(err){
                   res.send(err);
                   return;

@@ -51,9 +51,10 @@ module.exports = exports = function(server){
     var data = {};
     var query = {};
 
-    !REQ._usuario  || (data._usuario = mongoose.Types.ObjectId(REQ._usuario));
-    !REQ._empresa  || (data._empresa = mongoose.Types.ObjectId(REQ._empresa));
+    !REQ.empresa  || (data._empresa = mongoose.Types.ObjectId(REQ.sempresa));
     !REQ.active || (data.active = REQ.active);
+    !REQ.perfil || (data.perfil = REQ.perfil);
+    !REQ.name || (data.name = REQ.name);
     !REQ.metadata || (data.metadata = REQ.metadata);
 
    
@@ -109,7 +110,7 @@ module.exports = exports = function(server){
 
         
         Cargo.find( query)
-        .populate({path : 'empresa', model : Empresa})
+        .populate('_empresa')
         .exec(function(err, rs){
 
 

@@ -29,7 +29,10 @@ var ctrlUsuario = function (server) {
     !REQ.cv || (usuario.cv = REQ.cv);
     !REQ.attached_cv  || (usuario.attached_cv = REQ.attached_cv);
     !REQ.active  || (usuario.active = REQ.active);    
-    !REQ.metadata  || (usuario.metadata = REQ.metadata);    
+    !REQ.tipo_documento  || (usuario.tipo_documento = REQ.tipo_documento);    
+    !REQ.numero_documento  || (usuario.numero_documento = REQ.numero_documento);    
+    !REQ.metadata  || (usuario.metadata = REQ.metadata);  
+
     !REQ.type  || (usuario.type = REQ.type);    
 
     

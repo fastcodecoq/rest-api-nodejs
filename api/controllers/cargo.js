@@ -3,7 +3,6 @@ module.exports = exports = function(server){
     var Cargo = require('../models/cargo');
     var mongoose = require('mongoose');
     var Empresa = require('../models/empresa');
-    var Usuario = require('../models/usuario');
 
 
 
@@ -110,8 +109,7 @@ module.exports = exports = function(server){
 
         
         Cargo.find( query)
-        .populate({path:'_usuario', model: Usuario})
-        .populate({path : '_empresa', model : Empresa})
+        .populate({path : 'empresa', model : Empresa})
         .exec(function(err, rs){
 
 

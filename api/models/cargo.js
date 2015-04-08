@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 // Load required packages
 var timestamps = require('mongoose-timestamp');
-var activate = require('./plugins/active');
+var active = require('./plugins/active');
 var empresa = require('./plugins/empresa');
 var metadata = require('./plugins/metadata');
 

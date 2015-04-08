@@ -19,9 +19,10 @@ module.exports = exports = function(server){
 
     console.log(REQ, 'req')
 
-    !REQ._empresa  || (cargo._empresa = mongoose.Types.ObjectId(REQ._empresa));
+    !REQ.empresa  || (cargo._empresa = mongoose.Types.ObjectId(REQ.sempresa));
     !REQ.active || (cargo.active = REQ.active);
     !REQ.perfil || (cargo.perfil = REQ.perfil);
+    !REQ.name || (cargo.name = REQ.name);
     !REQ.metadata || (cargo.metadata = REQ.metadata);
    
     console.log(cargo);    

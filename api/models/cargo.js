@@ -14,11 +14,11 @@ var user = require('./plugins/user');
 var empresa = require('./plugins/empresa');
 var fullname = require('./plugins/fullname');
 var metadata = require('./plugins/metadata');
-var perfil = require('./plugins/perfil');
 
 
 var nameSchema = new Schema({
-	  name : { type : String, trim : true, default: new Date().getTime()}
+	  name : { type : String, trim : true, default: new Date().getTime()},
+	  perfil : {type : String, trim : true}
 });
 
 
@@ -33,7 +33,6 @@ nameSchema.pre('save', function (next) {
 
 //add plugins
 nameSchema.plugin(empresa);
-nameSchema.plugin(perfil);
 nameSchema.plugin(timestamps);
 nameSchema.plugin(metadata);
 

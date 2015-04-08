@@ -109,9 +109,14 @@ module.exports = exports = function(server){
         !REQ.cargoid || (query._id = mongoose.Types.ObjectId(REQ.cargoid));
 
         
-        Cargo.find(query)
-        .populate('_empresa')
+         Cargo.find(query)
+        .populate({path : '_empresa', model : Empresa})
         .exec(function(err, rs){
+
+
+
+          Empresa
+          .populate()
 
 
               if(err){

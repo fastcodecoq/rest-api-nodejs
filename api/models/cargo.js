@@ -5,19 +5,13 @@ var Schema = mongoose.Schema;
 
 // Load required packages
 var timestamps = require('mongoose-timestamp');
-var location = require('./plugins/location');
-var candidate_data = require('./plugins/candidate_data');
-var email = require('./plugins/email');
 var activate = require('./plugins/active');
-var privilege = require('./plugins/privileges');
-var user = require('./plugins/user');
 var empresa = require('./plugins/empresa');
-var fullname = require('./plugins/fullname');
 var metadata = require('./plugins/metadata');
 
 
 var nameSchema = new Schema({
-	  name : { type : String, trim : true, default: new Date().getTime()},
+	  name : { type : String, trim : true, required : true},
 	  perfil : {type : String, trim : true}
 });
 
@@ -35,6 +29,7 @@ nameSchema.pre('save', function (next) {
 nameSchema.plugin(empresa);
 nameSchema.plugin(timestamps);
 nameSchema.plugin(metadata);
+nameSchema.plugin(active);
 
 
 module.exports = mongoose.model('Cargo', nameSchema); 

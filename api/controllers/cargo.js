@@ -109,7 +109,7 @@ module.exports = exports = function(server){
         !REQ.cargoid || (query._id = mongoose.Types.ObjectId(REQ.cargoid));
 
         
-        Cargo.find( query)
+        Cargo.find(query)
         .populate('_empresa')
         .exec(function(err, rs){
 

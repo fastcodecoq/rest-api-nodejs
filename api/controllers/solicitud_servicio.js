@@ -73,7 +73,6 @@ var ctrlSolicitud_servicio = function (server) {
     .populate('_contacto')
     .populate('_responsable')
     .populate('_responsable_factura')
-    .populate({path:'_candidato', model: User})
     //.populate('_cargo')
     .exec(function (err, solicitud_servicios) {
       if (err) {
@@ -85,7 +84,7 @@ var ctrlSolicitud_servicio = function (server) {
 
 
       User
-      .populate(solicitud_servicios, {path : '_contacto._usuario  _responsable._usuario _responsable_factura._usuario', model: User}, function(err, rs){
+      .populate(solicitud_servicios, {path : '_contacto._usuario  _responsable._usuario _responsable_factura._usuario _candidato', model: User}, function(err, rs){
 
              if(solicitud_servicios.length === 0)
       {

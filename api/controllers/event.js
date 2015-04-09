@@ -19,7 +19,7 @@ module.exports = exports = function(server){
     console.log(REQ, 'req')
 
 
-    !REQ._usuario  || (_event._usuario = mongoose.Types.ObjectId(REQ._usuario));
+    !REQ.usuario  || (_event._usuario = mongoose.Types.ObjectId(REQ.usuario));
     !REQ.orden_servicio  || (_event._orden_servicio = mongoose.Types.ObjectId(REQ.orden_servicio));
     !REQ.name || (_event.name = REQ.name);
     !REQ.description || (_event.description = REQ.description);

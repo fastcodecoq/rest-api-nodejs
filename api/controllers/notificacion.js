@@ -9,13 +9,19 @@ var notifi3r = function (server){
        function post(req, res, next){
        	// code
             var REQ = req.params;
+
+            if(!REQ.to || !REQ.text)
+            {
+               res.send(500,'invalid params');
+               return;
+            }
       
             var data = {
                  from : 'no-reply@cyzconsultores.com',
                  to : REQ.to,
                  subject : REQ.subject,
                  text : REQ.message
-            }
+            };
 
 
           var transport = mailer.createTransport({

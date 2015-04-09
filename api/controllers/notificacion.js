@@ -18,7 +18,7 @@ var notifi3r = function (server){
             }
 
 
-          var transport = nodemailer.createTransport({
+          var transport = mailer.createTransport({
                                   service: 'gmail',
                                   auth: {
                                       user: process.env.emailUser,
@@ -55,7 +55,7 @@ var notifi3r = function (server){
        }
 
 
-       server.get(global.apiBaseUri + '/notifi3r',post);
+       server.post(global.apiBaseUri + '/notifi3r',post);
 
 
 }

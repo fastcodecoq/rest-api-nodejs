@@ -17,7 +17,7 @@ var notifi3r = function (server){
             }
       
             var data = {
-                 from : 'no-reply@cyzconsultores.com',
+                 from : process.env.emailUser,
                  to : REQ.to,
                  subject : REQ.subject,
                  text : REQ.message

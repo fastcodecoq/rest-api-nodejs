@@ -29,7 +29,7 @@ var notifi3r = function (server){
           transport.sendMail(data, function(err, rs){
                console.log(err, rs);
 
-              res.json({message'notification sended', data:rs}); 
+              res.json({message:'notification sended', data:rs}); 
 
           })
 

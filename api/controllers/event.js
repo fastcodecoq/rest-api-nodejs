@@ -1,6 +1,6 @@
 module.exports = exports = function(server){
   
-    var Event = require('../models/_event');
+    var Event = require('../models/event');
     var mongoose = require('mongoose');
     var Usuario = require('../models/usuario');
     var Empresa = require('../models/empresa');
@@ -17,7 +17,7 @@ module.exports = exports = function(server){
     var REQ = req.params;    
 
     console.log(REQ, 'req')
-    
+
 
     !REQ._usuario  || (_event._usuario = mongoose.Types.ObjectId(REQ._usuario));
     !REQ.orden_servicio  || (_event._orden_servicio = mongoose.Types.ObjectId(REQ.orden_servicio));

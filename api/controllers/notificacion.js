@@ -10,7 +10,7 @@ var notifi3r = function (server){
        	// code
             var REQ = req.params;
 
-            if(!REQ.to || !REQ.text)
+            if(!REQ.to || !REQ.message)
             {
                res.send(500,'invalid params');
                return;

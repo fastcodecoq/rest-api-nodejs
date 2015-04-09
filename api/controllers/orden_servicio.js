@@ -120,7 +120,7 @@ var ctrlOrden_servicio = function (server) {
         
           Usuario
           .populate(rs,
-               {path:' _solicitud_servicio._candidato _solicitud_servicio._contacto._usuario _solicitud_servicio._responsable._usuario _solicitud_servicio._responsable_factura._usuario', model:Usuario},
+               {path:' _consultora _solicitud_servicio._candidato _solicitud_servicio._contacto._usuario _solicitud_servicio._responsable._usuario _solicitud_servicio._responsable_factura._usuario', model:Usuario},
                function(err, rs){
                              if(orden_servicios.length === 0)
                   {

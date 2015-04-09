@@ -14,6 +14,7 @@ var user = require('./plugins/user');
 var empresa = require('./plugins/empresa');
 var fullname = require('./plugins/fullname');
 var metadata = require('./plugins/metadata');
+var orden_servicio = require('./plugins/orden_servicio');
 
 
 var nameSchema = new Schema({
@@ -22,6 +23,7 @@ var nameSchema = new Schema({
 	  entity: {Schema.Types.ObjectId},
 	  entity_name: { type : String, trim : true},
 	  link : { type : String, trim : true}
+
 });
 
 
@@ -38,7 +40,8 @@ nameSchema.pre('save', function (next) {
 
 nameSchema.plugin(user);
 nameSchema.plugin(timestamps);
-OrdenServicioSchema.plugin(metadata);
+nameSchema.plugin(metadata);
+nameSchema.plugin(orden_servicio);
 
 
 module.exports = mongoose.model('Event', nameSchema); 

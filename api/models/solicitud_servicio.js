@@ -26,7 +26,7 @@ var SolicitudServicioSchema = new mongoose.Schema({
   vigency : Number,
   tipo_evaluacion : String,
   _orden_servicio : [{type: Schema.Types.ObjectId, ref:'OrdenServicio'}],
-  _candidato : [{type: Schema.Types.ObjectId, ref:'Candidato'}]
+  _candidato : {type: Schema.Types.ObjectId, ref:'Candidato'}
 });
 
 SolicitudServicioSchema.pre('save', function (next) {

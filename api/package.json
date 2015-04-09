@@ -20,7 +20,8 @@
 	   "crypto" : "latest",
 	   "rand-token" : "latest",
 	   "mongoose-auto-increment" : "latest",
-	   "password-hash" : "latest"
+	   "password-hash" : "latest",
+	   "nodemailer" : "latest"
 	},
 	"scripts" : {
 	"start" : "forever start main.js",

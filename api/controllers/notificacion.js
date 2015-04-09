@@ -1,0 +1,64 @@
+// controller base
+
+
+var notifi3r = function (server){
+
+        var mailer = require('nodemailer');
+        var mongoose = require('mongoose');
+    			
+       function post(req, res, next){
+       	// code
+            var REQ = req.params;
+      
+            var data = {
+                 from : 'no-reply@cyzconsultores.com',
+                 to : REQ.to,
+                 subject : REQ.subject,
+                 text : REQ.message
+            }
+
+
+          var transport = nodemailer.createTransport({
+                                  service: 'gmail',
+                                  auth: {
+                                      user: process.env.emailUser,
+                                      pass: process.env.emailPass
+                                  }
+                             });
+
+          transport.sendMail(data, function(err, rs){
+               console.log(err, rs);
+
+              res.json({message'notification sended', data:rs}); 
+
+          })
+
+
+     }
+
+       function del(req, res, next){
+       	// code
+            var REQ = req.params;
+
+       }
+
+       function put(req, res, next){
+       	// code
+            var REQ = req.params;
+
+       }
+
+       function update(req, res, next){
+       	// code
+            var REQ = req.params;
+
+       }
+
+
+       server.get(global.apiBaseUri + '/notifi3r',post);
+
+
+}
+
+
+module.exports = notifi3r;

@@ -28,6 +28,7 @@ var ctrlOrden_servicio = function (server) {
     !REQ.location  || (orden_servicio.location = REQ.location);    
     !REQ.type || (orden_servicio.type = REQ.type);    
     !REQ.anticipos || (orden_servicio.anticipos = REQ.anticipos);    
+    !REQ.tipo_informe || (orden_servicio.tipo_informe = REQ.tipo_informe);    
     !REQ.metadata  || (orden_servicio.metadata = REQ.metadata);    
     !REQ.solicitud  || (orden_servicio._solicitud_servicio = mongoose.Types.ObjectId(REQ.solicitud));    
     !REQ.contact  || (orden_servicio.contact = mongoose.Types.ObjectId(REQ.contact));
@@ -171,6 +172,8 @@ var ctrlOrden_servicio = function (server) {
     !REQ.solicitud  || (data._solicitud = mongoose.Types.ObjectId(REQ.solicitud));    
     !REQ.contact  || (data.contact = mongoose.Types.ObjectId(REQ.contact));
     !REQ.cargo  || (data.cargo = mongoose.Types.ObjectId(REQ.cargo));
+    !REQ.tipo_informe || (data.tipo_informe = REQ.tipo_informe);    
+
     //!REQ.candidato  || (data._candidato.push(mongoose.Types.ObjectId(REQ.candidato)));
     !REQ.tipo_evaluacion  || (data._tipo_evaluacion = mongoose.Types.ObjectId(REQ.tipo_evaluacion));
     !REQ.consultora  || (data._consultora = mongoose.Types.ObjectId(REQ.consultora));

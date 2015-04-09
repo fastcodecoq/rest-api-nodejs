@@ -44,7 +44,8 @@ var OrdenServicioSchema = new mongoose.Schema({
   _consultora_externa : {type: Schema.Types.ObjectId, ref: 'Usuario'},
   _coordinadora: {type: Schema.Types.ObjectId, ref: 'Usuario'},
   _modelo_compentencia : {type: Schema.Types.ObjectId, ref: 'ModeloCompetencia'},
-  _orden_servicio : [{type: Schema.Types.ObjectId, ref: 'OrdenServicio'}]
+  _orden_servicio : [{type: Schema.Types.ObjectId, ref: 'OrdenServicio'}],
+  tipo_servicio : String
 });
 
 

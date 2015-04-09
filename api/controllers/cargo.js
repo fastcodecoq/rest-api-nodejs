@@ -18,7 +18,7 @@ module.exports = exports = function(server){
 
     console.log(REQ, 'req')
 
-    !REQ.empresa  || (cargo._empresa = mongoose.Types.ObjectId(REQ.sempresa));
+    !REQ.empresa  || (cargo._empresa = mongoose.Types.ObjectId(REQ.empresa));
     !REQ.active || (cargo.active = REQ.active);
     !REQ.perfil || (cargo.perfil = REQ.perfil);
     !REQ.name || (cargo.name = REQ.name);
@@ -110,7 +110,7 @@ module.exports = exports = function(server){
 
         
          Cargo.find(query)
-        .populate({path : '_empresa', model : Empresa})
+        .populate('_empresa')
         .exec(function(err, rs){
 
 

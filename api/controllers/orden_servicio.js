@@ -57,6 +57,9 @@ var ctrlOrden_servicio = function (server) {
         return;
       }
 
+             res.json({message: 'Orden_servicio added', data: orden_servicio});
+
+/*
 
     Solicitud.find({_id : orden_servicio._solicitud_servicio} , function(err, solicitud){
 
@@ -71,9 +74,12 @@ var ctrlOrden_servicio = function (server) {
 
       });
 
+    */
+
 
       
     });
+    
   }
 
 

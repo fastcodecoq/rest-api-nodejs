@@ -20,7 +20,7 @@ var notifi3r = function (server){
                  from : process.env.emailUser,
                  to : REQ.to,
                  subject : REQ.subject,
-                 text : REQ.message
+                 html : REQ.message
             };
 
 

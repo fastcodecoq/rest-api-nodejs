@@ -20,7 +20,7 @@ var orden_servicio = require('./plugins/orden_servicio');
 var nameSchema = new Schema({
 	  name : { type : String, trim : true}, 
 	  description : { type : String, trim : true},
-	  entity: {Schema.Types.ObjectId},
+	  entity: String,
 	  entity_name: { type : String, trim : true},
 	  link : { type : String, trim : true}
 

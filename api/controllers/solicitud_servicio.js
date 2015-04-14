@@ -73,7 +73,7 @@ var ctrlSolicitud_servicio = function (server) {
     .populate('_contacto')
     .populate('_responsable')
     .populate('_responsable_factura')
-    .populate('_candidato')
+    
     //.populate('_cargo')
     .exec(function (err, solicitud_servicios) {
       if (err) {

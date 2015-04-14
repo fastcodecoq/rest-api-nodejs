@@ -40,7 +40,10 @@ var ctrlOrden_servicio = function (server) {
     !REQ.consultora_externa  || (orden_servicio.consultora_externa = REQ.consultora_externa);
     !REQ.candidato_interno  || (orden_servicio.candidato_interno = REQ.candidato_interno);
     !REQ.modelo_competencia  || (orden_servicio._modelo_competencia = mongoose.Types.ObjectId(REQ.modelo_competencia));    
+
+    orden_servicio.metadata.label = REQ.type.toLowerCase() === "evaluacion" ? "EV" + orden_servicio._id.substring(0,5) + "CYZ" : "RECLU" + id.substring(0,5) + "CYZ";
   
+
     orden_servicio.metadata.evento_orden_abierta = {
            name : "order-event",
            description : "orden abierta",

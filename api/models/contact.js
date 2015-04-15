@@ -31,7 +31,6 @@ contactSchema.plugin(empresa);
 contactSchema.plugin(timestamps);
 contactSchema.plugin(meta);
 contactSchema.plugin(active);
-contactSchema.plugin(documento);
 
 
 module.exports = mongoose.model('Contact', contactSchema); 

@@ -81,7 +81,7 @@ var ctrlUsuario = function (server) {
 // Use the Usuario model to find all usuario
     Usuario
       .find(query)
-      .limit(50)
+      .limit(100)
       .exec(function (err, usuario) {
       if (err) {
         res.send(err);

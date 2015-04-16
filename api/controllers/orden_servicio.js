@@ -41,7 +41,7 @@ var ctrlOrden_servicio = function (server) {
     !REQ.candidato_interno  || (orden_servicio.candidato_interno = REQ.candidato_interno);
     !REQ.modelo_competencia  || (orden_servicio._modelo_competencia = mongoose.Types.ObjectId(REQ.modelo_competencia));    
 
-    orden_servicio.metadata.label = REQ.type.toLowerCase() === "evaluacion" ? "EV" + (new Date().getTime()+'').substring(0,5) + "CYZ" : "RECLU" + id.substring(0,5) + "CYZ";
+    orden_servicio.metadata.label = REQ.type.toLowerCase() === "evaluacion" ? "EV" + (new Date().getTime()+'').substring(0,5) + "CYZ" : "RECLU" + (new Date().getTime()+'').substring(0,5) + "CYZ";
   
 
     orden_servicio.metadata.evento_orden_abierta = {

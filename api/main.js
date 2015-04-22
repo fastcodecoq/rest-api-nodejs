@@ -1,44 +1,58 @@
 var restify = require('restify');
 var mongoose = require('mongoose');
 var awsConf = undefined;
+var config = require('./config.json')
 
 
 var server = restify.createServer({  
   name: 'Login',
 });
 
+var io = require('socket.io').listen(server);
+
+server.pre(function(req, res, next) {
+
+     console.log(req.url, req.params);
+     require('./utils/cross.domain')(req, res, next);     
+     var Log = require('./models/log');
+     var log = new Log;
 
 
-server.use(restify.urlEncodedBodyParser({
-  mapParams: true
-}));
+     if(!req.headers.authorization && !(req.url.match('login')))       
+       {
+          res.send(401,{message: 'Unauthorized'});
+          return;
+       }
+        
+        if(req.headers.authorization != 'Bearer ' + config[config.env].token && !(req.url.match('login')))
+        {
+          res.send(401,{message: 'Unauthorized'});
+          return;
+        }
 
 
-server.use(restify.queryParser());
+     next();
+
+});
+
+
+
+server.use(restify.bodyParser());
 server.use(restify.gzipResponse());
-
-  
+server.use(restify.authorizationParser()); 
+server.use(restify.CORS());
 //soporte de crossdomain
-server.pre(require('./utils/cross.domain'));
+//server.pre(require('./utils/cross.domain'));
 
 mongoose.connection.on('open', function(ref){
    
         console.log('Conectado a Mongo');
-
-        awsModel.findOne(function(err,awsConf){
+        global.apiBaseUri = config[config.env].apiBaseUri;
         
-        if(err)
-        {
-        console.log(err)
-        return;
-        }
-            
-
-        
-        });
-        
+        //init all controllers
+        require('./controllers/all')(server);
      
-
+        server.listen(8080);
 });
 
 mongoose.connection.on('error', function(err){
@@ -63,10 +77,6 @@ try {
 
 }
 
-
-
-// usamos todos los cores disponibles en la máquina
-// para un mejor rendimiento del app
 
 
 

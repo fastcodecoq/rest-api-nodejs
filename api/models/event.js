@@ -14,10 +14,16 @@ var user = require('./plugins/user');
 var empresa = require('./plugins/empresa');
 var fullname = require('./plugins/fullname');
 var metadata = require('./plugins/metadata');
+var orden_servicio = require('./plugins/orden_servicio');
 
 
 var nameSchema = new Schema({
-	  name : { type : String, trim : true}
+	  name : { type : String, trim : true}, 
+	  description : { type : String, trim : true},
+	  entity: String,
+	  entity_name: { type : String, trim : true},
+	  link : { type : String, trim : true}
+
 });
 
 
@@ -31,15 +37,11 @@ nameSchema.pre('save', function (next) {
 
 
 //add plugins
-nameSchema.plugin(fullname);
-nameSchema.plugin(location);
-nameSchema.plugin(candidate_data);
-nameSchema.plugin(email);
-nameSchema.plugin(privilege);
+
 nameSchema.plugin(user);
-nameSchema.plugin(empresa);
 nameSchema.plugin(timestamps);
-OrdenServicioSchema.plugin(metadata);
+nameSchema.plugin(metadata);
+nameSchema.plugin(orden_servicio);
 
 
-module.exports = mongoose.model('Model', nameSchema); 
+module.exports = mongoose.model('Event', nameSchema); 

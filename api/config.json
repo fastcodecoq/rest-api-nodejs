@@ -2,17 +2,17 @@
 	"env" : "dev",
 	"dev" : {
 	    "apiUrlBase" : "api.xxxxx.xxx",
-	    "tokenUri" : "/getToken",
-	    "loginUri" : "/login"
+	    "apiBaseUri" : "/api",
+	    "token" : "bad18eba1ff45jk7858b8ae88a77fa30"
 	},
 	"qa" : {
 	    "apiUrlBase" : "api.xxxxx.xxx",
-	    "tokenUri" : "/getToken",
-	    "loginUri" : "/login"
+	    "apiBaseUri" : "",
+	    "token" : "bad18eba1ff45jk7858b8ae88a77fa30"	    
 	},
 	"prod" : {
 	    "apiUrlBase" : "api.xxxxx.xxx",
-	    "tokenUri" : "/getToken",
-	    "loginUri" : "/login"
+	    "apiBaseUri" : "",
+	    "token" : "bad18eba1ff45jk7858b8ae88a77fa30"	    	    
 	}
 }

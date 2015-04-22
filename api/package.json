@@ -14,7 +14,14 @@
 	   "should" : "latest",	   	   
 	   "body-parser" : "latest",
 	   "bcrypt-nodejs" : "latest",
-	   "s3" : "latest"
+	   "s3" : "latest",
+	   "socket.io" : "latest",
+	   "mongoose-timestamp" : "latest",
+	   "crypto" : "latest",
+	   "rand-token" : "latest",
+	   "mongoose-auto-increment" : "latest",
+	   "password-hash" : "latest",
+	   "nodemailer" : "latest"
 	},
 	"scripts" : {
 	"start" : "forever start main.js",

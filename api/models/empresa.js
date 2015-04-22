@@ -2,9 +2,15 @@
 var mongoose = require('mongoose');
 var timestamps = require('mongoose-timestamp');
 var location = require('./plugins/location');
+var email = require('./plugins/email');
+var privilege = require('./plugins/privileges');
+var user = require('./plugins/user');
+var active = require('./plugins/active');
+var avatar = require('./plugins/avatar');
+var contacto = require('./plugins/contacto');
 var Schema = mongoose.Schema;
 
-// Define our beer schema
+// Define our Empresa schema
 var EmpresaSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -13,34 +19,30 @@ var EmpresaSchema = new mongoose.Schema({
   },
   nit: {
     type: Number,
-    required: true
+    required: true,
+    index: { unique: true }
   },
   tel: {
-    type: Number,
-    required: true
+    type: Number    
   },
-  owner: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  _user_id: {
-    type: Schema.Types.ObjectId,
-    required: true,
-    ref: 'Users'
-  },
-  email: {
-    type: String,
-    required: true,
-    trim: true,
-    match: [/^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.\w{2,3})+$/,
-      'Please fill a valid email address']
-  }
+  competences :[Object],
+  esCliente : Boolean
 });
 
-//add createdAt, updatedAt fields
-EmpresaSchema.plugin(timestamps);
+
 //add location field
 EmpresaSchema.plugin(location);
+//add email field
+EmpresaSchema.plugin(email);
+//add userid
+EmpresaSchema.plugin(user);
+//add createdAt, updatedAt fields
+EmpresaSchema.plugin(timestamps);
+//add active
+EmpresaSchema.plugin(active);
+EmpresaSchema.plugin(avatar);
+EmpresaSchema.plugin(contacto);
+var metadata = require('./plugins/metadata');
+EmpresaSchema.plugin(metadata);
 // Export the Mongoose model
-module.exports = mongoose.model('Empresas', EmpresaSchema);
+module.exports = mongoose.model('Empresa', EmpresaSchema);

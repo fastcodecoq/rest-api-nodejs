@@ -17,7 +17,9 @@ var metadata = require('./plugins/metadata');
 
 
 var nameSchema = new Schema({
-	  name : { type : String, trim : true}
+	  name : { type : String, trim : true},
+	  tipo : { type : String, trim : true},
+	  tarifa : { type : Number, trim : true}	  
 });
 
 
@@ -31,15 +33,8 @@ nameSchema.pre('save', function (next) {
 
 
 //add plugins
-nameSchema.plugin(fullname);
-nameSchema.plugin(location);
-nameSchema.plugin(candidate_data);
-nameSchema.plugin(email);
-nameSchema.plugin(privilege);
-nameSchema.plugin(user);
-nameSchema.plugin(empresa);
 nameSchema.plugin(timestamps);
 OrdenServicioSchema.plugin(metadata);
 
 
-module.exports = mongoose.model('Model', nameSchema); 
+module.exports = mongoose.model('TipoEvaluacion', nameSchema); 

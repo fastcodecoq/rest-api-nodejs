@@ -1,3 +1,5 @@
 *.zip
 node-modules/
 sftp-config.json 
+start.sh
+start
